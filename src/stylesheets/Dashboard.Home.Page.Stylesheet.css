@@ -1,0 +1,150 @@
+section[class="dashboard-page-elements-component"] {
+    min-height: 100vh;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] {
+    min-height: 87vh;
+    width: min(100%, 100%) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    /* background-color: hsl(0, 0%, 98%); */
+    /* border: 1px solid red; */
+    gap: 2em;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) {
+    height: 87vh;
+    width: min(100%, 50em) !important;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    flex-grow: 1;
+    position: relative;
+    gap: .5em;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] {
+    height: 10em;
+    width: min(98%, 98%);
+    /* border: 1px solid red; */
+    border-radius: .5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-color: hsl(0, 0%, 15%);
+    -moz-box-shadow: 1px 1px 5px -1px #dddddd;
+    -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
+    box-shadow: 1px 1px 5px -1px #dddddd;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] img {
+    height: 7em;
+    width: 7em;
+    border-radius: 100%;
+    position: absolute;
+    bottom: -3em;
+    left: 2em;
+    border: 3px solid hsl(0, 0%, 15%);
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > h1[class="current-admin-message"] {
+    font-size: 2em;
+    font-weight: bold;
+    color: #000;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > p[class="welcome-p-tag"] {
+    font-size: .9em;
+    font-weight: normal;
+    color: #000;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside {
+    height: 22.5em;
+    width: min(98%, 98%);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) {
+    height: 19em;
+    width: min(100%, 100%);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-flow: row wrap;
+    gap: 1em;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) > div {
+    height: 18em;
+    width: min(100%, 20em);
+    aspect-ratio: 16/9;
+    border-radius: .5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    border: 1px solid hsl(0, 0%, 90%);
+    background-color: #fff;
+    -moz-box-shadow: 1px 1px 2px -1px #dddddd;
+    -webkit-box-shadow: 1px 1px 2px -1px #dddddd;
+    box-shadow: 1px 1px 2px -1px #dddddd;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) > div :is(article) {
+    height: 17em;
+    width: min(93%, 93%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) > div :is(article) > h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) > div :is(article) > p {
+    font-size: .9em;
+    font-weight: normal;
+    color: hsl(0, 0%, 10%);
+    line-height: 1.5em;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) > div :is(article) > a {
+    height: 3em;
+    width: min(100%, 15em);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) > div :is(article) > a > button {
+    height: 3em;
+    width: min(100%, 15em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--primary-theme-color);
+    border-radius: .3em;
+    border: none;
+    cursor: pointer;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > aside :where(div) > div :is(article) > a > button:is(:hover, :focus) {
+    background-color: #000;
+}
+

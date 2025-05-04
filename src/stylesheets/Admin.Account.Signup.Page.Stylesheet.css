@@ -1,0 +1,92 @@
+section[class="account-signup-page-elements-component"] {
+    min-height: 90vh;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+section[class="account-signup-page-elements-component"] > h1 {
+    font-size: 2em;
+    font-weight: calc(290 + 250); 
+    color: hsl(0, 0%, 20%);
+    text-align: center;
+}
+section[class="account-signup-page-elements-component"] > p {
+    font-size: .7em;
+    font-weight: normal;
+    color: hsl(0, 0%, 30%);
+    max-width: 55em;
+    text-align: center;
+}
+section[class="account-signup-page-elements-component"] > p :where(a) {
+    color: hsl(0, 0%, 0%);
+}
+section[class="account-signup-page-elements-component"] > p :where(a):is(:hover, :focus) {
+    color: var(--primary-theme-color);
+}
+section[class="account-signup-page-elements-component"] > form {
+    min-height: 25em;
+    width: min(90%, 50em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    gap: 1em;
+    border-radius: .5em;
+    background-color: #fff;
+    -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
+    -moz-box-shadow: 1px  1px 5px -1px #dddddd;
+    box-shadow: 1px  1px 5px -1px #dddddd;
+}
+section[class="account-signup-page-elements-component"] > form :is(h1) {
+    font-size: 1.6em;
+    font-weight: calc(260 + 240);
+    color: hsl(0, 0%, 20%);
+    text-align: center;
+}
+section[class="account-signup-page-elements-component"] > form :is(span) {
+    font-size: .8em;
+    font-weight: calc(260 + 240);
+    color: hsl(0, 0%, 20%);
+    text-align: center;
+}
+section[class="account-signup-page-elements-component"] > form :where(article) {
+    min-height: 3em;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-flow: row wrap;
+    /* border: 1px solid red; */
+    gap: 1em;
+}
+section[class="account-signup-page-elements-component"] > form :where(article) > input {
+    height: 3em;
+    width: min(100%, 25em);
+    border: 1px solid hsl(0, 0%, 50%);
+    outline-style: none;
+    flex-grow: 1;
+    border-radius: .3em;
+}
+section[class="account-signup-page-elements-component"] > form :where(input) {
+    height: 3em;
+    width: min(90%, 90%);
+    border: 1px solid hsl(0, 0%, 50%);
+    outline-style: none;
+    border-radius: .3em;
+}
+section[class="account-signup-page-elements-component"] > form :is(button[type="button"]) {
+    height: 3em;
+    width: min(90%, 20em);
+    cursor: pointer;
+    border: none;
+    border-radius: .2em;
+    outline-style: none;
+    color: #fff;
+    font-weight: calc(290 + 250);
+    background-color: var(--primary-theme-color);
+}

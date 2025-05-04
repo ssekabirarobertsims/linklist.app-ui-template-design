@@ -1,0 +1,899 @@
+/*  */
+nav[class="dashboard-page-navigation-bar-component"] {
+    height: 12vh;
+    -webkit-box-shadow: 3px  1px 7px -1px #dddddd;
+    -moz-box-shadow: 3px  1px 7px -1px #dddddd;
+    box-shadow: 3px  1px 7px -1px #dddddd;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    border-bottom: 1px solid hsl(0, 0%, 90%);
+    background-color: #fff;
+    /* border: 1px solid red; */
+}
+nav[class="dashboard-page-navigation-bar-component"] > article {
+    height: 12vh;
+    width: min(98%, 98%) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    /* border: 1px solid red; */
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) {
+    height: 12vh;
+    width: 40em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    /* border: 1px solid red; */
+    flex-grow: 1;
+    gap: .6em;
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) > button {
+    height: 7vh;
+    width: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    color: #000;
+    font-weight: bolder;
+    font-size: 1.3em;
+    cursor: pointer;
+    position: relative;
+    /* border: 1px solid red !important; */
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) > button[class="dashboard-page-navigation-bar-add-link-button"] {
+    height: 2.5em;
+    width: 9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4em;
+    border: 1px solid hsl(0, 0%, 90%);
+    background-color: transparent;
+    color: #000;
+    font-weight: calc(290 + 250);
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 10em;
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) > button[class="dashboard-page-navigation-bar-add-link-button"]:is(:hover, :focus) {
+    background-color: hsl(0, 0%, 95%);
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) > button[class="dashboard-page-navigation-bar-notification-button"]::before {
+    content: "";
+    height: .4em;
+    width: .4em;
+    color: red;
+    background-color: red;
+    position: absolute;
+    top: .5em;
+    right: .9em;
+    border-radius: 100%;
+    border: 1px solid #eee;
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) > img {
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 100%;
+    cursor: pointer;
+    border: 1px solid #eee;
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) > img:is(:hover, :focus) {
+   display: flex;
+   border: 1px solid var(--primary-theme-color);
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div) > span > a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5em;
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div[class="dashboard-page-navigation-bar-component-left-content-wrapper"]) {
+    justify-content: flex-start;
+}
+nav[class="dashboard-page-navigation-bar-component"] > article :where(div[class="dashboard-page-navigation-bar-component-right-content-wrapper"]) {
+    justify-content: flex-end;
+}
+
+/*  */
+article[class="admin-account-profile-review-side-bar"] {
+    min-height: 7em;
+    width: min(95%, 25em);
+    border: 1px solid #eee;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    position: absolute;
+    top: 5em;
+    right: .5em;
+    z-index: 2;
+    background-color: #fff;
+    -moz-box-shadow: 2px 2px 10px -1px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 2px 2px 10px -1px rgba(0, 0, 0, .1);
+    box-shadow: 2px 2px 10px -1px rgba(0, 0, 0, .1);
+    border-radius: .5em;
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] {
+    min-height: 6em;
+    width: min(95%, 95%);
+    /* border: 1px solid #f30101; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > button {
+    min-height: 3em;
+    width: min(95%, 15em);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-flow: row nowrap;
+    gap: .5em;
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > aside {
+    min-height: 6em;
+    width: min(100%, 100%);
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-flow: row nowrap;
+    gap: 1em;
+    position: relative;
+    border-radius: .3em;
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > aside :is(a) {
+    border-radius: 100%;
+    position: absolute;
+    top: .4em;
+    right: .4em;
+    font-size: 1.5em;
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > aside :is(img) {
+    height: 3em;
+    width: 3em;
+    border-radius: 100%;
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > aside :is(div) {
+    min-height: 5em;
+    width: min(80%, 80%);
+    /* border: 1px solid #f30101; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: .0em;
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > aside :is(div) > p {
+    font-weight: calc(290 + 280);
+    font-size: 1.1em;
+    color: hsl(0, 0%, 5%);
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > aside :is(div) > span {
+    font-weight: calc(250 + 200);
+    font-size: .9em;
+    color: hsl(0, 0%, 10%);
+}
+article[class="admin-account-profile-review-side-bar"] > div[id="_wrapper"] > aside :is(div) > strong {
+    font-weight: calc(250 + 200);
+    font-size: .8em;
+    color: var(--primary-theme-color);
+}
+
+/*  */
+div[id="notification-hamburg-component"] {
+    height: 5em;
+    width: min(90%, 30em);
+    background-color: #fff;
+    -moz-box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .1);
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .1);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: .3em;
+    border: 1px solid #eee;
+    border-bottom: 4px solid var(--primary-theme-color);
+    position: fixed;
+    bottom: 1em;
+    right: 25em;
+    z-index: 2;
+}
+div[id="notification-hamburg-component"] > article {
+    height: 3.5em;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-flow: row nowrap;
+    gap: 5em;
+    position: relative;
+}
+div[id="notification-hamburg-component"] > article span {
+    position: absolute;
+    top: 1.3em;
+    right: 0em;
+    cursor: pointer;
+}
+
+/*  */
+aside[class="dashboard-page-side-bar-component"] {
+    height: 87vh;
+    width: min(100%, 20em) !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    border-right: 1px solid hsl(0, 0%, 90%);
+    background-color: #fff;
+    /* box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, .2); */
+}
+aside[class="dashboard-page-side-bar-component"] > div {
+    height: 82vh;
+    width: min(95%, 95%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    gap: 0em;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul {
+    height: 65vh;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    gap: 1em;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) {
+    height: 3.5em;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: 1px solid #eee;
+    gap: 1em;
+    list-style-type: none;
+    border-radius: .2em;
+    -moz-box-shadow: 1px 1px 0px -1px #dddddd;
+    -webkit-box-shadow: 1px 1px 0px -1px #dddddd;
+    box-shadow: 1px 1px 0px -1px #dddddd;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul :where(li):is(:hover, :focus) {
+    background-color: var(--primary-theme-color);
+    color: #fff !important;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul :where(li):is(:hover, :focus) > a :is(span) {
+    color: hsl(0, 0%, 90%) !important;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul :where(li):is(:hover, :focus) > a :is(p) {
+    color: hsl(0, 0%, 90%) !important;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) > a {
+    height: 3.5em;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    /* border: 1px solid red; */
+    gap: .7em;
+    text-decoration: none;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) > a :is(span) {
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #000;
+}
+aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) > a :is(p) {
+    font-weight: normal;
+    font-size: .9em;
+    color: #000;
+}
+aside[class="dashboard-page-side-bar-component"] > div > span {
+    height: 3em;
+    width: min(95%, 95%);
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: .5em;
+    border-top-right-radius: 20em;
+    border-bottom-right-radius: 20em;
+    background-color: hsl(0, 0%, 90%);
+}
+aside[class="dashboard-page-side-bar-component"] > div > span p {
+    height: 3em;
+    width: min(86%, 86%);
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: .5em;
+}
+aside[class="dashboard-page-side-bar-component"] > div > span:is(:hover, :focus) p {
+   transform: translate(20px);
+}
+aside[class="dashboard-page-side-bar-component"] > div > button {
+    height: 3em;
+    width: min(100%, 100%);
+    border-radius: .2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+/*  */
+aside[class="notifications-side-bar-component"] {
+    height: 85vh;
+    width: min(90%, 20em);
+    /* border: 1px solid red; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5em;
+    right: .5em;
+    background-color: #fff;
+    -webkit-box-shadow: -9px 7px 10.5px -3px rgba(0, 0, 0, .1);
+-moz-box-shadow: -9px 7px 10.5px -3px rgba(0, 0, 0, .1);
+box-shadow: -9px 7px 10.5px -3px rgba(0, 0, 0, .1);
+    z-index: 1;
+    border-radius: .3em;
+}
+aside[class="notifications-side-bar-component"] > div {
+    height: 90%;
+    width: min(100%, 100%);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+}
+aside[class="notifications-side-bar-component"] > div :where(h1) {
+    font-weight: calc(250 + 250);
+    font-size: 1.1em;
+    color: hsl(0, 0%, 15%);
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) {
+    height: 90%;
+    width: min(100%, 100%);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1em;
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) > li {
+    height: 7em;
+    width: min(96%, 96%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: .4em;
+    cursor: pointer;
+    border: 1px solid #eee;
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) > li:is(:hover, :focus) {
+    background-color: hsl(0, 0%, 99%);
+    border: 1px solid var(--primary-theme-color);
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) > li :is(div) {
+    min-height: 5em;
+    width: min(93%, 93%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: .4em;
+    position: relative;
+    /* border: 1px solid red; */
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) > li :is(div) > h3 {
+    font-weight: calc(230 + 230);
+    color: hsl(0, 0%, 15%);
+    font-size: 1em;
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) > li :is(div) > p {
+    font-weight: normal;
+    color: hsl(0, 0%, 25%);
+    font-size: .8em;
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) > li :is(div) > span {
+    font-weight: calc(230 + 230);
+    color: hsl(0, 0%, 15%);
+    font-size: .7em;
+}
+aside[class="notifications-side-bar-component"] > div :where(ul) > li :is(div) > span[class="dot"] {
+    height: .5em;
+    width: .5em;
+    border-radius: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-weight: bolder;
+    color: hsl(0, 0%, 0%);
+    font-size: 1em;
+    background-color: rgb(0, 0, 0);
+}
+
+/*  */
+aside[class="admin-profile-deletion-warning-component"] {
+    height: 100%;
+    width: min(100%, 100%);
+    /* border: 1px solid red; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, .3);
+}
+aside[class="admin-profile-deletion-warning-component"] > div {
+    height: 15em;
+    width: min(100%, 40em);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: .4em;
+    gap: 1em;
+    text-align: center;
+}
+aside[class="admin-profile-deletion-warning-component"] > div :where(h2) {
+    font-size: 1.2em;
+    font-weight: calc(290 + 290);
+    color: hsl(0, 0%, 10%);
+}
+aside[class="admin-profile-deletion-warning-component"] > div :where(p) {
+    font-size: .9em;
+    font-weight: normal;
+    color: hsl(0, 0%, 10%);
+    max-width: 40em;
+}
+aside[class="admin-profile-deletion-warning-component"] > div :where(article) {
+    min-height: 3em;
+    width: min(95%, 95%);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+aside[class="admin-profile-deletion-warning-component"] > div :where(article) > button {
+    height: 3em;
+    width: min(95%, 12em);
+    cursor: pointer;
+    border: none;
+    border-radius: .3em;
+    color: #fff;
+}
+aside[class="admin-profile-deletion-warning-component"] > div :where(article) :first-child {
+   background-color: var(--primary-theme-color);
+}
+aside[class="admin-profile-deletion-warning-component"] > div :where(article) :last-child {
+   background-color: #000;
+}
+
+/*  */
+aside[class="cookies-site-message-component"] {
+    height: 12em;
+    width: min(100%, 30em);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: .5em;
+    -mox-box-shadow: 3px 3px 8px -1px rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 3px 3px 8px -1px rgba(0, 0, 0, .2);
+    box-shadow: 3px 3px 8px -1px rgba(0, 0, 0, .2);
+    position: fixed;
+    left: 1em;
+    bottom: 1em;
+    z-index: 2;
+}
+aside[class="cookies-site-message-component"] > div {
+    height: 9em;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    background-color: #fff;
+}
+aside[class="cookies-site-message-component"] > div :is(span) {
+    font-weight: normal;
+    color: hsl(0, 0%, 10%);
+    font-size: 2em;
+    line-height: .1em;
+}
+aside[class="cookies-site-message-component"] > div :is(p) {
+    font-weight: normal;
+    color: hsl(0, 0%, 10%);
+    font-size: .9em;
+}
+aside[class="cookies-site-message-component"] > div :is(button) {
+    height: 3em;
+    width: min(100%, 10em);
+    border: none;
+    border-radius: .5em;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+}
+aside[class="cookies-site-message-component"] > div :is(button):is(:hover, :focus) {
+    background-color: var(--primary-theme-color);
+    color: #fff;
+}
+/*  */
+span[class="link_no"] {
+    font-weight: calc(250 + 250);
+    font-size: 1em;
+    color: hsl(0, 0%, 10%);
+    line-height: 2em;
+}
+
+/*  */
+form[class="create-link-form-component"] {
+    height: 100%;
+    width: min(100%, 100%);
+    /* border: 1px solid red; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, .3);
+}
+form[class="create-link-form-component"] > div {
+    height: 19em;
+    width: min(100%, 30em);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: .4em;
+    gap: 1em;
+    text-align: center;
+}
+form[class="create-link-form-component"] > div :where(article) {
+    height: 17em;
+    width: min(95%, 95%);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    gap: .8em;
+    text-align: center;
+    position: relative;
+}
+form[class="create-link-form-component"] > div :where(article) > h1 {
+    font-weight: calc(290 + 290);
+    color: hsl(0, 0%, 10%);
+    font-size: 1.2em;
+}
+form[class="create-link-form-component"] > div :where(article) > input {
+    height: 3em;
+    width: min(95%, 95%);
+    border: 1px solid hsl(0, 0%, 50%);
+    outline-style: none;
+    border-radius: .3em;
+}
+form[class="create-link-form-component"] > div :where(article) > button[class="close"] {
+    height: 0;
+    width: 2em;
+    border: none;
+    outline-style: none;
+    border-radius: 10em;
+    color: hsl(0, 0%, 10%);
+    background-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-weight: bolder;
+    font-size: 1.4em;
+}
+form[class="create-link-form-component"] > div :where(article) > button {
+    height: 3em;
+    width: min(95%, 15em);
+    border: none;
+    outline-style: none;
+    border-radius: .3em;
+    color: #fff;
+    background-color: var(--primary-theme-color);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*  */
+div[class="update-link-form-component"] {
+    height: 100%;
+    width: min(100%, 100%);
+    /* border: 1px solid red; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 2;
+}
+div[class="update-link-form-component"] > form {
+    height: 19em;
+    width: min(100%, 30em);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: .4em;
+    gap: 1em;
+    text-align: center;
+}
+div[class="update-link-form-component"] > form :where(article) {
+    height: 17em;
+    width: min(95%, 95%);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    gap: .8em;
+    text-align: center;
+    position: relative;
+}
+div[class="update-link-form-component"] > form :where(article) > h1 {
+    font-weight: calc(290 + 290);
+    color: hsl(0, 0%, 10%);
+    font-size: 1.2em;
+}
+div[class="update-link-form-component"] > form :where(article) > input {
+    height: 3em;
+    width: min(95%, 95%);
+    border: 1px solid hsl(0, 0%, 50%);
+    outline-style: none;
+    border-radius: .3em;
+}
+div[class="update-link-form-component"] > form :where(article) > span[class="close"] {
+    height: 0;
+    width: 2em;
+    border: none;
+    outline-style: none;
+    border-radius: 10em;
+    color: hsl(0, 0%, 10%);
+    background-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-weight: bolder;
+    font-size: 1.4em;
+}
+div[class="update-link-form-component"] > form :where(article) > button {
+    height: 3em;
+    width: min(95%, 15em);
+    border: none;
+    outline-style: none;
+    border-radius: .3em;
+    color: #fff;
+    background-color: var(--primary-theme-color);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*  */
+.site-developer-navigation-component {
+    height: 4em;
+    width: 17em;
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    z-index: 3;
+}
+
+.site-developer-navigation-component>p {
+    font-size: .9em;
+    color: #000;
+    font-weight: normal;
+}
+
+.site-developer-navigation-component>a :where(img) {
+    height: 3em;
+    width: 3em;
+    border-radius: 100%;
+}
+
+/*  */
+div[class="primary-spinner-wrapper"] {
+    height: 87vh;
+    width: min(100%, 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+}
+
+/*  */
+.spinner {
+    width: 5px;
+    height: 5px;
+    animation: spinner-xp626r 1s infinite;
+    border-radius: 50%;
+    box-shadow: 22.4px 0 0 3.5px var(--primary-theme-color), -22.4px 0 0 3.5px var(--primary-theme-color);
+    background: rgba(221,221,221,0.5);
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(221,221,221,0.25);
+ }
+ 
+ @keyframes spinner-xp626r {
+    to {
+       transform: rotate(360deg);
+    }
+ }
+
+/*  */
+footer[class="dashboard-page-footer-component"] {
+    height: 15vh;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    border-top: 1px solid hsl(0, 0%, 90%);
+    background-color: #fff;
+    /* border: 1px solid red; */
+    flex-grow: 1;
+    background-color: transparent;
+}
+footer[class="dashboard-page-footer-component"] > div {
+    height: 10vh;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    gap: 1em;
+    /* border: 1px solid red; */
+}
+footer[class="dashboard-page-footer-component"] > div :where(ul) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    gap: .8em;
+    list-style: none;
+}
+footer[class="dashboard-page-footer-component"] > div :where(ul) > li :is(a) {
+   font-size: .9em;
+   color: hsl(0, 0%, 10%);
+   font-weight: normal;
+   text-decoration: none;
+}
+footer[class="dashboard-page-footer-component"] > div :where(p) {
+   font-size: .9em;
+   color: hsl(0, 0%, 10%);
+   font-weight: normal;
+   text-decoration: none;
+}
+
+/*  */
+footer[class="landing-home-page-footer-component"] {
+    height: 10vh;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    border-top: 1px solid hsl(0, 0%, 90%);
+    /* border: 1px solid red; */
+    flex-grow: 1;
+}
+footer[class="landing-home-page-footer-component"] > div {
+    height: 8vh;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    gap: 1em;
+    /* border: 1px solid red; */
+}
+footer[class="landing-home-page-footer-component"] > div :where(ul) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    gap: .8em;
+    list-style: none;
+}
+footer[class="landing-home-page-footer-component"] > div :where(ul) > li :is(a) {
+   font-size: .9em;
+   color: hsl(0, 0%, 10%);
+   font-weight: normal;
+   text-decoration: none;
+}
+footer[class="landing-home-page-footer-component"] > div :where(p) {
+   font-size: .9em;
+   color: hsl(0, 0%, 10%);
+   font-weight: normal;
+   text-decoration: none;
+}
