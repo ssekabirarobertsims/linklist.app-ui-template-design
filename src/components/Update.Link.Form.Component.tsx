@@ -69,7 +69,7 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
                 onUpdate({ ...selectedLink, title, link });
                 const updateForm = document.querySelector(".update-link-form-component") as HTMLElement;
                 RemoveElement(updateForm);
-                const notification = document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement;
+                const notification = document.querySelector(".link-updating-notification-hamburg-component") as HTMLElement;
                 DisplayElement(notification);
                 setTimeout(() => {
                     RemoveElement(notification);

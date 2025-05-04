@@ -178,7 +178,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                 onClick={async (event): Promise<void> => {
                     event.stopPropagation();
                     (async function (): Promise<void> {
-                        const request = await axios.delete(`http://localhost:3000/trash/empty//${String(currentAdmin?.data?.id)}`, { 
+                        const request = await axios.delete(`http://localhost:3000/trash/empty/${String(currentAdmin?.data?.id)}`, { 
                             headers: {
                                 "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
                                 "Content-Type": "Application/json"

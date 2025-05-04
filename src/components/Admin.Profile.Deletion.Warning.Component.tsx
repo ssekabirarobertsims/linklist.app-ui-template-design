@@ -3,6 +3,7 @@ import RemoveElement from "../functions/Remove.Element.Function";
 
 import axios from "axios";
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
+import DisplayElement from "../functions/Display.Element.Function";
 
 interface SecondaryAuthenticationProps {
     date: string;
@@ -18,10 +19,13 @@ interface SecondaryAuthenticationProps {
     }
 }
 
+import PrimaryPageLoaderComponent from "./Primary.Page.Loader.Component";
+
 const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
      
     return <>
+    <PrimaryPageLoaderComponent />
         <aside className={String("admin-profile-deletion-warning-component").toLocaleLowerCase()}>
             <div>
                 <h2>Delete this profile?</h2>
@@ -29,20 +33,30 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
                 <article>
                     <button type="button" onClick={async (event) => {
                         event.stopPropagation();
- 
-                         try {
-                            const request = await axios.delete(`http://localhost:3000/admin/account/unlink/${String(currentAdmin?.data?.id)}`);
+                        window.setTimeout(() => DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 0 as number);
+                        
+                        try {
+                            const request = await axios.delete(`http://localhost:3000/admin/account/unlink/${String(currentAdmin?.data?.id)}`, {
+                                headers: {
+                                    "Content-Type": "Application/json",
+                                    "Authorization": String(`Bearer ${currentAdmin?.data?.token}`)
+                            }
+                        });
                             const response = await request.data;
-                    
+                            
                             if(request?.status === Number(200) as number) {
                                 console.log(response);
                                 window.localStorage.removeItem("primary_authentication");
                                 window.localStorage.removeItem("secondary_authentication");
-                                window.setTimeout(() => window.location.href = "/", 1000 as number);
+                                window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                                window.setTimeout(() => window.location.href = "/", 2100 as number);
                             } else {
                                 console.log("error");
+                                window.setTimeout(() => DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 0 as number);
+
                             }
                           } catch (error) {
+                                window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
                                console.log(error);
                           }
 

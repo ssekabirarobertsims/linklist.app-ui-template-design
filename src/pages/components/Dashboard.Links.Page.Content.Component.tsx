@@ -9,7 +9,7 @@ type ListItemProperties = {
     title: string;
     link: string;
     admin_id: string;
-}
+} 
 
 import { BiPencil, BiTrash, BiCopy } from "react-icons/bi";
 import CopySavedLink from "../../functions/Copy.Saved.Link.Function";

@@ -4,6 +4,9 @@ import LandingHomePageNavigationBarComponent from "./components/Landing.Home.Pag
 import { Link } from "react-router-dom";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import axios from "axios";
+import DisplayElement from "../functions/Display.Element.Function";
+import RemoveElement from "../functions/Remove.Element.Function";
+import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Component";
 
 const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
     const [firstName, setFirstName] = useState<string>("");
@@ -14,9 +17,11 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     const Signup = async (): Promise<void> => {
-        const placeholder = document.querySelector<HTMLSpanElement>(".signup-response-message-placeholder");
-        setAvatar("avatar-1.png");
-        
+        const placeholder: HTMLSpanElement = document.querySelector<HTMLSpanElement>(".signup-response-message-placeholder") as HTMLSpanElement;
+        setAvatar("avatar-1.png"); // by default
+        const loader: HTMLDivElement = (window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement);
+        DisplayElement(loader);
+
         try {
             const response = await axios.post("http://localhost:3000/admin/account/signup", {
                username: `${firstName} ${lastName}`,
@@ -27,11 +32,11 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
+                    "Authorization": ""
                 }
             });
 
             if (response?.data?.status_code === 201) {
-                console.log("Signup successful:", response.data);
                 if (placeholder) placeholder.textContent = response.data.message;
 
                 // Save authentication data to localStorage
@@ -45,17 +50,19 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                         })
                     )
                 );
-
+                
                 // Redirect to login page after a short delay
-                setTimeout(() => {
-                    window.location.href = "/admin/account/verification";
-                }, 1000);
+                window.setTimeout(() => RemoveElement(loader), 2500 as number);
+                setTimeout(() => window.location.href = "/admin/account/verification", 3000);
+                
             } else {
+                window.setTimeout(() => RemoveElement(loader), 2500 as number);
                 console.error("Signup failed:", response.data);
                 if (placeholder) placeholder.textContent = response.data.message;
             }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
+            window.setTimeout(() => RemoveElement(loader), 2500 as number);
             console.error("Error during signup:", error);
             if (placeholder) placeholder.textContent = error?.response?.data?.message || "An error occurred.";
         }
@@ -69,6 +76,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
         <>
             <LandingHomePageNavigationBarComponent />
             <CookiesSiteMessageComponent />
+            <PrimaryPageLoaderComponent />
             <section className="account-signup-page-elements-component">
                 <form
                     action=""
