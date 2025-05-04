@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import "./stylesheets/main.stylesheet.css";
-import "./stylesheets/components.stylesheet.css";
+import "./stylesheets/Components.stylesheet.css";
 import "./stylesheets/Dashboard.Home.Page.Stylesheet.css";
 import "./stylesheets/Dashboard.Links.Page.Stylesheet.css";
 import "./stylesheets/Dashboard.Settings.Page.Stylesheet.css";
