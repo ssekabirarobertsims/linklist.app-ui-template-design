@@ -1,26 +1,3 @@
-nav[class="home-page-navigation-bar-component"] {
-    min-height: 10vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px solid red; */
-    flex-direction: column;
-}
-nav[class="home-page-navigation-bar-component"] > div {
-    min-height: 10vh;
-    width: min(90%, 90%);
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    /* border: 1px solid red; */
-    flex-direction: column;
-}
-nav[class="home-page-navigation-bar-component"] > div :where(a) {
-    text-decoration: none;
-    font-size: 1.3em;
-    font-weight: calc(290 + 250);
-}
 section[class="offline-page-elements-component"] {
     min-height: 90vh;
     width: min(100%, 100%);

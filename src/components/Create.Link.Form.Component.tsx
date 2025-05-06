@@ -34,6 +34,8 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
                         onClick={(event) => {
                             event.stopPropagation();
                             RemoveElement((window.document.querySelector(".create-link-form-component") as HTMLElement));
+                            (window.document.querySelector("#create-link-form-title-input") as HTMLInputElement).value = "" as string;
+                            (window.document.querySelector("#create-link-form-link-input") as HTMLInputElement).value = "" as string;
                         }}
                     ><CgClose /></button>
                     <h1>Add Link</h1>
@@ -44,6 +46,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
                         aria-required="true"
                         onInput={(event) => setTitle((event.target as HTMLInputElement).value)}
                         value={title}
+                        maxLength={Number(20) as number}
                     />
                     <input type="text" name="link" id="create-link-form-link-input"
                         placeholder="link"

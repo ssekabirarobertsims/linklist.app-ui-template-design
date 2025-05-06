@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../stylesheets/Admin.Account.Signup.Page.Stylesheet.css";
-import LandingHomePageNavigationBarComponent from "./components/Landing.Home.Page.Navigation.Bar.Component";
 import { Link } from "react-router-dom";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import axios from "axios";
@@ -74,7 +73,6 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
 
     return (
         <>
-            <LandingHomePageNavigationBarComponent />
             <CookiesSiteMessageComponent />
             <PrimaryPageLoaderComponent />
             <section className="account-signup-page-elements-component">

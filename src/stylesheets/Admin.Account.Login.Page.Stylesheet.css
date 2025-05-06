@@ -1,6 +1,6 @@
 section[class="account-login-page-elements-component"] {
-    min-height: 90vh;
-    width: min(100%, 100%);
+    min-height: 100vh;
+    width: min(95%, 95%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,17 +15,17 @@ section[class="account-login-page-elements-component"] > form {
     justify-content: center;
     flex-direction: column;
     /* border: 1px solid red; */
+    background-color: #fff;
     gap: 1em;
     border-radius: .5em; 
-    background-color: #fff;
-    -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
-    -moz-box-shadow: 1px  1px 5px -1px #dddddd;
-    box-shadow: 1px  1px 5px -1px #dddddd;
+    -webkit-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .2);
+    box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .2);
 }
 section[class="account-login-page-elements-component"] > p {
     font-size: .7em;
     font-weight: normal;
-    color: hsl(0, 0%, 30%);
+    color: hsl(0, 0%, 5%);
     max-width: 55em;
     text-align: center;
 }
@@ -38,23 +38,24 @@ section[class="account-login-page-elements-component"] > p :where(a):is(:hover, 
 section[class="account-login-page-elements-component"] > form :is(h1) {
     font-size: 1.6em;
     font-weight: calc(260 + 240);
-    color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 5%);
     text-align: center;
 }
 section[class="account-login-page-elements-component"] > form :is(span[class="login-response-message-placeholder"]) {
     font-size: .8em;
     font-weight: calc(260 + 240);
-    color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 5%);
     text-align: center;
 }
 section[class="account-login-page-elements-component"] > form :is(img) {
     height: 4em;
     width: 4em;
     border-radius: 100%;
+    border: 1px solid var(--primary-theme-color)
 }
 section[class="account-login-page-elements-component"] > form :is(span) {
     font-weight: calc(290 + 250);
-    color: hsl(0, 0%, 15%);
+    color: hsl(0, 0%, 5%);
     font-style: normal;
     font-size: 1em;
 }

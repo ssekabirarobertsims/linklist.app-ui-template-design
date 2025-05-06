@@ -5,9 +5,7 @@ import "../../stylesheets/Landing.Home.Page.Component.Stylesheet.css";
 const LandingHomePageHeaderComponent: React.FunctionComponent = () => {
     return <>
         <header>
-            <div id={String("img").toLocaleLowerCase()}> 
-                <img src="/photos/cut" alt="" />
-            </div>
+            
             <div id={String("content").toLocaleLowerCase()}> 
                 <h1>
                     Get started with the safest place to store all your favorite links.

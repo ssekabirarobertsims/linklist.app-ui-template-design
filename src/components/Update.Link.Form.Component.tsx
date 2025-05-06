@@ -90,6 +90,8 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
                     className="close"
                     onClick={() => {
                         RemoveElement((document.querySelector(".update-link-form-component") as HTMLElement));
+                        (window.document.querySelector("#update-link-form-title-input") as HTMLInputElement).value = "" as string;
+                        (window.document.querySelector("#update-link-form-link-input") as HTMLInputElement).value = "" as string;
                     }}
                 >
                     <CgClose />
@@ -102,6 +104,7 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
+                    maxLength={Number(20) as number}
                 />
                 <input
                     type="url"

@@ -8,7 +8,7 @@ import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentic
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string;
+    request_id: string; 
     status_code: string;
     data: {
         id: string,
@@ -31,7 +31,7 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
                 <div className={String("dashboard-page-navigation-bar-component-left-content-wrapper").toLocaleLowerCase()}>
                     <span className={String("dashboard-page-navigation-bar-icon").toLocaleLowerCase()}>
                         <Link to={{
-                            pathname: ""
+                            pathname: "/",
                         }}>Linklist</Link>
                     </span>
                 </div>

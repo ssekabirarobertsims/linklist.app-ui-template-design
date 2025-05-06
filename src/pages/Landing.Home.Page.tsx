@@ -19,8 +19,8 @@ const LandingHomePageElementsComponent: React.FunctionComponent = () => {
         <SiteDeveloperNavigationComponent />
         <NotificationsSideBarComponent />
          <section className={String("landing-home-page-element-component").toLocaleLowerCase()}>
-            <div className={String("landing-home-page-element-component-content-wrapper").toLocaleLowerCase()}>
                 <LandingHomePageHeaderComponent />
+            <div className={String("landing-home-page-element-component-content-wrapper").toLocaleLowerCase()}>
                 <LandingHomePageContentComponent />
             </div>
         </section>

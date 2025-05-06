@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 
 const SiteDeveloperNavigationComponent: React.FC = () => {
-  const photosRef = useRef(null);
+  const photosRef = useRef<HTMLImageElement>(null);
+  
   return (
     <>
       <div
@@ -12,7 +13,7 @@ const SiteDeveloperNavigationComponent: React.FC = () => {
       >
         <p>Need some little help!</p>
         <a href="http://ssekabirarobertsims.netlify.app" target="_blank">
-          <img src="/photos/robertsims.jpg" alt="" ref={photosRef.current} />
+          <img src="/photos/robertsims.jpg" alt="" ref={photosRef} />
         </a>
       </div>
     </>

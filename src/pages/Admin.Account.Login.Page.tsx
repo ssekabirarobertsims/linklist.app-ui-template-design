@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import LandingHomePageNavigationBarComponent from "./components/Landing.Home.Page.Navigation.Bar.Component";
 import "../stylesheets/Admin.Account.Login.Page.Stylesheet.css";
 import { Link } from "react-router-dom";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
@@ -68,7 +67,6 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
 
     return (
         <>
-            <LandingHomePageNavigationBarComponent />
             <CookiesSiteMessageComponent />
             <PrimaryPageLoaderComponent />
             <section className="account-login-page-elements-component">

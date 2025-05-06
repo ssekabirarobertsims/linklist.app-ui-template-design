@@ -42,7 +42,7 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
             id: v4(),
             content: "Home",
             icon: <BiHome />,
-            link: "/"
+            link: "/",
         },
         {
             id: v4(),
@@ -53,14 +53,14 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
         },
         {
             id: v4(),
-            content: "Links",
+            content: "Saved Links",
             icon: <RiLinksFill />,
             link: `/dashboard/saved/links`,
             query: `admin=${String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin").toLocaleLowerCase().replace(" ", "")}`
         },
         {
             id: v4(),
-            content: "Trash",
+            content: "Trashed Links",
             icon: <FaRegTrashAlt />,
             link: `/dashboard/links/trash`,
             query: `admin=${String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin").toLocaleLowerCase().replace(" ", "")}`

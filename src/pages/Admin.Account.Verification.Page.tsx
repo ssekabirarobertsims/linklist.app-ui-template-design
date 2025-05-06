@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import LandingHomePageNavigationBarComponent from "./components/Landing.Home.Page.Navigation.Bar.Component";
 import "../stylesheets/Admin.Account.Verification.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import axios from "axios";
@@ -52,7 +51,6 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
 
     return (
         <>
-            <LandingHomePageNavigationBarComponent />
             <CookiesSiteMessageComponent />
             <section className="admin-account-verification-page-elements-component">
                 <form
