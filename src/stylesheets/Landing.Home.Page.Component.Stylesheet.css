@@ -20,6 +20,7 @@ nav[class="home-page-navigation-bar-component"] > div :where(a) {
     text-decoration: none;
     font-size: 1.3em;
     font-weight: calc(290 + 250);
+    color: #101010;
 }
 section[class="landing-home-page-element-component"] {
     min-height: 75vh;
@@ -33,11 +34,11 @@ section[class="landing-home-page-element-component"] {
 section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] {
     min-height: 75vh;
     width: min(90%, 90%);
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* border: 1px solid red; */
+    border: 1px solid #eee;
 }
 section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) {
     min-height: 75vh;
@@ -52,18 +53,21 @@ section[class="landing-home-page-element-component"] > div[class="landing-home-p
 }
 section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div {
     min-height: 75vh;
-    width: min(90%, 90%);
+    width: min(90%, 35em);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* border: 1px solid rgb(0, 255, 34); */
-    gap: 1em;
-    text-align: center;
+    border: 1px solid rgb(0, 255, 34);
+    gap: 1.6em;
+    flex-grow: 1;
+}
+section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] {
+    align-items: flex-start;
 }
 section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div > img {
     height: 25em;
-    width: 25em;
+    width: 30em;
 }
 section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(span) {
     font-size: 1.5em;
@@ -82,41 +86,32 @@ section[class="landing-home-page-element-component"] > div[class="landing-home-p
 section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(p) {
     font-size: .9em;
     color: hsl(0, 0%, 15%);
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1.3em;
-    max-width: 30em;
+    max-width: 36em;
 }
-section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(article) {
-    height: 4em;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-flow: row wrap;
-    gap: 1em;
+section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] > a {
+    min-height: 2em;
+    width: min(100%, 15em);
+    /* border: 1px solid red; */
 }
-section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(article) > a {
-    height: 4em;
-    width: min(100%, 10em);
-}
-section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(article) > a button {
+section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] > a button {
     height: 3.5em;
-    width: min(100%, 14em);
+    width: min(100%, 100%);
     cursor: pointer;
     border: none;
     border-radius: .3em;
     color: #fff;
     font-weight: calc(290 + 250);
-    background-color: #000;
-}
-section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(article) > a button[class="first-xyz"] {
     background-color: var(--primary-theme-color);
 }
-/* section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(article) > a button:is(:hover, :focus) {
-    background-color: var(--primary-theme-color);
-} */
-/* section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(header) > div[id="content"] :is(article) > a button:is(:hover, :focus) {
-    transform: scale(.9);
-} */
+section[class="landing-home-page-element-component"] > div[class="landing-home-page-element-component-content-wrapper"] :where(article[class="landing-home-page-content-component"]) {
+    height: 30em;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid red;
+}
 

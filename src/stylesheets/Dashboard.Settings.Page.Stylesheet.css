@@ -68,12 +68,12 @@ section[class="dashboard-page-elements-component"] > div[class="dashboard-page-e
     -moz-box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
     box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
-    border: 1px solid var(--primary-theme-color);
+    /* border: 1px solid var(--primary-theme-color); */
     cursor: pointer;
 }
-section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"]:where(:hover, :focus) {
+/* section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"]:where(:hover, :focus) {
     border: 1px solid var(--primary-theme-color);
-}
+} */
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"] > article {
     height: 8em;
     width: min(100%, 30em);
@@ -144,6 +144,10 @@ section[class="dashboard-page-elements-component"] > div[class="dashboard-page-e
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"] > article[class="dashboard-settings-admin-profile-component-right-content-wrapper"] > button[class="logout-profile-button"] {
     height: 3em;
     width: 10em;
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"] > article[class="dashboard-settings-admin-profile-component-right-content-wrapper"] > button:is(:hover, :focus) {
+    border: 1px solid hsl(0, 0%, 80%);
+    background-color: hsl(0, 0%, 90%);
 }
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > aside[class="dashboard-settings-page-avatar-form-component"]  {
     height: 100%;
@@ -297,6 +301,24 @@ article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where
     font-size: .9em;
     font-weight: bold;
     color: hsl(0, 0%, 10%);
+}
+article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(button) {
+    height: 3em;
+    width: min(100%, 15em);
+    border: none;
+    background-color: hsl(0, 0%, 5%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3em;
+    font-weight: bold;
+    cursor: not-allowed;
+    border-radius: .3em;
+}
+article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(button) > span {
+    font-size: 1.5em;
+    color: #fff;
 }
 article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(span) {
     font-size: 2em;
