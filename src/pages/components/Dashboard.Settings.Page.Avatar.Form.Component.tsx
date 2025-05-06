@@ -204,6 +204,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                     aria-placeholder="current admin username"
                     onInput={(event) => setUsername((event.target as HTMLInputElement).value)}
                     value={username as string}
+                    maxLength={Number(20) as number}
                 />
                 <p></p>
                 <article>

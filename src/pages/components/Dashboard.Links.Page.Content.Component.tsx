@@ -78,7 +78,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
         <article className={String("dashboard-home-page-content-component").toLocaleLowerCase()}>
             <br />
             <p></p>
-            <LinkCreationNotificationHamburgComponent />
+            <LinkCreationNotificationHamburgComponent content={"Link has been saved successfully!"}  />
             <LinkDeletionNotificationHamburgComponent />
             <LinkUpdatingNotificationHamburgComponent />
             <UpdateLinkFormComponent
