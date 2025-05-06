@@ -6,6 +6,7 @@ import LandingHomePageHeaderComponent from "./components/Landing.Home.Page.Heade
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import SiteDeveloperNavigationComponent from "../components/Developer.Navigation.Div.Component";
+import LandingHomePageContentComponent from "./components/Landing.Home.Page.Content.Component";
 
 const LandingHomePageElementsComponent: React.FunctionComponent = () => {
      React.useEffect(() => {
@@ -18,8 +19,9 @@ const LandingHomePageElementsComponent: React.FunctionComponent = () => {
         <SiteDeveloperNavigationComponent />
         <NotificationsSideBarComponent />
          <section className={String("landing-home-page-element-component").toLocaleLowerCase()}>
-            <div className={String("landing-home-page-element-component-content-wrapper").toLocaleLowerCase()}>
                 <LandingHomePageHeaderComponent />
+            <div className={String("landing-home-page-element-component-content-wrapper").toLocaleLowerCase()}>
+                <LandingHomePageContentComponent />
             </div>
         </section>
         <FooterComponent />

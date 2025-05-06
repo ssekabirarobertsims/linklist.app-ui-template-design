@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import LandingHomePageNavigationBarComponent from "./components/Landing.Home.Page.Navigation.Bar.Component";
 import "../stylesheets/Admin.Account.Subscription.Page.Stylesheet..css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import axios from "axios";
@@ -54,7 +53,6 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
 
     return (
         <>
-            <LandingHomePageNavigationBarComponent />
             <CookiesSiteMessageComponent />
             <section className="admin-account-subscription-page-elements-component">
                 <form

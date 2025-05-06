@@ -6,6 +6,7 @@ import axios from "axios";
 import DisplayElement from "../../functions/Display.Element.Function";
 import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
 import "../../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
+import RemoveElement from "../../functions/Remove.Element.Function";
 
 interface SecondaryAuthenticationProps {
     date: string;
@@ -63,6 +64,8 @@ const DashboardSettingsPageAdminProfileComponent: React.FunctionComponent = () =
                                 className={String("logout-profile-button").toLocaleLowerCase()}
                                 onClick={async (event): Promise<void> => {
                                     event.stopPropagation();
+                                    DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement));
+                                    
                                     try {
                                         const request = await axios.post(`http://localhost:3000/admin/account/logout/${String(currentAdmin?.data?.id).toLocaleLowerCase() as string}`, 
                                         {
@@ -75,14 +78,16 @@ const DashboardSettingsPageAdminProfileComponent: React.FunctionComponent = () =
                                         const response = await request.data;
                                 
                                         if(request?.status === Number(200)) {
-                                            console.log(response);
                                             // remove content from localstorage 
                                             window.localStorage.removeItem("secondary_authentication");  
-                                            window.setTimeout(() => window.location.href = "/admin/account/login?query=login&form=password#hash", 0 as number);
+                                            window.setTimeout(() => window.location.href = "/admin/account/login?query=login&form=password#hash", 3000 as number);
+                                            return response;
                                         } else {
+                                            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
                                             console.log("error");
                                         }
                                       } catch (error) {
+                                            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
                                            console.log(error);
                                       }
                                 }}

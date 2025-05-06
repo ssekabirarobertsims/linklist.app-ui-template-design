@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import LandingHomePageNavigationBarComponent from "./components/Landing.Home.Page.Navigation.Bar.Component";
 import "../stylesheets/Admin.Account.Login.Page.Stylesheet.css";
 import { Link } from "react-router-dom";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
@@ -8,8 +7,12 @@ import PrimaryAuthenticationObjectContext from "../context/Primary.Authenticatio
 interface AdminAccountContextProperties {
     username: string;
     avatar: string;
-    email: string;
+    email: string; 
 }
+
+import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Component";
+import DisplayElement from "../functions/Display.Element.Function";
+import RemoveElement from "../functions/Remove.Element.Function";
 
 const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
     const [password, setPassword] = useState<string>("" as string);
@@ -36,31 +39,36 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                 }
             }); 
 
+            DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement));
+
             if (response.status_code === Number(200) as number) {
-                console.log(response);
+                // remove loader
+                window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+
+                // store last forward auth content to localstorage
                 window.localStorage.setItem(
                     "secondary_authentication",
                     window.encodeURIComponent(JSON.stringify(response))
                 );
                 setResponseMessage(response?.message || "Login successful!");
-                setTimeout(() => {
-                    window.location.href = `/dashboard/saved/links`;
-                }, 1000);
+                setTimeout(() => window.location.href = `/dashboard/saved/links`, 2500 as number);
             } else {
+                window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
                 console.error("Login failed:", response);
                 setResponseMessage(response?.message || "Login failed. Please try again.");
             }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during login:", error);
+            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
         }
     };
 
     return (
         <>
-            <LandingHomePageNavigationBarComponent />
             <CookiesSiteMessageComponent />
+            <PrimaryPageLoaderComponent />
             <section className="account-login-page-elements-component">
                 <form
                     action=""
@@ -90,6 +98,7 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                         ref={buttonRef}
                         onClick={(event) => {
                             event.preventDefault();
+                            DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement));
                             Login();
                         }}
                     >

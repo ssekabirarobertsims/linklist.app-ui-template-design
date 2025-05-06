@@ -30,6 +30,7 @@ interface SecondaryAuthenticationProps {
 import { format } from "date-fns";
 import AdminAccountUpdateNotificationHamburgComponent from "../../components/Admin.Account.Update.Notification.Hamburg.Component";
 import DisplayElement from "../../functions/Display.Element.Function";
+import PrimaryPageLoaderComponent from "../../components/Primary.Page.Loader.Component";
 
 const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => {
     const [avatars, setAvatars] = useState<AvatarProperties[]>([
@@ -90,23 +91,24 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
     const [responseMessage, setResponseMessage] = useState<string>("");
 
     const updateAdmin = async function (): Promise<void> {
+        const loader: HTMLDivElement = (window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement);
         const placeholder: HTMLImageElement = window.document.querySelector(".admin-form-avatar-placeholder") as HTMLImageElement;
         const responseMessagePlaceholder: HTMLSpanElement = (window.document.querySelector(".span") as HTMLSpanElement);
-
-       try {
+        window.setTimeout(() => DisplayElement(loader), 0 as number);
+        
+        try {
          const request = await axios.patch(`http://localhost:3000/admin/account/append/${String(currentAdmin?.data?.id)}`, {
              username,
              avatar: String(placeholder.src).slice(30),
-         }, {
-            headers: {
-                "Content-Type": "Application/json",
-                "Authorization": String(`Bearer ${currentAdmin?.data?.token}`)
+            }, {
+                headers: {
+                    "Content-Type": "Application/json",
+                    "Authorization": String(`Bearer ${currentAdmin?.data?.token}`)
             }
-         });
-         const response = await request.data;
+        });
+        const response = await request.data;
          setResponseMessage(response?.message);
          
-         console.log(response);
          if(request?.status === Number(200)) {
             //  responseMessagePlaceholder.textContent = response?.message ? response?.message : response?.response?.data?.message;
              RemoveElement(window.document.querySelector(".dashboard-settings-page-avatar-form-component") as HTMLElement);
@@ -117,7 +119,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
              window.localStorage.removeItem("secondary_authentication");
              
             //  insert in new content to localstorage
-             window.setTimeout(() => {
+            window.setTimeout(() => {
                 // update primary authentication object
                 window.localStorage.setItem(
                     "primary_authentication",
@@ -149,14 +151,18 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                 );
              }, Number(1000) as number);
 
-            //  place a loader
-             window.setTimeout(() => window.location.reload(), Number(2000) as number);
-         } else {
-             console.log("error");
-         }
-       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-       } catch (error: any) {
-            console.log(error);
+            window.setTimeout(() => RemoveElement(loader), 2000 as number);
+            window.setTimeout(() => window.location.reload(), Number(3200) as number);
+        } else {
+            console.log("error");
+            window.setTimeout(() => DisplayElement(loader), 0 as number);
+            window.setTimeout(() => RemoveElement(loader), 2000 as number);
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+        console.log(error);
+            window.setTimeout(() => DisplayElement(loader), 0 as number);
+            window.setTimeout(() => RemoveElement(loader), 2000 as number);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
             responseMessagePlaceholder.textContent = responseMessage;
             console.log(responseMessage);
@@ -166,6 +172,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
 
     return <>
         <AdminAccountUpdateNotificationHamburgComponent />
+        <PrimaryPageLoaderComponent />
         <aside className={String("dashboard-settings-page-avatar-form-component").toLocaleLowerCase()}>
             <div>
                 <div className="wrapper">
@@ -197,6 +204,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                     aria-placeholder="current admin username"
                     onInput={(event) => setUsername((event.target as HTMLInputElement).value)}
                     value={username as string}
+                    maxLength={Number(20) as number}
                 />
                 <p></p>
                 <article>

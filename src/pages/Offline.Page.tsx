@@ -1,6 +1,5 @@
 import React from "react";
 import "../stylesheets/Offline.Page.Stylesheet.css";
-import LandingHomePageNavigationBarComponent from "./components/Landing.Home.Page.Navigation.Bar.Component";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import SiteDeveloperNavigationComponent from "../components/Developer.Navigation.Div.Component";
@@ -11,7 +10,6 @@ const OfflinePageElementsComponent: React.FunctionComponent = () => {
         }, []);
 
     return <>
-        <LandingHomePageNavigationBarComponent />
         <CookiesSiteMessageComponent />
         <SiteDeveloperNavigationComponent />
         <NotificationsSideBarComponent />

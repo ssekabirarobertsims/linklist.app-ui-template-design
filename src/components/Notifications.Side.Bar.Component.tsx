@@ -15,20 +15,20 @@ const NotificationsSideBarComponent: React.FunctionComponent = () => {
     const [notifications, setNotifications] = React.useState<NotificationProperties[]>([
         {
             id: v4() as string,
-            title: "Test Notification 1",
-            description: "This is a test notification 1",
+            title: "Admin account login",
+            description: "You have logged into your account successfully.",
             date: format(new Date(), "dd/MM/yyyy"),
             read: false,
             type: "info"
         },
         {
             id: v4() as string,
-            title: "Test Notification 2",
-            description: "This is a test notification 2",
+            title: "Adding links to list",
+            description: "You are now free to add all your favorite links here.",
             date: format(new Date(), "dd/MM/yyyy"),
             read: false,
             type: "info"
-        }
+        },
     ] as NotificationProperties[]);
     // const [loading, setLoading] = React.useState<boolean>(true);
     useEffect(() => setNotifications(notifications), [notifications]);

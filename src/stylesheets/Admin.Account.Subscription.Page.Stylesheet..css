@@ -1,6 +1,6 @@
 section[class="admin-account-subscription-page-elements-component"] {
     min-height: 90vh;
-    width: min(100%, 100%);
+    width: min(95%, 95%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,20 +17,20 @@ section[class="admin-account-subscription-page-elements-component"] > form {
     /* border: 1px solid red; */
     gap: 1em;
     border-radius: .5em; 
-    background-color: #fff;
-    -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
-    -moz-box-shadow: 1px  1px 5px -1px #dddddd;
-    box-shadow: 1px  1px 5px -1px #dddddd;
+    background-color: hsl(0, 0%, 15%);
+    -webkit-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .7);
+    -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .7);
+    box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .7);
 }
 section[class="admin-account-subscription-page-elements-component"] > p {
     font-size: .7em;
     font-weight: normal;
-    color: hsl(0, 0%, 30%);
+    color: hsl(0, 0%, 95%);
     max-width: 55em;
     text-align: center;
 }
 section[class="admin-account-subscription-page-elements-component"] > p :where(a) {
-    color: hsl(0, 0%, 10%);
+    color: hsl(0, 0%, 100%);
 }
 section[class="admin-account-subscription-page-elements-component"] > p :where(a):is(:hover, :focus) {
     color: var(--primary-theme-color);
@@ -38,13 +38,13 @@ section[class="admin-account-subscription-page-elements-component"] > p :where(a
 section[class="admin-account-subscription-page-elements-component"] > form :is(h1) {
     font-size: 1.6em;
     font-weight: calc(260 + 240);
-    color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 95%);
     text-align: center;
 }
 section[class="admin-account-subscription-page-elements-component"] > form :is(span[class="subscription-response-message-placeholder"]) {
     font-size: .8em;
     font-weight: calc(230 + 240);
-    color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 95%);
     text-align: center;
 }
 section[class="admin-account-subscription-page-elements-component"] > form :is(img) {
@@ -54,16 +54,9 @@ section[class="admin-account-subscription-page-elements-component"] > form :is(i
 }
 section[class="admin-account-subscription-page-elements-component"] > form :is(span) {
     font-weight: calc(290 + 250);
-    color: hsl(0, 0%, 15%);
+    color: hsl(0, 0%, 95%);
     font-style: normal;
     font-size: 1em;
-}
-section[class="admin-account-subscription-page-elements-component"] > form :is(input) {
-    height: 3em;
-    width: min(90%, 27em);
-    border: 1px solid hsl(0, 0%, 50%);
-    border-radius: .2em;
-    outline-style: none;
 }
 section[class="admin-account-subscription-page-elements-component"] > form :is(button[type="button"]) {
     height: 3em;

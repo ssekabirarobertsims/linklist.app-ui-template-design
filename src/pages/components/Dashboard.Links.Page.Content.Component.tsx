@@ -9,7 +9,7 @@ type ListItemProperties = {
     title: string;
     link: string;
     admin_id: string;
-}
+} 
 
 import { BiPencil, BiTrash, BiCopy } from "react-icons/bi";
 import CopySavedLink from "../../functions/Copy.Saved.Link.Function";
@@ -78,7 +78,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
         <article className={String("dashboard-home-page-content-component").toLocaleLowerCase()}>
             <br />
             <p></p>
-            <LinkCreationNotificationHamburgComponent />
+            <LinkCreationNotificationHamburgComponent content={"Link has been saved successfully!"}  />
             <LinkDeletionNotificationHamburgComponent />
             <LinkUpdatingNotificationHamburgComponent />
             <UpdateLinkFormComponent

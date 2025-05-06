@@ -9,7 +9,7 @@ section[class="dashboard-information-page-elements-component"] {
     position: relative;
 }
 section[class="dashboard-information-page-elements-component"] > div[class="dashboard-information-page-elements-component-content-wrapper"] {
-    min-height: 87vh;
+    min-height: 100vh;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
@@ -22,16 +22,17 @@ section[class="dashboard-information-page-elements-component"] > div[class="dash
     gap: 2em;
 }
 section[class="dashboard-information-page-elements-component"] > div[class="dashboard-information-page-elements-component-content-wrapper"] :is(article[class="dashboard-information-page-content-component"]) {
-    height: 87vh;
+    height: 100vh;
     width: min(100%, 50em) !important;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: column; 
     /* border: 1px solid red; */
     flex-grow: 1;
     gap: 1em;
     position: relative;
+    text-align: center;
 }
 section[class="dashboard-information-page-elements-component"] > div[class="dashboard-information-page-elements-component-content-wrapper"] :is(article[class="dashboard-information-page-content-component"]) > h1[class="page-heading"] {
     font-size: 2em;
