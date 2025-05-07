@@ -67,8 +67,8 @@ const SecondaryAuthenticationObject: object | SecondaryAuthenticationProps =
     )
   ) as object | SecondaryAuthenticationProps;
 
-  console.log(PrimaryAuthenticationObject)
-  console.log(SecondaryAuthenticationObject)
+  // console.log(PrimaryAuthenticationObject)
+  // console.log(SecondaryAuthenticationObject)
 
 function App() {
   return window.navigator.onLine ? (

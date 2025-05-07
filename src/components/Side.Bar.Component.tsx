@@ -79,7 +79,7 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
             link: `/dashboard/app/info`,
             query: `admin=${String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin").toLocaleLowerCase().replace(" ", "")}`
         },
-    ] as ListItemProperties[]);
+    ] as ListItemProperties[]); 
     useEffect(() => setList(list), [list]);
 
     return <>
@@ -108,11 +108,6 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
                         ))
                     }
                 </ul>
-               {/* <span>
-                    <p>
-                    <LuLogOut /> Logout
-                    </p>
-                </span> */}
             </div>
         </aside>
     </>

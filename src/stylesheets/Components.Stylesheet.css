@@ -518,7 +518,9 @@ aside[class="admin-profile-deletion-warning-component"] > div :where(article) > 
     color: #fff;
 }
 aside[class="admin-profile-deletion-warning-component"] > div :where(article) :first-child {
-   background-color: var(--primary-theme-color);
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(228, 0, 0);
 }
 aside[class="admin-profile-deletion-warning-component"] > div :where(article) :last-child {
    background-color: #000;
