@@ -40,14 +40,14 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                         headers: {
                             "Content-Type": "application/json",
                             "Accept": "application/json",
-                        }
+                        } 
                     }); 
         
                     DisplayElement(login.loader);
         
                     if (response.status_code === Number(200) as number) {
                         // remove loader
-                        window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                        window.setTimeout(() => RemoveElement(login.loader), 2000 as number);
         
                         // store last forward auth content to localstorage
                         window.localStorage.setItem(
@@ -55,17 +55,16 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                             window.encodeURIComponent(JSON.stringify(response))
                         );
                         setResponseMessage(response?.message || "Login successful!");
-                        console.log(response);
                         setTimeout(() => window.location.href = `/dashboard`, 2500 as number);
                     } else {
-                        window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                        window.setTimeout(() => RemoveElement(login.loader), 2000 as number);
                         console.error("Login failed:", response);
                         setResponseMessage(response?.message || "Login failed. Please try again.");
                     }
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     console.error("Error during login:", error);
-                    window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                    window.setTimeout(() => RemoveElement(login.loader), 2000 as number);
                     setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
                 }
             }());

@@ -23,7 +23,6 @@ import { CiSettings } from "react-icons/ci";
 
 const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
-    console.log(currentAdmin);
 
     return <>
         <article className={String("admin-account-profile-review-side-bar").toLocaleLowerCase()} 

@@ -51,7 +51,8 @@ interface SecondaryAuthenticationProps {
       verified: string,
   }
 }
-
+ 
+// when user deletes account, delete all his links saved
 import PrimaryAuthenticationObjectContext from "./context/Primary.Authentication.Object.Context";
 import SecondaryAuthenticationObjectContext from "./context/Secondary.Authentication.Object.Context";
 import OfflinePageElementsComponent from "./pages/Offline.Page";

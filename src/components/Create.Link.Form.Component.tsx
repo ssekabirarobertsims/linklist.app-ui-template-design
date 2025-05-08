@@ -27,7 +27,35 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
     const [link, setLink] = useState<string>("" as string);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
- 
+    
+    class create {
+        private static notification: HTMLElement = (window.document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement);
+        private static form: HTMLFormElement = (window.document.querySelector(".create-link-form-component") as HTMLFormElement);
+        // private static title: string =  (window.document.querySelector("#create-link-form-title-input") as HTMLInputElement)?.value as string;
+        // private static link: string =  (window.document.querySelector("#create-link-form-link-input") as HTMLInputElement)?.value as string;
+
+        constructor() {
+            (async function () {
+                const { data: response } = await axios.post("http://localhost:3000/saved/links", {
+                    title: (window.document.querySelector("#create-link-form-title-input") as HTMLInputElement)?.value as string,
+                    link: (window.document.querySelector("#create-link-form-link-input") as HTMLInputElement)?.value as string,
+                    admin_id: String(`${currentAdmin?.data?.id}`)
+                } ,{ 
+                    headers: {
+                        "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
+                        "Content-Type": "Application/json"
+                    }
+                }); 
+                
+                return response;
+        }());
+
+        window.setTimeout(() => window.location.reload(), Number(1500) as number);
+        RemoveElement(create.form);
+        DisplayElement(create.notification);
+        }
+    }
+
     return <>
         <form encType="multipart/form-data" action="" method="POST" className={String("create-link-form-component").toLocaleLowerCase()}>
            <div>
@@ -48,7 +76,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
                         aria-required="true"
                         onInput={(event) => setTitle((event.target as HTMLInputElement).value)}
                         value={title}
-                        maxLength={Number(20) as number}
+                        maxLength={Number(50) as number}
                     />
                     <input type="text" name="link" id="create-link-form-link-input"
                         placeholder="link"
@@ -62,36 +90,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
                     <button type="button" ref={buttonRef}
                          onClick={async (event): Promise<void> => {
                             event.stopPropagation();
-
-                             (async function () {
-                                    const request = await axios.post("http://localhost:3000/saved/links", {
-                                        title: (window.document.querySelector("#create-link-form-title-input") as HTMLInputElement).value,
-                                        link: (window.document.querySelector("#create-link-form-link-input") as HTMLInputElement).value,
-                                        admin_id: String(`${currentAdmin?.data?.id}`)
-                                    } ,{ 
-                                        headers: {
-                                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
-                                            "Content-Type": "Application/json"
-                                        }
-                                    }); 
-                                    
-                                    const response = await request.data;
-                                    console.log(response);
-                            }());
-
-                            window.setTimeout(() => {
-                                window.location.reload();
-                                RemoveElement(
-                                    (window.document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement)
-                                );
-                            }, 1500);
- 
-                            RemoveElement(
-                                (window.document.querySelector(".create-link-form-component") as HTMLElement)
-                            );
-                            DisplayElement(
-                                (window.document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement)
-                            );
+                            new create();                        
                         }}
                     >Save</button>
                 </article>

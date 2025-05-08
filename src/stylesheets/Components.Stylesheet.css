@@ -672,7 +672,7 @@ form[class="create-link-form-component"] {
     position: fixed;
     top: 0px;
     left: 0px;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: transparent;
 }
 form[class="create-link-form-component"] > div {
     height: 19em;
@@ -686,6 +686,10 @@ form[class="create-link-form-component"] > div {
     border-radius: .4em;
     gap: 1em;
     text-align: center;
+    border: 1px solid #eee;
+    -mox-box-shadow: 2px 5px 6px -1px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 2px 5px 6px -1px rgba(0, 0, 0, .1);
+    box-shadow: 2px 5px 6px -1px rgba(0, 0, 0, .1);
 }
 form[class="create-link-form-component"] > div :where(article) {
     height: 17em;

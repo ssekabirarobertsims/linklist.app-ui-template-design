@@ -12,7 +12,7 @@ type ListItemProperties = {
 } 
 
 import { BiPencil, BiTrash, BiCopy } from "react-icons/bi";
-import CopySavedLink from "../../functions/Copy.Saved.Link.Function";
+import Copy from "../../functions/Copy.Link.Function";
 import { BsSearch } from "react-icons/bs";
 import DisplayElement from "../../functions/Display.Element.Function";
 import axios from "axios";
@@ -46,20 +46,18 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
 
         useEffect(() => {
             (async function () {
-                const request = await axios.get("http://localhost:3000/saved/links", { 
+                const { data: response } = await axios.get("http://localhost:3000/saved/links", { 
                     headers: {
                         "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
                         "Content-Type": "Application/json"
                     }
                 }); 
                 
-                const response = await request.data;
                 const links: ListItemProperties[] = response?.saved_links;
                 setList(links?.filter((item: ListItemProperties) => {
                     return String(item?.admin_id ) === String(currentAdmin?.data?.id);
                 }));
             }());
-
         }, [currentAdmin?.data?.token, currentAdmin?.data?.id]);
         // console.log(list);
     
@@ -168,7 +166,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
                                 <button type="button" className={String("copy-link-button").toLocaleLowerCase()}
                                      onClick={(event) => {
                                         event.stopPropagation();
-                                        CopySavedLink(item.link);
+                                        Copy(item.link);
                                     }}
                                 >
                                     <BiCopy />
