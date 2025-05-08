@@ -8,7 +8,7 @@ import DisplayElement from "../functions/Display.Element.Function";
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string;
+    request_id: string; 
     status_code: string;
     data: {
         id: string,
@@ -16,6 +16,8 @@ interface SecondaryAuthenticationProps {
         avatar: string,
         email: string,
         token: string,
+        subscribed: string,
+        verified: string,
     }
 }
 
@@ -51,9 +53,8 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
                                 window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
                                 window.setTimeout(() => window.location.href = "/", 2100 as number);
                             } else {
+                                window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
                                 console.log("error");
-                                window.setTimeout(() => DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 0 as number);
-
                             }
                           } catch (error) {
                                 window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
