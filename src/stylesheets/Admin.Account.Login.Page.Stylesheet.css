@@ -8,8 +8,8 @@ section[class="account-login-page-elements-component"] {
     /* border: 1px solid red; */
 }
 section[class="account-login-page-elements-component"] > form {
-    min-height: 23em;
-    width: min(90%, 30em);
+    min-height: 25em;
+    width: min(90%, 32em);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,6 +45,12 @@ section[class="account-login-page-elements-component"] > form :is(span[class="lo
     font-size: .8em;
     font-weight: calc(260 + 240);
     color: hsl(0, 0%, 5%);
+    text-align: center;
+}
+section[class="account-login-page-elements-component"] > form :is(a) {
+    font-size: .8em;
+    font-weight: calc(260 + 240);
+    color: var(--primary-theme-color);
     text-align: center;
 }
 section[class="account-login-page-elements-component"] > form :is(img) {

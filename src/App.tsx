@@ -39,39 +39,41 @@ interface PrimaryAuthenticationObjectProps {
 interface SecondaryAuthenticationProps {
   date: string;
   message: string;
-  request_id: string;
+  request_id: string; 
   status_code: string;
   data: {
-    id: string;
-    username: string;
-    avatar: string;
-    email: string;
-    token: string;
-  };
+      id: string,
+      username: string,
+      avatar: string,
+      email: string,
+      token: string,
+      subscribed: string,
+      verified: string,
+  }
 }
 
 import PrimaryAuthenticationObjectContext from "./context/Primary.Authentication.Object.Context";
 import SecondaryAuthenticationObjectContext from "./context/Secondary.Authentication.Object.Context";
 import OfflinePageElementsComponent from "./pages/Offline.Page";
 import DashboardTrashPageElementsComponent from "./pages/Dashboard.Trash.Page";
-const PrimaryAuthenticationObject: object | PrimaryAuthenticationObjectProps =
+const PrimaryAuthenticationObject: (object | PrimaryAuthenticationObjectProps) =
   JSON.parse(
     window.decodeURIComponent(
       window.localStorage.getItem("primary_authentication") as string
     )
-  ) as object | PrimaryAuthenticationObjectProps;
-const SecondaryAuthenticationObject: object | SecondaryAuthenticationProps =
+  ) as (object | PrimaryAuthenticationObjectProps);
+const SecondaryAuthenticationObject: (object | SecondaryAuthenticationProps) =
   JSON.parse(
     window.decodeURIComponent(
       window.localStorage.getItem("secondary_authentication") as string
     )
-  ) as object | SecondaryAuthenticationProps;
+  ) as (object | SecondaryAuthenticationProps);
 
-  // console.log(PrimaryAuthenticationObject)
-  // console.log(SecondaryAuthenticationObject)
+  console.log(PrimaryAuthenticationObject)
+  console.log(SecondaryAuthenticationObject)
 
 function App() {
-  return window.navigator.onLine ? (
+  return !window.navigator.onLine ? (
     <SecondaryAuthenticationObjectContext.Provider
       value={SecondaryAuthenticationObject as SecondaryAuthenticationProps}
     >
@@ -159,6 +161,7 @@ function App() {
         <Route
           path="/admin/account/subscription"
           element={
+            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) &&
             (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
               <PrimaryAuthenticationObjectContext.Provider
                 value={
@@ -176,6 +179,7 @@ function App() {
         <Route
           path="/admin/account/signup"
           element={
+            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) ||
             (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
               <AdminAccountLoginPageElementsComponent />
             ) : (
@@ -187,11 +191,7 @@ function App() {
         <Route
           path="/admin/account/verification"
           element={
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps)  && !(SecondaryAuthenticationObject as SecondaryAuthenticationProps) ? (
               <AdminAccountVerificationPageElementsComponent />
-            ) : (
-              <AdminAccountSignupPageElementsComponent />
-            )
           }
         />
       </Routes>

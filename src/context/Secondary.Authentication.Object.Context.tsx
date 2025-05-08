@@ -12,6 +12,8 @@ interface SecondaryAuthenticationProperties {
         avatar: string,
         email: string,
         token: string,
+        subscribed: string,
+        verified: string,
     } 
 }
 
