@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
+import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 
 const DashboardInformationPageElementsComponent: React.FunctionComponent = () => {
 
@@ -11,6 +12,7 @@ useEffect(() => {
 
     return <>
             <CookiesSiteMessageComponent /> 
+            <AdminAccountVerificationAlertMessageComponent /> 
             <NotificationsSideBarComponent />
         <section className={String("dashboard-information-page-elements-component").toLocaleLowerCase()}>
             <div className={String("dashboard-information-page-elements-component-content-wrapper").toLocaleLowerCase()}>

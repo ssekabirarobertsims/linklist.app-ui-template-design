@@ -11,7 +11,7 @@ import RemoveElement from "../../functions/Remove.Element.Function";
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string;
+    request_id: string; 
     status_code: string;
     data: {
         id: string,
@@ -19,6 +19,8 @@ interface SecondaryAuthenticationProps {
         avatar: string,
         email: string,
         token: string,
+        subscribed: string,
+        verified: string,
     }
 }
 
@@ -40,7 +42,7 @@ const DashboardSettingsPageAdminProfileComponent: React.FunctionComponent = () =
                 <aside>
                     <p>{String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin username undefined")}</p>
                     <span>{String(currentAdmin?.data?.email ? currentAdmin?.data?.email : "Admin email undefined")}</span>
-                    <strong>Verified</strong>
+                    <strong>{String((currentAdmin?.data?.verified === String(Boolean(true)) ? "Verified" : "Unverified"))}</strong>
                 </aside>
             </article>
             <article className={String("dashboard-settings-admin-profile-component-right-content-wrapper").toLocaleLowerCase()}>

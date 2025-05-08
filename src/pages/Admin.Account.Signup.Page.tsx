@@ -9,17 +9,21 @@ import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Compon
 
 const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
     const [firstName, setFirstName] = useState<string>("");
-    const [lastName, setLastName] = useState<string>("");
+    const [lastName, setLastName] = useState<string>(""); 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string | number>("");
     const [avatar, setAvatar] = useState<string | number>("avatar-1.png");
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const Signup = async (): Promise<void> => {
-        const placeholder: HTMLSpanElement = document.querySelector<HTMLSpanElement>(".signup-response-message-placeholder") as HTMLSpanElement;
+    class signup {
+        private static placeholder: HTMLSpanElement = document.querySelector<HTMLSpanElement>(".signup-response-message-placeholder") as HTMLSpanElement;
+        private static loader: HTMLDivElement = (window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement);
+
+        constructor() {
+            (async function(): Promise<void> {
+            
         setAvatar("avatar-1.png"); // by default
-        const loader: HTMLDivElement = (window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement);
-        DisplayElement(loader);
+        DisplayElement(signup.loader);
 
         try {
             const response = await axios.post("http://localhost:3000/admin/account/signup", {
@@ -36,7 +40,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
             });
 
             if (response?.data?.status_code === 201) {
-                if (placeholder) placeholder.textContent = response.data.message;
+                if (signup.placeholder) signup.placeholder.textContent = response.data.message;
 
                 // Save authentication data to localStorage
                 window.localStorage.setItem(
@@ -51,21 +55,23 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                 );
                 
                 // Redirect to login page after a short delay
-                window.setTimeout(() => RemoveElement(loader), 2500 as number);
+                window.setTimeout(() => RemoveElement(signup.loader), 2500 as number);
                 setTimeout(() => window.location.href = "/admin/account/verification", 3000);
                 
             } else {
-                window.setTimeout(() => RemoveElement(loader), 2500 as number);
+                window.setTimeout(() => RemoveElement(signup.loader), 2500 as number);
                 console.error("Signup failed:", response.data);
-                if (placeholder) placeholder.textContent = response.data.message;
+                if (signup.placeholder) signup.placeholder.textContent = response.data.message;
             }
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-            window.setTimeout(() => RemoveElement(loader), 2500 as number);
+            window.setTimeout(() => RemoveElement(signup.loader), 2500 as number);
             console.error("Error during signup:", error);
-            if (placeholder) placeholder.textContent = error?.response?.data?.message || "An error occurred.";
+            if (signup.placeholder) signup.placeholder.textContent = error?.response?.data?.message || "An error occurred.";
         }
-    };
+            }());
+        }
+    }
 
     useEffect(() => {
             document.title = "Page - Signup | LinkList";
@@ -82,7 +88,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                     encType="multipart/form-data"
                     className="account-signup-page-form"
                 >
-                    <h1>Signup for LinkList</h1>
+                    <h1>Signup to linkList</h1>
                     <span className="signup-response-message-placeholder"></span>
                     <article>
                         <input
@@ -131,7 +137,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                         ref={buttonRef}
                         onClick={(event) => {
                             event.preventDefault();
-                            Signup();
+                            new signup()
                         }}
                     >
                         Signup

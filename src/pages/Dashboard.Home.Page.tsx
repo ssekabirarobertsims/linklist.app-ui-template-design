@@ -6,6 +6,7 @@ import DashboardHomePageContentComponent from "./components/Dashboard.Home.Page.
 import "../stylesheets/Dashboard.Home.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
+import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 
 const DashboardHomePageElementsComponent: React.FunctionComponent = () => {
     React.useEffect(() => {
@@ -14,6 +15,7 @@ const DashboardHomePageElementsComponent: React.FunctionComponent = () => {
     
     return <>
             <CookiesSiteMessageComponent />
+            <AdminAccountVerificationAlertMessageComponent />
             <NotificationsSideBarComponent />
         <section className={String("dashboard-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />

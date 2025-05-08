@@ -6,7 +6,8 @@ import DashboardSettingsPageContentComponent from "./components/Dashboard.Settin
 import "../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
- 
+import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message"; 
+
 const DashboardSettingsPageElementsComponent: React.FunctionComponent = () => {
      React.useEffect(() => {
             document.title = "Dashboard - Settings | LinkList";
@@ -15,6 +16,7 @@ const DashboardSettingsPageElementsComponent: React.FunctionComponent = () => {
     return <>
             <CookiesSiteMessageComponent />
             <NotificationsSideBarComponent />
+            <AdminAccountVerificationAlertMessageComponent />
         <section className={String("dashboard-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />
             <div className={String("dashboard-page-elements-component-content-wrapper").toLocaleLowerCase()}>

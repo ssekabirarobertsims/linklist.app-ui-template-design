@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import LinkCreationNotificationHamburgComponent from "../../components/Link.Creation.Notification.Hamburg.Component";
 import LinkDeletionNotificationHamburgComponent from "../../components/Link.Deletion.Notification.Hamburg.Component";
 import LinkUpdatingNotificationHamburgComponent from "../../components/Link.Updating.Notification.Hamburg.Component";
 import LinkRestorationNotificationHamburgComponent from "../../components/Link.Restoration.Notification.Hamburg.Component";
@@ -25,7 +24,7 @@ import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authen
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string;
+    request_id: string; 
     status_code: string;
     data: {
         id: string,
@@ -33,6 +32,8 @@ interface SecondaryAuthenticationProps {
         avatar: string,
         email: string,
         token: string,
+        subscribed: string,
+        verified: string,
     }
 }
 
@@ -69,7 +70,6 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
         <article className={String("dashboard-home-page-content-component").toLocaleLowerCase()}>
             <br />
             <p></p>
-            <LinkCreationNotificationHamburgComponent />
             <LinkDeletionNotificationHamburgComponent />
             <LinksTrashEmptyingNotificationHamburgComponent />
             <LinkRestorationNotificationHamburgComponent />

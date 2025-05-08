@@ -25,14 +25,14 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
         ))}
         </div>
         <aside>
-        <h2>Just save for later</h2>
+        <h2>Just save links for later</h2>
         <p>
             Sign up or log in to your account to start saving links for later. You can access your saved links from any device, anywhere, anytime.
         </p>
         <Link to={{
                         pathname: "/admin/account/signup",
                     }}>
-                        <button type="button" className="first-xyz">Get started</button>
+                        <button type="button" className="first-xyz">Sign up or in</button>
                     </Link>
         </aside>
         </article>

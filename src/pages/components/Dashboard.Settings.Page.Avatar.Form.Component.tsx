@@ -24,6 +24,8 @@ interface SecondaryAuthenticationProps {
         avatar: string,
         email: string,
         token: string,
+        subscribed: string,
+        verified: string,
     }
 }
 
@@ -142,6 +144,8 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                             id: currentAdmin?.data?.id as string,
                             token: currentAdmin?.data?.token as string,
                             username: username,
+                            subscribed: "",
+                            verified: ""
                         },
                         date: format(new Date(), "yyyy-MM-dd\tHH:mm:ss"),
                         message: "Login Successful!",

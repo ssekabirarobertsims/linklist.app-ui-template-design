@@ -22,7 +22,7 @@ import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authen
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string;
+    request_id: string; 
     status_code: string;
     data: {
         id: string,
@@ -30,6 +30,8 @@ interface SecondaryAuthenticationProps {
         avatar: string,
         email: string,
         token: string,
+        subscribed: string,
+        verified: string,
     }
 }
 

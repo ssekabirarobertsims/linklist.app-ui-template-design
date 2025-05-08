@@ -20,6 +20,7 @@ const LandingHomePageHeaderComponent: React.FunctionComponent = () => {
                     </Link>
             </div>
         </header>
+        <br />
     </>
 }
 

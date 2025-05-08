@@ -25,45 +25,52 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
     }, []);
     
 
-    const Login = async (): Promise<void> => {
-        try {
-            const { data: response } = await axios.post("http://localhost:3000/admin/account/login", {
-                username: String(PrimaryAuthenticationObject?.username) as string,
-                password: password,
-                avatar: String(PrimaryAuthenticationObject?.avatar) as string,
-                email: String(PrimaryAuthenticationObject?.email) as string,
-            }, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
+    class login {
+        private static loader: HTMLDivElement = (window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement);
+        
+        constructor() {
+            (async function(): Promise<void>  {
+                try {
+                    const { data: response } = await axios.post("http://localhost:3000/admin/account/login", {
+                        username: String(PrimaryAuthenticationObject?.username) as string,
+                        password: password,
+                        avatar: String(PrimaryAuthenticationObject?.avatar) as string,
+                        email: String(PrimaryAuthenticationObject?.email) as string,
+                    }, {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json",
+                        }
+                    }); 
+        
+                    DisplayElement(login.loader);
+        
+                    if (response.status_code === Number(200) as number) {
+                        // remove loader
+                        window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+        
+                        // store last forward auth content to localstorage
+                        window.localStorage.setItem(
+                            "secondary_authentication",
+                            window.encodeURIComponent(JSON.stringify(response))
+                        );
+                        setResponseMessage(response?.message || "Login successful!");
+                        console.log(response);
+                        setTimeout(() => window.location.href = `/dashboard`, 2500 as number);
+                    } else {
+                        window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                        console.error("Login failed:", response);
+                        setResponseMessage(response?.message || "Login failed. Please try again.");
+                    }
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {
+                    console.error("Error during login:", error);
+                    window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                    setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
                 }
-            }); 
-
-            DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement));
-
-            if (response.status_code === Number(200) as number) {
-                // remove loader
-                window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
-
-                // store last forward auth content to localstorage
-                window.localStorage.setItem(
-                    "secondary_authentication",
-                    window.encodeURIComponent(JSON.stringify(response))
-                );
-                setResponseMessage(response?.message || "Login successful!");
-                setTimeout(() => window.location.href = `/dashboard/saved/links`, 2500 as number);
-            } else {
-                window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
-                console.error("Login failed:", response);
-                setResponseMessage(response?.message || "Login failed. Please try again.");
-            }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (error: any) {
-            console.error("Error during login:", error);
-            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
-            setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
+            }());
         }
-    };
+    }
 
     return (
         <>
@@ -76,12 +83,12 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                     encType="multipart/form-data"
                     className="account-login-page-form"
                 >
-                    <h1>Log into LinkList</h1>
+                    <h1>Log into linkList</h1>
                     <span className="login-response-message-placeholder">{responseMessage}</span>
                     <img src={`${String(`/avatars/${
                         PrimaryAuthenticationObject?.avatar ? PrimaryAuthenticationObject?.avatar : "avatar-2.png"
                         }`).toLocaleLowerCase()}`} alt="Admin Avatar" />
-                    <span>{
+                    <span>Login as {
                             PrimaryAuthenticationObject?.username ? PrimaryAuthenticationObject?.username : "Admin Username Undefined"
                         }</span>
                     <input
@@ -93,13 +100,18 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                         required
                         aria-required="true"
                     />
+                    <Link to={{
+                        pathname: ""
+                    }}>
+                        Forgot password?
+                    </Link>
                     <button
                         type="button"
                         ref={buttonRef}
                         onClick={(event) => {
                             event.preventDefault();
                             DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement));
-                            Login();
+                            new login();
                         }}
                     >
                         Login
@@ -108,16 +120,15 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                 <br />
                 <br />
                 <p>
-                    Have no account?{" "}
+                    Have no admin account?{" "}
                     <Link
                         to={{
                             pathname: "/admin/account/signup",
                             search: "query=signup&form=password&username&email",
-                            hash: "#hash",
                         }}
                     >
                         Signup
-                    </Link> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus beatae eius assumenda, hic nesciunt quo?
+                    </Link> for a new admin account in order to log into a fresh new dashboard to start saving your links in only one safest place anywhere.
                 </p>
             </section>
         </>
