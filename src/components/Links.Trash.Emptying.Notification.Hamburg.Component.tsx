@@ -16,7 +16,7 @@ const LinksTrashEmptyingNotificationHamburgComponent: React.FunctionComponent = 
                     onClick={(event) => {
                         event.stopPropagation();
                         RemoveElement(
-                            (window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as HTMLElement)
+                            (window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as Required<HTMLElement>)
                         );
                     }}
                 ><CgClose /></span>

@@ -35,23 +35,23 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
                     const request = await axios.delete(`http://localhost:3000/admin/account/unlink/${String(currentAdmin?.data?.id)}`, {
                         headers: {
                             "Content-Type": "Application/json",
-                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}`)
+                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>)
                     }
                 });
                     const response = await request.data;
                     
-                    if(request?.status === Number(200) as number) {
+                    if(request?.status === Number(200) as Required<Readonly<number>>) {
                         console.log(response);
                         window.localStorage.removeItem("primary_authentication");
                         window.localStorage.removeItem("secondary_authentication");
-                        window.setTimeout(() => RemoveElement(del.loader), 1900 as number);
-                        window.setTimeout(() => window.location.href = "/", 2100 as number);
+                        window.setTimeout(() => RemoveElement(del.loader), 1900 as Required<Readonly<number>>);
+                        window.setTimeout(() => window.location.href = "/", 2100 as Required<Readonly<number>>);
                     } else {
-                        window.setTimeout(() => RemoveElement(del.loader), 2000 as number);
+                        window.setTimeout(() => RemoveElement(del.loader), 2000 as Required<Readonly<number>>);
                         console.log("error");
                     }
                   } catch (error) {
-                        window.setTimeout(() => RemoveElement(del.loader), 2000 as number);
+                        window.setTimeout(() => RemoveElement(del.loader), 2000 as Required<Readonly<number>>);
                        console.log(error);
                   }
             }());
@@ -67,7 +67,7 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
                 <article>
                     <button type="button" onClick={async (event) => {
                         event.stopPropagation();
-                        window.setTimeout(() => DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 0 as number);
+                        window.setTimeout(() => DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 0 as Required<Readonly<number>>);
                         
                         new del();
                     }}>Delete Profile</button>
@@ -75,7 +75,7 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
                         onClick={async (event): Promise<void> => {
                             event.stopPropagation();
                             RemoveElement(
-                                window.document.querySelector(".admin-profile-deletion-warning-component") as HTMLElement
+                                window.document.querySelector(".admin-profile-deletion-warning-component") as Required<HTMLElement>
                             )
                         }}
                     >Cancel</button>

@@ -55,17 +55,17 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                 );
                 
                 // Redirect to login page after a short delay
-                window.setTimeout(() => RemoveElement(signup.loader), 2500 as number);
+                window.setTimeout(() => RemoveElement(signup.loader), 2500 as Required<Readonly<number>>);
                 setTimeout(() => window.location.href = "/admin/account/verification", 3000);
                 
             } else {
-                window.setTimeout(() => RemoveElement(signup.loader), 2500 as number);
+                window.setTimeout(() => RemoveElement(signup.loader), 2500 as Required<Readonly<number>>);
                 console.error("Signup failed:", response.data);
                 if (signup.placeholder) signup.placeholder.textContent = response.data.message;
             }
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-            window.setTimeout(() => RemoveElement(signup.loader), 2500 as number);
+            window.setTimeout(() => RemoveElement(signup.loader), 2500 as Required<Readonly<number>>);
             console.error("Error during signup:", error);
             if (signup.placeholder) signup.placeholder.textContent = error?.response?.data?.message || "An error occurred.";
         }
@@ -96,7 +96,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                             name="first_name"
                             placeholder="First Name"
                             aria-placeholder="First Name"
-                            onInput={(event) => setFirstName((event.target as HTMLInputElement).value)}
+                            onInput={(event) => setFirstName((event.target as Required<HTMLInputElement>).value)}
                             value={firstName}
                             required
                             aria-required="true"
@@ -106,7 +106,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                             name="last_name"
                             placeholder="Last Name"
                             aria-placeholder="Last Name"
-                            onInput={(event) => setLastName((event.target as HTMLInputElement).value)}
+                            onInput={(event) => setLastName((event.target as Required<HTMLInputElement>).value)}
                             value={lastName}
                             required
                             aria-required="true"
@@ -117,7 +117,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                         name="email"
                         placeholder="Email"
                         aria-placeholder="Email"
-                        onInput={(event) => setEmail((event.target as HTMLInputElement).value)}
+                        onInput={(event) => setEmail((event.target as Required<HTMLInputElement>).value)}
                         value={email}
                         required
                         aria-required="true"
@@ -127,13 +127,14 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                         name="password"
                         placeholder="Password"
                         aria-placeholder="Password"
-                        onInput={(event) => setPassword((event.target as HTMLInputElement).value)}
+                        onInput={(event) => setPassword((event.target as Required<HTMLInputElement>).value)}
                         value={password}
                         required
                         aria-required="true"
                     />
                     <button
                         type="button"
+                        disabled={Boolean(false) as Required<boolean>}
                         ref={buttonRef}
                         onClick={(event) => {
                             event.preventDefault();

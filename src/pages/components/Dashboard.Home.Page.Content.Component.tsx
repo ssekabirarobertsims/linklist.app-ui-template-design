@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
 
@@ -20,6 +20,7 @@ interface SecondaryAuthenticationProps {
 
 const DashboardHomePageContentComponent: React.FunctionComponent = () => {
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
+const buttonRef = useRef<HTMLButtonElement>(null);
 
     return <>
         <article className={String("dashboard-home-page-content-component").toLocaleLowerCase()}>
@@ -45,7 +46,11 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
                                 search:  `admin=${String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin").toLocaleLowerCase().replace(" ", "")}`
                             }
                         }>
-                            <button className="btn btn-secondary">Make Subscription</button>
+                            <button type="button"
+                                disabled={Boolean(false) as Required<boolean>}
+                                ref={buttonRef}
+                                className="btn btn-secondary"
+                            >Make Subscription</button>
                         </Link>
                         </article>
                     </div>

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import "../../stylesheets/Landing.Home.Page.Component.Stylesheet.css";
 
 const LandingHomePageHeaderComponent: React.FunctionComponent = () => {
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
     return <>
         <header>
             
@@ -16,7 +18,10 @@ const LandingHomePageHeaderComponent: React.FunctionComponent = () => {
                     <Link to={{
                         pathname: "/admin/account/signup",
                     }}>
-                        <button type="button" className="first-xyz">Get started</button>
+                        <button type="button" 
+                        disabled={Boolean(false) as Required<boolean>}
+                        ref={buttonRef}
+                        className="first-xyz">Get started</button>
                     </Link>
             </div>
         </header>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 const steps = [
     { step: '1', title: 'Install the Extension', description: 'Download Easy Link Saver from your browser\'s extension store and click "Add to browser".' },
     { step: '2', title: 'Save Your Links', description: 'Click the Easy Link Saver icon, enter a name for your link, and save it with one click.' },
@@ -8,6 +8,8 @@ const steps = [
 import { Link } from "react-router-dom";
   
 const LandingHomePageContentComponent: React.FunctionComponent = () => {
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
     return <>
         <br />
         <br />
@@ -32,7 +34,10 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
         <Link to={{
                         pathname: "/admin/account/signup",
                     }}>
-                        <button type="button" className="first-xyz">Sign up or in</button>
+                        <button type="button" 
+                        disabled={Boolean(false) as Required<boolean>}
+                        ref={buttonRef}
+                        className="first-xyz">Sign up or in</button>
                     </Link>
         </aside>
         </article>

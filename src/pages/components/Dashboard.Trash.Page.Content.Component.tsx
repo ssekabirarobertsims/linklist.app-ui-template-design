@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import LinkDeletionNotificationHamburgComponent from "../../components/Link.Deletion.Notification.Hamburg.Component";
 import LinkUpdatingNotificationHamburgComponent from "../../components/Link.Updating.Notification.Hamburg.Component";
 import LinkRestorationNotificationHamburgComponent from "../../components/Link.Restoration.Notification.Hamburg.Component";
@@ -44,12 +44,13 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
     const [list, setList] = useState<ListItemProperties[]>([] as ListItemProperties[]);
 
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
+const buttonRef = useRef<HTMLButtonElement>(null);
 
         useEffect(() => {
             (async function () {
                 const request = await axios.get("http://localhost:3000/trash/links", { 
                     headers: {
-                        "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
+                        "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
                         "Content-Type": "Application/json"
                     }
                 }); 
@@ -65,18 +66,18 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
         }, [currentAdmin?.data?.token, currentAdmin?.data?.id]);
     
         class deleteLink {
-            private static readonly notification: HTMLElement = (window.document.querySelector(".trash-link-deletion-notification-hamburg-component") as HTMLElement);
+            private static readonly notification: HTMLElement = (window.document.querySelector(".trash-link-deletion-notification-hamburg-component") as Required<HTMLElement>);
 
             constructor(id: string) {
                 (async function (): Promise<void> {
                     const { data: response } = await axios.delete(`http://localhost:3000/trash/links/${String(id)}`, { 
                         headers: {
-                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
+                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
                             "Content-Type": "Application/json"
                         }
                     });
                     
-                    if(response.status_code === Number(200) as number) {
+                    if(response.status_code === Number(200) as Required<Readonly<number>>) {
                         DisplayElement((deleteLink.notification));
                         window.setTimeout(() => window.location.reload(), 1500);
                     } else (async function(): Promise<string> {
@@ -87,17 +88,17 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
         }
 
         class restoreLink {
-            private static readonly notification: HTMLElement = (window.document.querySelector(".link-restoration-notification-hamburg-component") as HTMLElement);
+            private static readonly notification: HTMLElement = (window.document.querySelector(".link-restoration-notification-hamburg-component") as Required<HTMLElement>);
 
             constructor(id: string, title: string, link: string) {
                 (async function (): Promise<unknown> {
                     const { data: response } = await axios.post(`http://localhost:3000/trash/links/${String(id)}`, {
-                        title: title as string,
+                        title: title as Required<Readonly<string>>,
                         link: link,
                         admin_id: String(`${currentAdmin?.data?.id}`),
                     } ,{ 
                         headers: {
-                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
+                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
                             "Content-Type": "Application/json"
                         }
                     }); 
@@ -120,12 +121,12 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
             <LinkUpdatingNotificationHamburgComponent />
             <TrashLinkDeletionNotificationHamburgComponent />
             <h1>Links Trash</h1>
-        <span className="link_no">{Number(list.length) as number} trashed links</span>
+        <span className="link_no">{Number(list.length) as Required<Readonly<number>>} trashed links</span>
             {
                 list?.length > 0 ? <ul className={String("dashboard-trash-page-ul-list-component").toLocaleLowerCase()}>
                 {
                     list.map((item: ListItemProperties) => ( 
-                        <li key={uuid() as string}>
+                        <li key={uuid() as Required<Readonly<string>>}>
                             
                             <div className={String("dashboard-trash-page-upper-content-wrapper").toLocaleLowerCase()}>
                                 <h2>{String(item.title)}</h2>
@@ -133,13 +134,17 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                             </div>
                             <div className={String("dashboard-trash-page-down-content-wrapper").toLocaleLowerCase()}>
                                 <button type="button"
+                                disabled={Boolean(false) as Required<boolean>}
+                                ref={buttonRef}
                                 className={String("restore-link-button").toLocaleLowerCase()}
                                 onClick={async (event): Promise<void> => {
                                     event.stopPropagation();
-                                    new restoreLink(item?.id as string, item?.title as string, item?.link as string);
+                                    new restoreLink(item?.id as Required<Readonly<string>>, item?.title as Required<Readonly<string>>, item?.link as Required<Readonly<string>>);
                                 }}
                                 ><MdRestore /></button>
                                 <button type="button" 
+                                disabled={Boolean(false) as Required<boolean>}
+                                ref={buttonRef}
                                 className={String("delete-link-button").toLocaleLowerCase()}
                                 onClick={async (event): Promise<void> => {
                                     event.stopPropagation();
@@ -148,7 +153,10 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                                 > 
                                     <BiTrash />
                                 </button>
-                                <button type="button" className={String("copy-link-button").toLocaleLowerCase()}
+                                <button type="button" 
+                                disabled={Boolean(false) as Required<boolean>}
+                                ref={buttonRef}
+                                className={String("copy-link-button").toLocaleLowerCase()}
                                      onClick={(event) => {
                                         event.stopPropagation();
                                         Copy(item.link);
@@ -169,24 +177,26 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
             }
             <p></p>
             <button type="button" id="empty-trash-button"
+            disabled={Boolean(false) as Required<boolean>}
+            ref={buttonRef}
                 onClick={async (event): Promise<void> => {
                     event.stopPropagation();
                     (async function (): Promise<void> {
                         const request = await axios.delete(`http://localhost:3000/trash/empty/${String(currentAdmin?.data?.id)}`, { 
                             headers: {
-                                "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
+                                "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
                                 "Content-Type": "Application/json"
                             }
                         }); 
                         
                         const response = await request.data;
                         
-                        if(request.status === 200 as number) {
-                            DisplayElement((window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as HTMLElement));
+                        if(request.status === 200 as Required<Readonly<number>>) {
+                            DisplayElement((window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as Required<HTMLElement>));
                             window.setTimeout(() => {
                                 window.location.reload();
                                 RemoveElement(
-                                    (window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as HTMLElement)
+                                    (window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as Required<HTMLElement>)
                                 );
                             }, 1500);
                         } else (async function(): Promise<string> {

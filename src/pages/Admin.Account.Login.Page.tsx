@@ -15,9 +15,9 @@ import DisplayElement from "../functions/Display.Element.Function";
 import RemoveElement from "../functions/Remove.Element.Function";
 
 const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
-    const [password, setPassword] = useState<string>("" as string);
+    const [password, setPassword] = useState<string>("" as Required<Readonly<string>>);
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const [responseMessage, setResponseMessage] = useState<string>("" as string);
+    const [responseMessage, setResponseMessage] = useState<string>("" as Required<Readonly<string>>);
     const PrimaryAuthenticationObject: AdminAccountContextProperties = React.useContext(PrimaryAuthenticationObjectContext) as AdminAccountContextProperties;
 
     useEffect(() => {
@@ -32,10 +32,10 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
             (async function(): Promise<void>  {
                 try {
                     const { data: response } = await axios.post("http://localhost:3000/admin/account/login", {
-                        username: String(PrimaryAuthenticationObject?.username) as string,
+                        username: String(PrimaryAuthenticationObject?.username) as Required<Readonly<string>>,
                         password: password,
-                        avatar: String(PrimaryAuthenticationObject?.avatar) as string,
-                        email: String(PrimaryAuthenticationObject?.email) as string,
+                        avatar: String(PrimaryAuthenticationObject?.avatar) as Required<Readonly<string>>,
+                        email: String(PrimaryAuthenticationObject?.email) as Required<Readonly<string>>,
                     }, {
                         headers: {
                             "Content-Type": "application/json",
@@ -45,9 +45,9 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
         
                     DisplayElement(login.loader);
         
-                    if (response.status_code === Number(200) as number) {
+                    if (response.status_code === Number(200) as Required<Readonly<number>>) {
                         // remove loader
-                        window.setTimeout(() => RemoveElement(login.loader), 2000 as number);
+                        window.setTimeout(() => RemoveElement(login.loader), 2000 as Required<Readonly<number>>);
         
                         // store last forward auth content to localstorage
                         window.localStorage.setItem(
@@ -55,16 +55,16 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                             window.encodeURIComponent(JSON.stringify(response))
                         );
                         setResponseMessage(response?.message || "Login successful!");
-                        setTimeout(() => window.location.href = `/dashboard`, 2500 as number);
+                        setTimeout(() => window.location.href = `/dashboard`, 2500 as Required<Readonly<number>>);
                     } else {
-                        window.setTimeout(() => RemoveElement(login.loader), 2000 as number);
+                        window.setTimeout(() => RemoveElement(login.loader), 2000 as Required<Readonly<number>>);
                         console.error("Login failed:", response);
                         setResponseMessage(response?.message || "Login failed. Please try again.");
                     }
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     console.error("Error during login:", error);
-                    window.setTimeout(() => RemoveElement(login.loader), 2000 as number);
+                    window.setTimeout(() => RemoveElement(login.loader), 2000 as Required<Readonly<number>>);
                     setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
                 }
             }());
@@ -94,7 +94,7 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                         type="password"
                         placeholder="Password"
                         aria-placeholder="Password"
-                        onInput={(event) => setPassword((event.target as HTMLInputElement).value)}
+                        onInput={(event) => setPassword((event.target as Required<HTMLInputElement>).value)}
                         value={password}
                         required
                         aria-required="true"
@@ -105,8 +105,9 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                         Forgot password?
                     </Link>
                     <button
+                    disabled={Boolean(false) as Required<boolean>}
+                    ref={buttonRef}
                         type="button"
-                        ref={buttonRef}
                         onClick={(event) => {
                             event.preventDefault();
                             DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement));

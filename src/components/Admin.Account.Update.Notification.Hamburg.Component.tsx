@@ -16,7 +16,7 @@ const AdminAccountUpdateNotificationHamburgComponent: React.FunctionComponent = 
                     onClick={(event) => {
                         event.stopPropagation();
                         RemoveElement(
-                            (window.document.querySelector(".admin-account-update-notification-hamburg-component") as HTMLElement)
+                            (window.document.querySelector(".admin-account-update-notification-hamburg-component") as Required<HTMLElement>)
                         );
                     }}
                 ><CgClose /></span>

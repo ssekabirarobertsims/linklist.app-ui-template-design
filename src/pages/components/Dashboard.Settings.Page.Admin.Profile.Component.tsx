@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BiPencil } from "react-icons/bi";
 import { BiTrash } from "react-icons/bi";
 import { LuLogOut } from "react-icons/lu";
@@ -27,6 +27,7 @@ interface SecondaryAuthenticationProps {
 
 const DashboardSettingsPageAdminProfileComponent: React.FunctionComponent = () => {
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
+const buttonRef = useRef<HTMLButtonElement>(null);
 
     return <>
      <br />
@@ -46,33 +47,41 @@ const DashboardSettingsPageAdminProfileComponent: React.FunctionComponent = () =
                 </aside>
             </article>
             <article className={String("dashboard-settings-admin-profile-component-right-content-wrapper").toLocaleLowerCase()}>
-            <button type="button" className={String("edit-profile-button").toLocaleLowerCase()}
+            <button type="button" 
+            disabled={Boolean(false) as Required<boolean>}
+            ref={buttonRef}
+            className={String("edit-profile-button").toLocaleLowerCase()}
                 onClick={(event) => {
                     event.stopPropagation(); 
-                    DisplayElement(window.document.querySelector(".dashboard-settings-page-avatar-form-component") as HTMLElement);
+                    DisplayElement(window.document.querySelector(".dashboard-settings-page-avatar-form-component") as Required<HTMLElement>);
                 }}
                 >
                                 <BiPencil />
                             </button>
-                            <button type="button" className={String("delete-profile-button").toLocaleLowerCase()}
+                            <button type="button" 
+                            disabled={Boolean(false) as Required<boolean>}
+                            ref={buttonRef}
+                            className={String("delete-profile-button").toLocaleLowerCase()}
                                 onClick={(event) => {
                                     event.stopPropagation();
-                                    DisplayElement(window.document.querySelector(".admin-profile-deletion-warning-component") as HTMLElement);
+                                    DisplayElement(window.document.querySelector(".admin-profile-deletion-warning-component") as Required<HTMLElement>);
                                 }}
                             >
                                 <BiTrash />
                             </button>
                             <button type="button" 
+                                disabled={Boolean(false) as Required<boolean>}
+                                ref={buttonRef}
                                 className={String("logout-profile-button").toLocaleLowerCase()}
                                 onClick={async (event): Promise<void> => {
                                     event.stopPropagation();
                                     DisplayElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement));
                                     
                                     try {
-                                        const request = await axios.post(`http://localhost:3000/admin/account/logout/${String(currentAdmin?.data?.id).toLocaleLowerCase() as string}`, 
+                                        const request = await axios.post(`http://localhost:3000/admin/account/logout/${String(currentAdmin?.data?.id).toLocaleLowerCase() as Required<Readonly<string>>}`, 
                                         {
                                             headers: {
-                                                "Authorization": String(`Bearer ${currentAdmin?.data?.token}`),
+                                                "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
                                                 "Content-Type": "Application/json"
                                             }
                                         }
@@ -82,14 +91,14 @@ const DashboardSettingsPageAdminProfileComponent: React.FunctionComponent = () =
                                         if(request?.status === Number(200)) {
                                             // remove content from localstorage 
                                             window.localStorage.removeItem("secondary_authentication");  
-                                            window.setTimeout(() => window.location.href = "/admin/account/login?query=login&form=password#hash", 3000 as number);
+                                            window.setTimeout(() => window.location.href = "/admin/account/login?query=login&form=password#hash", 3000 as Required<Readonly<number>>);
                                             return response;
                                         } else {
-                                            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                                            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as Required<Readonly<number>>);
                                             console.log("error");
                                         }
                                       } catch (error) {
-                                            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as number);
+                                            window.setTimeout(() => RemoveElement((window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement)), 2000 as Required<Readonly<number>>);
                                            console.log(error);
                                       }
                                 }}

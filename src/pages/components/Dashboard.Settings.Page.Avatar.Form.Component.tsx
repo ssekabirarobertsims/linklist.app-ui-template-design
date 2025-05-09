@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { v4 } from "uuid";
 import "../../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
 
@@ -89,8 +89,9 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
     ] as AvatarProperties[]);
     useEffect(() => setAvatars(avatars), [avatars]);
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
-    const [username, setUsername] = useState<string>(String(`${currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin username undefined"}`) as string); // by default set current admin username
+    const [username, setUsername] = useState<string>(String(`${currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin username undefined"}`) as Required<Readonly<string>>); // by default set current admin username
     const [responseMessage, setResponseMessage] = useState<string>("");
+const buttonRef = useRef<HTMLButtonElement>(null);
 
     class update {
         private static readonly loader: HTMLDivElement = (window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement);
@@ -98,7 +99,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
         private static readonly responseMessagePlaceholder: HTMLSpanElement = (window.document.querySelector(".span") as HTMLSpanElement);
         
         constructor() {
-            window.setTimeout(() => DisplayElement(update.loader), Number(0) as number);
+            window.setTimeout(() => DisplayElement(update.loader), Number(0) as Required<Readonly<number>>);
 
             (async function(): Promise<void> {
                 try {
@@ -108,7 +109,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                        }, {
                            headers: {
                                "Content-Type": "Application/json",
-                               "Authorization": String(`Bearer ${currentAdmin?.data?.token}`)
+                               "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>)
                        }
                    });
                    const response = await request.data;
@@ -116,8 +117,8 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                     
                     if(request?.status === Number(200)) {
                        //  responseMessagePlaceholder.textContent = response?.message ? response?.message : response?.response?.data?.message;
-                        RemoveElement(window.document.querySelector(".dashboard-settings-page-avatar-form-component") as HTMLElement);
-                        DisplayElement(window.document.querySelector(".admin-account-update-notification-hamburg-component") as HTMLElement);
+                        RemoveElement(window.document.querySelector(".dashboard-settings-page-avatar-form-component") as Required<HTMLElement>);
+                        DisplayElement(window.document.querySelector(".admin-account-update-notification-hamburg-component") as Required<HTMLElement>);
            
                         // remove old data from the localstorage
                         window.localStorage.removeItem("primary_authentication");
@@ -142,34 +143,34 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                                "secondary_authentication",
                                window.encodeURIComponent(JSON.stringify({
                                    data: {
-                                       avatar: String(update.placeholder.src).slice(Number(30) as number),
-                                       email: currentAdmin?.data?.email as string,
-                                       id: currentAdmin?.data?.id as string,
-                                       token: currentAdmin?.data?.token as string,
-                                       username: username as string,
-                                       subscribed: currentAdmin?.data?.subscribed as string,
-                                       verified: currentAdmin?.data?.verified as string
+                                       avatar: String(update.placeholder.src).slice(Number(30) as Required<Readonly<number>>),
+                                       email: currentAdmin?.data?.email as Required<Readonly<string>>,
+                                       id: currentAdmin?.data?.id as Required<Readonly<string>>,
+                                       token: currentAdmin?.data?.token as Required<Readonly<string>>,
+                                       username: username as Required<Readonly<string>>,
+                                       subscribed: currentAdmin?.data?.subscribed as Required<Readonly<string>>,
+                                       verified: currentAdmin?.data?.verified as Required<Readonly<string>>
                                    },
                                    date: format(new Date(), "yyyy-MM-dd\tHH:mm:ss"),
-                                   message: currentAdmin?.message as string,
+                                   message: currentAdmin?.message as Required<Readonly<string>>,
                                    request_id: currentAdmin?.request_id as (string | number),
-                                   status_code: Number(currentAdmin?.status_code) as number
+                                   status_code: Number(currentAdmin?.status_code) as Required<Readonly<number>>
                                }))
                            );
-                        }, Number(1000) as number);
+                        }, Number(1000) as Required<Readonly<number>>);
            
-                       window.setTimeout(() => RemoveElement(update.loader), 2000 as number);
-                       window.setTimeout(() => window.location.reload(), Number(3200) as number);
+                       window.setTimeout(() => RemoveElement(update.loader), 2000 as Required<Readonly<number>>);
+                       window.setTimeout(() => window.location.reload(), Number(3200) as Required<Readonly<number>>);
                    } else {
                        console.log("error");
-                       window.setTimeout(() => DisplayElement(update.loader), 0 as number);
-                       window.setTimeout(() => RemoveElement(update.loader), 2000 as number);
+                       window.setTimeout(() => DisplayElement(update.loader), 0 as Required<Readonly<number>>);
+                       window.setTimeout(() => RemoveElement(update.loader), 2000 as Required<Readonly<number>>);
                    }
                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                } catch (error: any) {
                    console.log(error);
-                       window.setTimeout(() => DisplayElement(update.loader), 0 as number);
-                       window.setTimeout(() => RemoveElement(update.loader), 2000 as number);
+                       window.setTimeout(() => DisplayElement(update.loader), 0 as Required<Readonly<number>>);
+                       window.setTimeout(() => RemoveElement(update.loader), 2000 as Required<Readonly<number>>);
                        setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
                        update.responseMessagePlaceholder.textContent = responseMessage;
                        console.log(responseMessage);
@@ -210,13 +211,15 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                     <input type="text" name="username" id="username"
                     placeholder="current admin username"
                     aria-placeholder="current admin username"
-                    onInput={(event) => setUsername((event.target as HTMLInputElement).value)}
-                    value={username as string}
-                    maxLength={Number(20) as number}
+                    onInput={(event) => setUsername((event.target as Required<HTMLInputElement>).value)}
+                    value={username as Required<Readonly<string>>}
+                    maxLength={Number(20) as Required<Readonly<number>>}
                 />
                 <p></p>
                 <article>
                     <button type="button"
+                    disabled={Boolean(false) as Required<boolean>}
+                    ref={buttonRef}
                     id="save"
                          onClick={(event) => {
                             event.stopPropagation();
@@ -224,10 +227,12 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                         }}
                     >Save</button>
                     <button type="button" 
+                    disabled={Boolean(false) as Required<boolean>}
+                    ref={buttonRef}
                      id="discard"
                         onClick={(event) => {
                             event.stopPropagation();
-                            RemoveElement(window.document.querySelector(".dashboard-settings-page-avatar-form-component") as HTMLElement);
+                            RemoveElement(window.document.querySelector(".dashboard-settings-page-avatar-form-component") as Required<HTMLElement>);
                         }}
                     >Discard</button>
                 </article>

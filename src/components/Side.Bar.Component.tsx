@@ -123,12 +123,12 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
               <li key={item.id}>
                 <Link
                   to={{
-                    pathname: item.link as string,
+                    pathname: item.link as Required<Readonly<string>>,
                     search: item.query ? item.query : "",
                   }}
                 >
                   <span>{item.icon as ReactNode}</span>
-                  <p>{item.content as string}</p>
+                  <p>{item.content as Required<Readonly<string>>}</p>
                 </Link>
               </li>
             ))}

@@ -16,12 +16,12 @@ try {
     RemoveElement(
       window.document.querySelector(
         ".notifications-side-bar-component"
-      ) as HTMLElement
+      ) as Required<HTMLElement>
     );
     RemoveElement(
       window.document.querySelector(
         ".admin-account-profile-review-side-bar"
-      ) as HTMLElement
+      ) as Required<HTMLElement>
     );
   });
 } catch (error) {

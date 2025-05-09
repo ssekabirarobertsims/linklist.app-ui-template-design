@@ -42,7 +42,7 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
                         onClick={(event) => {
                             event.stopPropagation();
                             DisplayElement(
-                                window.document.querySelector(".create-link-form-component") as HTMLElement
+                                window.document.querySelector(".create-link-form-component") as Required<HTMLElement>
                             )
                         }}
                     >
@@ -51,7 +51,7 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
                     <button type="button" className={String("dashboard-page-navigation-bar-notification-button").toLocaleLowerCase()} title="checkout new notifications" onClick={(event) => {
                         event.stopPropagation();
                         DisplayElement(
-                            (window.document.querySelector(".notifications-side-bar-component") as HTMLElement)
+                            (window.document.querySelector(".notifications-side-bar-component") as Required<HTMLElement>)
                         );
                     }}>
                         <IoNotificationsOutline />
@@ -62,7 +62,7 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
                         onClick={(event) => {
                             event.stopPropagation();
                             DisplayElement(
-                                (window.document.querySelector(".admin-account-profile-review-side-bar") as HTMLElement)
+                                (window.document.querySelector(".admin-account-profile-review-side-bar") as Required<HTMLElement>)
                             );
                         }}
                          />

@@ -30,7 +30,7 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
         
         constructor() {
             (async function(): Promise<void> {
-                window.setTimeout(() => DisplayElement((verify.loader)), 0 as number);
+                window.setTimeout(() => DisplayElement((verify.loader)), 0 as Required<Readonly<number>>);
 
         try {
             const { data: response } = await axios.post("http://localhost:3000/admin/account/verification", {
@@ -41,18 +41,18 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
             if (response.status_code === 200) {
                 console.log(response);
                 setResponseMessage(response?.message || "Admin Account Verified!");
-                window.setTimeout(() => RemoveElement((verify.loader)), 2000 as number);
+                window.setTimeout(() => RemoveElement((verify.loader)), 2000 as Required<Readonly<number>>);
                 setTimeout(() => {
                     window.location.href = `/admin/account/login`;
                 }, 2200);
             } else {
                 console.error("Verification failed:", response);
-                window.setTimeout(() => RemoveElement((verify.loader)), 2000 as number);
+                window.setTimeout(() => RemoveElement((verify.loader)), 2000 as Required<Readonly<number>>);
                 setResponseMessage(response?.message || "Verification failed. Please try again.");
             }
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-            window.setTimeout(() => RemoveElement((verify.loader)), 2000 as number);
+            window.setTimeout(() => RemoveElement((verify.loader)), 2000 as Required<Readonly<number>>);
             console.error("Error during verification:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
         }
@@ -60,11 +60,9 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
         }
     }
 
-
     useEffect(() => {
             document.title = "Page - Verification | LinkList";
         }, []);
-
 
     return (
         <>
@@ -84,41 +82,41 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
                         type="text"
                         placeholder="text"
                         aria-placeholder="text"
-                        onInput={(event) => setCodeDigit1((event.target as HTMLInputElement).value)}
+                        onInput={(event) => setCodeDigit1((event.target as Required<HTMLInputElement>).value)}
                         value={codeDigit1}
                         required
                         aria-required="true"
-                        maxLength={1 as number}
+                        maxLength={1 as Required<Readonly<number>>}
                     />
                     <input
                         type="text"
                         placeholder="text"
                         aria-placeholder="text"
-                        onInput={(event) => setCodeDigit2((event.target as HTMLInputElement).value)}
+                        onInput={(event) => setCodeDigit2((event.target as Required<HTMLInputElement>).value)}
                         value={codeDigit2}
                         required
                         aria-required="true"
-                        maxLength={1 as number}
+                        maxLength={1 as Required<Readonly<number>>}
                     />
                     <input
                         type="text"
                         placeholder="text"
                         aria-placeholder="text"
-                        onInput={(event) => setCodeDigit3((event.target as HTMLInputElement).value)}
+                        onInput={(event) => setCodeDigit3((event.target as Required<HTMLInputElement>).value)}
                         value={codeDigit3}
                         required
                         aria-required="true"
-                        maxLength={1 as number}
+                        maxLength={1 as Required<Readonly<number>>}
                     />
                     <input
                         type="text"
                         placeholder="text"
                         aria-placeholder="text"
-                        onInput={(event) => setCodeDigit4((event.target as HTMLInputElement).value)}
+                        onInput={(event) => setCodeDigit4((event.target as Required<HTMLInputElement>).value)}
                         value={codeDigit4}
                         required
                         aria-required="true"
-                        maxLength={1 as number}
+                        maxLength={1 as Required<Readonly<number>>}
                     />
                     </div>
                         <Link 
@@ -128,6 +126,7 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
                     <p></p>
                     <button
                         type="button"
+                        disabled={Boolean(false) as Required<boolean>}
                         ref={buttonRef}
                         onClick={(event) => {
                             event.preventDefault();

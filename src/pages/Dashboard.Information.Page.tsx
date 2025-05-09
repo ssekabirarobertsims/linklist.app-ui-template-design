@@ -28,7 +28,7 @@ useEffect(() => {
             <p>API: <a href="https://api-linklist-restapi.onrender.com/" target="_blank">api.linklist.restapi</a></p>
             <br />
             <h3>Linklist.app</h3>
-            <span>Linklist &copy;right {Number(2025 as number)} All Rights Reserved</span>
+            <span>Linklist &copy;right {Number(2025 as Required<Readonly<number>>)} All Rights Reserved</span>
         </article>
             </div>
         </section>

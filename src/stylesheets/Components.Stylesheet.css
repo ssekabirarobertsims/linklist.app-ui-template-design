@@ -420,7 +420,7 @@ aside[class="notifications-side-bar-component"] > div :where(ul) > li {
     cursor: pointer;
     border: 1px solid hsl(0, 0%, 90%);
 }
-aside[class="notifications-side-bar-component"] > div :where(ul) > li:is(:hover, :focus) {
+aside[class="notifications-side-bar-component"] > div :where(ul) > li:is(:hover, :focus, :active) {
     background-color: hsl(0, 0%, 98%);
     border: 1px solid var(--primary-theme-color);
 }

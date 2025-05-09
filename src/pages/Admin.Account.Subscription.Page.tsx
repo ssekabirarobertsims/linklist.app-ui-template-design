@@ -24,7 +24,7 @@ import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentic
 
 const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = () => {
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const [responseMessage, setResponseMessage] = useState<string>("" as string);
+    const [responseMessage, setResponseMessage] = useState<string>("" as Required<Readonly<string>>);
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
 
     useEffect(() => {
@@ -36,18 +36,18 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
             (async function(): Promise<void> {
                 try {
                     const { data: response } = await axios.post("http://localhost:3000/admin/account/subscription", {
-                        email: String(currentAdmin?.data?.email) as string,
+                        email: String(currentAdmin?.data?.email) as Required<Readonly<string>>,
                     }, {
                         headers: {
                             "Content-Type": "application/json",
                             "Accept": "application/json",
-                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}`) as string
+                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>)
                         }
                     }); 
 
                     console.log(response);
         
-                    if (response.status_code === Number(200) as number) {
+                    if (response.status_code === Number(200) as Required<Readonly<number>>) {
                         console.log(response);
                         window.localStorage.removeItem("secondary_authentication");
 
@@ -55,9 +55,9 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
                         setTimeout(() => window.localStorage.setItem(
                                 "secondary_authentication",
                                 window.encodeURIComponent(JSON.stringify(response))
-                            ), 900 as number);
+                            ), 900 as Required<Readonly<number>>);
                             
-                        setTimeout(() =>  window.location.href = `/dashboard/`, 1000 as number);
+                        setTimeout(() =>  window.location.href = `/dashboard/`, 1000 as Required<Readonly<number>>);
                     } else {
                         console.error("Subscription failed:", response);
                         setResponseMessage(response?.message || "Subscription failed. Please try again.");
@@ -104,6 +104,7 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
                         } and for this no need to resubscribe again.
                     </p> :  <button
                     type="button"
+                    disabled={Boolean(false) as Required<boolean>}
                     ref={buttonRef}
                     onClick={(event) => {
                         event.preventDefault();
