@@ -4,7 +4,6 @@ import DashboardPageFooterComponent from "../components/Footer.Component";
 import DashboardPageSideBarComponent from "../components/Side.Bar.Component";
 import DashboardTrashPageContentComponent from "./components/Dashboard.Trash.Page.Content.Component";
 import "../stylesheets/Dashboard.Trash.Page.Stylesheet.css";
-import CreateLinkFormComponent from "../components/Create.Link.Form.Component";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
@@ -23,7 +22,6 @@ const DashboardTrashPageElementsComponent: React.FunctionComponent = () => {
             <div className={String("dashboard-trash-page-elements-component-content-wrapper").toLocaleLowerCase()}>
             <DashboardPageSideBarComponent />
             <DashboardTrashPageContentComponent />
-            <CreateLinkFormComponent />
             </div>
             <DashboardPageFooterComponent />
         </section>

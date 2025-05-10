@@ -118,7 +118,7 @@ const buttonRef = useRef<HTMLButtonElement>(null);
             <LinkDeletionNotificationHamburgComponent />
             <LinksTrashEmptyingNotificationHamburgComponent />
             <LinkRestorationNotificationHamburgComponent />
-            <LinkUpdatingNotificationHamburgComponent />
+            <LinkUpdatingNotificationHamburgComponent /> 
             <TrashLinkDeletionNotificationHamburgComponent />
             <h1>Links Trash</h1>
         <span className="link_no">{Number(list.length) as Required<Readonly<number>>} trashed links</span>

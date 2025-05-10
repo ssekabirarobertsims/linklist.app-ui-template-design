@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import "../stylesheets/Admin.Account.Subscription.Page.Stylesheet..css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import axios from "axios";
-import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 
 interface SecondaryAuthenticationProps {
     date: string;
@@ -14,13 +13,14 @@ interface SecondaryAuthenticationProps {
         username: string,
         avatar: string,
         email: string,
-        token: string,
+        token: string, 
         subscribed: string,
         verified: string,
     }
 }
 
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
+import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
 
 const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = () => {
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -74,7 +74,7 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
     return (
         <>
             <CookiesSiteMessageComponent />
-            <AdminAccountVerificationAlertMessageComponent />
+            <SecondaryNavigationBarComponent />
             <section className="admin-account-subscription-page-elements-component">
                 <form
                     action=""
@@ -83,26 +83,30 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
                     className="admin-account-subscription-page-form"
                 >
                     <div id="_wrapper">
-                    <h1>Subscribe to LinkList</h1>
+                    <h1>Subscribe to LinkList as {
+                            currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin Username Undefined"
+                        }</h1>
                     <span className="subscription-response-message-placeholder">{responseMessage}</span>
                     <img src={`${String(`/avatars/${
                         currentAdmin?.data?.avatar ? currentAdmin?.data?.avatar : "avatar-2.png"
                         }`).toLocaleLowerCase()}`} alt="Admin Avatar" />
                     <span>{
-                            currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin Username Undefined"
-                        }</span>
-                    <span>{
                             currentAdmin?.data?.email ? currentAdmin?.data?.email : "Admin Email Undefined"
                         }</span>
                     <p></p>
                    {
-                    (currentAdmin?.data?.subscribed === String(Boolean(true))) ? <p>
+                    (currentAdmin?.data?.subscribed !== String(Boolean(true))) ? <p>
                         Currently you are already subscribed to linklist monthly newsletter as {
                             currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin Username Undefined"
                         } with email {
                             currentAdmin?.data?.email ? currentAdmin?.data?.email : "Admin Email Undefined"
                         } and for this no need to resubscribe again.
-                    </p> :  <button
+                    </p> :  (
+                        <>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        <button
                     type="button"
                     disabled={Boolean(false) as Required<boolean>}
                     ref={buttonRef}
@@ -113,6 +117,8 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
                 >
                     Subscribe
                 </button>
+                        </>
+                )
                    }
                     </div>
                 </form>

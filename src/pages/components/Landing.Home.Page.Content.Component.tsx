@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 const steps = [
-    { step: '1', title: 'Install the Extension', description: 'Download Easy Link Saver from your browser\'s extension store and click "Add to browser".' },
-    { step: '2', title: 'Save Your Links', description: 'Click the Easy Link Saver icon, enter a name for your link, and save it with one click.' },
-    { step: '3', title: 'Access Anytime', description: 'Open the extension whenever you need to find a saved link and click to visit instantly.' },
-  ];
+    { step: '1', title: 'Sign up for an account', description: 'Sign up for an account on linklist to get an admin account to proceed logging in to your account to access the dashboard.' },
+    { step: '2', title: 'Login to your account', description: 'Sign up for an admin account to get access to log into admin account and be able to access the main dashboard.' },
+    { step: '3', title: 'Save Your Links', description: 'Access after admin account login the linklist dashboard to be able to save all your favorite links in one place.' },
+];
 
 import { Link } from "react-router-dom";
   

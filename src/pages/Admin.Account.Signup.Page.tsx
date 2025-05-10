@@ -6,6 +6,7 @@ import axios from "axios";
 import DisplayElement from "../functions/Display.Element.Function";
 import RemoveElement from "../functions/Remove.Element.Function";
 import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Component";
+import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
 
 const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
     const [firstName, setFirstName] = useState<string>("");
@@ -80,6 +81,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
     return (
         <>
             <CookiesSiteMessageComponent />
+            <SecondaryNavigationBarComponent />
             <PrimaryPageLoaderComponent />
             <section className="account-signup-page-elements-component">
                 <form

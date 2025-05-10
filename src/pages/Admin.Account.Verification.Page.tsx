@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import RemoveElement from "../functions/Remove.Element.Function";
 import DisplayElement from "../functions/Display.Element.Function";
 import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Component";
+import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
 
 const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = () => {
     const PrimaryAuthenticationObject: PrimaryAuthenticationObjectProps = useContext(PrimaryAuthenticationObjectContext) as PrimaryAuthenticationObjectProps;
@@ -68,6 +69,7 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
         <>
             <CookiesSiteMessageComponent />
             <PrimaryPageLoaderComponent />
+            <SecondaryNavigationBarComponent />
             <section className="admin-account-verification-page-elements-component">
                 <form
                     action=""
