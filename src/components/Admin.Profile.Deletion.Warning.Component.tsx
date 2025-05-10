@@ -62,7 +62,11 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
     <PrimaryPageLoaderComponent />
         <aside className={String("admin-profile-deletion-warning-component").toLocaleLowerCase()}>
             <div>
-                <h2>Delete this profile?</h2>
+            <img src={`${String(`/avatars/${
+                        currentAdmin?.data?.avatar ? currentAdmin?.data?.avatar : "avatar-2.png"
+                        }`).toLocaleLowerCase()}`} alt="admin avatar" />
+                        <br />
+                <h2>Delete this profile for {currentAdmin?.data?.username as Required<string>}!</h2>
                 <p>This will permanently delete saved links, username, emails or profile from this device. However, any data that was previously synced to your profile will remain associated with your email account.</p>
                 <article>
                     <button type="button" onClick={async (event) => {

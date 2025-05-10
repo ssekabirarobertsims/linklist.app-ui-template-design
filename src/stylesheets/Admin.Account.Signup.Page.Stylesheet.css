@@ -1,5 +1,5 @@
 section[class="account-signup-page-elements-component"] {
-    min-height: 100vh;
+    min-height: 90vh;
     width: min(100%, 100%);
     display: flex;
     align-items: center;

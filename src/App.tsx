@@ -57,6 +57,7 @@ import PrimaryAuthenticationObjectContext from "./context/Primary.Authentication
 import SecondaryAuthenticationObjectContext from "./context/Secondary.Authentication.Object.Context";
 import OfflinePageElementsComponent from "./pages/Offline.Page";
 import DashboardTrashPageElementsComponent from "./pages/Dashboard.Trash.Page";
+import AdminAccountUnRegisterPageElementsComponent from "./pages/Admin.Account.UnRegister.Page";
 const PrimaryAuthenticationObject: (object | PrimaryAuthenticationObjectProps) =
   JSON.parse(
     window.decodeURIComponent(
@@ -76,7 +77,7 @@ const SecondaryAuthenticationObject: (object | SecondaryAuthenticationProps) =
 function App() {
   return !window.navigator.onLine ? (
     <SecondaryAuthenticationObjectContext.Provider
-      value={SecondaryAuthenticationObject as SecondaryAuthenticationProps}
+      value={SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>}
     >
       <Routes>
         <Route index element={<LandingHomePageElementsComponent />} />
@@ -90,8 +91,8 @@ function App() {
         <Route
           path={`/dashboard`}
           element={
-            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) &&
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <DashboardHomePageElementsComponent />
             ) : (
               <AdminAccountSignupPageElementsComponent />
@@ -101,8 +102,8 @@ function App() {
         <Route
           path={`/dashboard/saved/links`}
           element={
-            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) &&
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <DashboardLinksPageElementsComponent />
             ) : (
               <AdminAccountSignupPageElementsComponent />
@@ -112,8 +113,8 @@ function App() {
         <Route
           path={`/dashboard/links/trash`}
           element={
-            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) &&
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <DashboardTrashPageElementsComponent />
             ) : (
               <AdminAccountSignupPageElementsComponent />
@@ -123,8 +124,8 @@ function App() {
         <Route
           path={`/dashboard/settings`}
           element={
-            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) &&
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <DashboardSettingsPageElementsComponent />
             ) : (
               <AdminAccountSignupPageElementsComponent />
@@ -134,8 +135,8 @@ function App() {
         <Route
           path={`/dashboard/app/info`}
           element={
-            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) &&
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <DashboardInformationPageElementsComponent />
             ) : (
               <AdminAccountSignupPageElementsComponent />
@@ -146,10 +147,10 @@ function App() {
         <Route
           path="/admin/account/login"
           element={
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <PrimaryAuthenticationObjectContext.Provider
                 value={
-                  PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps
+                  PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>
                 }
               >
                 <AdminAccountLoginPageElementsComponent />
@@ -159,14 +160,33 @@ function App() {
             )
           }
         />
+
+        <Route
+          path="/admin/account/un-register"
+          element={
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) && 
+            !(SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) ? (
+              <PrimaryAuthenticationObjectContext.Provider
+                value={
+                  PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>
+                }
+              >
+                <AdminAccountUnRegisterPageElementsComponent />
+              </PrimaryAuthenticationObjectContext.Provider>
+            ) : (
+              <AdminAccountLoginPageElementsComponent />
+            )
+          }
+        />
+
         <Route
           path="/admin/account/subscription"
           element={
-            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) &&
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <PrimaryAuthenticationObjectContext.Provider
                 value={
-                  PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps
+                  PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>
                 }
               >
                 <AdminAccountSubscriptionPageElementsComponent />
@@ -180,8 +200,8 @@ function App() {
         <Route
           path="/admin/account/signup"
           element={
-            (SecondaryAuthenticationObject as SecondaryAuthenticationProps) ||
-            (PrimaryAuthenticationObject as PrimaryAuthenticationObjectProps) ? (
+            (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) ||
+            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) ? (
               <AdminAccountLoginPageElementsComponent />
             ) : (
               <AdminAccountSignupPageElementsComponent />

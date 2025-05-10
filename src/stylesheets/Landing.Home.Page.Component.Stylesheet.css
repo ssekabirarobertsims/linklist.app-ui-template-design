@@ -22,6 +22,10 @@ nav[class="home-page-navigation-bar-component"] > div :where(a) {
     font-size: 1.3em;
     font-weight: calc(290 + 250);
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .1em;
 }
 section[class="landing-home-page-element-component"] {
     min-height: 75vh;
@@ -76,12 +80,12 @@ section[class="landing-home-page-element-component"] :where(header) > div[id="co
     max-width: 30em;
 }
 section[class="landing-home-page-element-component"] :where(header) > div[id="content"] :is(h1) {
-    font-size: 3em;
+    font-size: 2.8em;
     line-height: 1.3em;
     max-width: 30em;
 }
 section[class="landing-home-page-element-component"] :where(header) > div[id="content"] :is(p) {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: calc(290 + 290);
     line-height: 1.3em;
     max-width: 50em;

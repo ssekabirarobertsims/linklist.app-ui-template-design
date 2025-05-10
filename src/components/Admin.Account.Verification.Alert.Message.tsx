@@ -32,7 +32,7 @@ const AdminAccountVerificationAlertMessageComponent: React.FunctionComponent = (
             <div>
                 <div id="_wrapper">
                     <span>
-                    <MdSecurity />
+                    <MdSecurity /> 
                     </span>
                 <h3>Admin account verification</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus eaque eos, eius recusandae vitae iusto harum vero ut, possimus nulla, quos minus!</p>
