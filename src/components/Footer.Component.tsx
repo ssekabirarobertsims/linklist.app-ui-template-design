@@ -11,7 +11,7 @@ type ListItemProperties = {
 const FooterComponent: React.FunctionComponent = () => {
     const [list, setList] = useState<ListItemProperties[]>([
         {
-            id: v4() as string,
+            id: v4() as Required<Readonly<string>>,
             content: "about",
             link: ""
         },
@@ -27,10 +27,10 @@ const FooterComponent: React.FunctionComponent = () => {
                         list.map((item: ListItemProperties) => (
                             <li key={item.id}>
                                 <Link to={{
-                                    pathname: item.link as string,
+                                    pathname: item.link as Required<Readonly<string>>,
                             }}>
                                 {
-                                    item.content as string
+                                    item.content as Required<Readonly<string>>
                                 }
                             </Link>
                             </li>
@@ -43,7 +43,7 @@ const FooterComponent: React.FunctionComponent = () => {
                         <a href="https://api-linklist-restapi.onrender.com" target="_blank">api</a>
                     </li>
                 </ul>
-                    <p>. Linklist &copy;right {Number(2025 as number)} All Rights Reserved</p>
+                    <p>. Linklist &copy;right {Number(2025 as Required<Readonly<number>>)} All Rights Reserved</p>
             </div>
         </footer>
     </>

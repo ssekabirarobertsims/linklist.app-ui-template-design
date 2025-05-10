@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../stylesheets/Landing.Home.Page.Component.Stylesheet.css";
+import { BiLink } from "react-icons/bi";
 
 const LandingHomePageNavigationBarComponent: React.FunctionComponent = () => {
     return <>
@@ -8,7 +9,7 @@ const LandingHomePageNavigationBarComponent: React.FunctionComponent = () => {
             <div>
                 <Link to={{
                     pathname: "/"
-                }}>Linklist</Link>
+                }}><BiLink /> Linklist</Link>
             </div>
         </nav>
     </>

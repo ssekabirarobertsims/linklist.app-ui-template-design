@@ -16,7 +16,7 @@ const TrashLinkDeletionNotificationHamburgComponent: React.FunctionComponent = (
                     onClick={(event) => {
                         event.stopPropagation();
                         RemoveElement(
-                            (window.document.querySelector(".trash-link-deletion-notification-hamburg-component") as HTMLElement)
+                            (window.document.querySelector(".trash-link-deletion-notification-hamburg-component") as Required<HTMLElement>)
                         );
                     }}
                 ><CgClose /></span>

@@ -99,23 +99,23 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
 }
 section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) {
-    height: 8em;
+    height: 7.5em;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-flow: column nowrap;
-    gap: .6em;
+    gap: 1em;
     cursor: pointer;
     border-radius: .3em;
     border: 1px solid hsl(0, 0%, 93%);
     background-color: #fff;
 }
 section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li):is(:hover, :focus) {
-    -webkit-box-shadow: 1px  1px 2px -1px rgba(0, 0, 0, .1);
-    -moz-box-shadow: 1px  1px 2px -1px rgba(0, 0, 0, .1);
-    box-shadow: 1px  1px 2px -1px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
+    box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
 }
 section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div {
     width: min(95%, 95%);
@@ -123,7 +123,7 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     display: flex;
 }
 section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div[class="dashboard-trash-page-upper-content-wrapper"] {
-    height: 4em;
+    height: 2.5em;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
@@ -139,22 +139,21 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     position: relative;
 }
 section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button) {
-   height: 2.5em;
-    width: 3.5em;
-    border: none;
-    background-color: hsl(0, 0%, 90%);
-    cursor: pointer;
+    height: 1.5em;
+    width: 1.5em;
     border-radius: .3em;
-    -webkit-box-shadow: 1px  1px 2px -1px rgba(0, 0, 0, .1);
-    -moz-box-shadow: 1px  1px 2px -1px rgba(0, 0, 0, .1);
-    border: 1px solid hsl(0, 0%, 50%);
-    box-shadow: 1px  1px 2px -1px rgba(0, 0, 0, .1);
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: #000;
 }
 section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button):is(:hover, :focus) {
-    background-color: #fff;
+    color: var(--primary-theme-color);
 }
 section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(h2) {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: calc(290 + 250);
     color: hsl(0, 0%, 10%);
 }

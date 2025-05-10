@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { LiaCookieBiteSolid } from "react-icons/lia";
 import "../../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
 
 const DashboardSettingsPageSiteCookiesPermissionComponent: React.FunctionComponent = () => {
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
     return <>
         <br />
             <h2>Cookies and site permissions</h2>
@@ -17,16 +19,18 @@ const DashboardSettingsPageSiteCookiesPermissionComponent: React.FunctionCompone
                         checked
                         aria-checked="true"
                         onChange={(event) => {
-                            console.log((event.target as HTMLInputElement).value);
+                            console.log((event.target as Required<HTMLInputElement>).value);
                         }}
                     />
                     Allow site to use and save cookies.
                    </label>
                    <br />
-                   <button type="button"><span><LiaCookieBiteSolid /></span> Clear Cookies</button>
+                   <button type="button"
+                    disabled={Boolean(false) as Required<boolean>}
+                    ref={buttonRef}
+                   ><span><LiaCookieBiteSolid /></span> Clear Cookies</button>
                    </aside>
                 </div>
-                {/* <button type="button">Remove all cookies</button> */}
             </article>
     </>
 }

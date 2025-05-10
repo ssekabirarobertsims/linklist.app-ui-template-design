@@ -139,15 +139,22 @@ section[class="dashboard-page-elements-component"] > div[class="dashboard-page-e
     justify-content: center;
     gap: .3em;
     padding: 10px;
-    background-color: hsl(0, 0%, 97%);
+    background-color: hsl(0, 0%, 100%);
 }
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"] > article[class="dashboard-settings-admin-profile-component-right-content-wrapper"] > button[class="logout-profile-button"] {
     height: 3em;
     width: 10em;
+    border: 1px solid rgb(228, 0, 0);
+    color: rgb(228, 0, 0);
+    background-color: #fff;
 }
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"] > article[class="dashboard-settings-admin-profile-component-right-content-wrapper"] > button:is(:hover, :focus) {
     border: 1px solid hsl(0, 0%, 80%);
     background-color: hsl(0, 0%, 90%);
+}
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"] > article[class="dashboard-settings-admin-profile-component-right-content-wrapper"] > button[class="logout-profile-button"]:is(:hover, :focus) {
+    background-color: hsl(0, 100%, 98%);
+    border: 1px solid rgb(228, 0, 0);
 }
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > aside[class="dashboard-settings-page-avatar-form-component"]  {
     height: 100%;

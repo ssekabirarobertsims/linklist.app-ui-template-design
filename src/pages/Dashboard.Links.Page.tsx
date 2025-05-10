@@ -7,6 +7,7 @@ import "../stylesheets/Dashboard.Links.Page.Stylesheet.css";
 import CreateLinkFormComponent from "../components/Create.Link.Form.Component";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
+import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 
 const DashboardLinksPageElementsComponent: React.FunctionComponent = () => {
     useEffect(() => {
@@ -15,6 +16,7 @@ const DashboardLinksPageElementsComponent: React.FunctionComponent = () => {
           
     return <> 
             <CookiesSiteMessageComponent />
+            <AdminAccountVerificationAlertMessageComponent />
             <NotificationsSideBarComponent />
         <section className={String("dashboard-links-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />

@@ -13,7 +13,7 @@ const SiteDeveloperNavigationComponent: React.FC = () => {
       >
         <p>Need some little help!</p>
         <a href="http://ssekabirarobertsims.netlify.app" target="_blank">
-          <img src="/photos/robertsims.jpg" alt="" ref={photosRef} />
+          <img src="/photos/ssekabirarobertsims-2.png" alt="" ref={photosRef} />
         </a>
       </div>
     </>

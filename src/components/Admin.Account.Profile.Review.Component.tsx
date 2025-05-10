@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string;
+    request_id: string; 
     status_code: string;
     data: {
         id: string,
@@ -13,6 +13,8 @@ interface SecondaryAuthenticationProps {
         avatar: string,
         email: string,
         token: string,
+        subscribed: string,
+        verified: string,
     }
 }
 
@@ -21,7 +23,6 @@ import { CiSettings } from "react-icons/ci";
 
 const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
     const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
-    console.log(currentAdmin);
 
     return <>
         <article className={String("admin-account-profile-review-side-bar").toLocaleLowerCase()} 
@@ -43,7 +44,7 @@ const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
                 <div>
                     <p>{String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin username undefined")}</p>
                     <span>{String(currentAdmin?.data?.email ? currentAdmin?.data?.email : "Admin email undefined")}</span>
-                    <strong>{String(currentAdmin?.data?.email ? "Verified" : "Unverified")}</strong>
+                    <strong>{String((currentAdmin?.data?.verified === String(Boolean(true)) ? "Verified" : "Unverified"))}</strong>
                 </div>
                 </aside>
                 {/* <button type="button" className={String("admin-account-profile-review-side-bar-settings-page").toLocaleLowerCase()}><LuLogOut /> Logout</button> */}

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import "../stylesheets/Admin.Account.Login.Page.Stylesheet.css";
+import "../stylesheets/Admin.Account.UnRegister.Page.Stylesheet.css";
 import { Link } from "react-router-dom";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import axios from "axios";
@@ -14,16 +14,16 @@ import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Compon
 import DisplayElement from "../functions/Display.Element.Function";
 import RemoveElement from "../functions/Remove.Element.Function";
 import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
+import { MdSecurity } from "react-icons/md";
 
-const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
-    const [password, setPassword] = useState<string>("" as Required<Readonly<string>>);
+const AdminAccountUnRegisterPageElementsComponent: React.FunctionComponent = () => {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const [responseMessage, setResponseMessage] = useState<string>("" as Required<Readonly<string>>);
     const PrimaryAuthenticationObject: AdminAccountContextProperties = React.useContext(PrimaryAuthenticationObjectContext) as AdminAccountContextProperties;
 
     useEffect(() => {
         document.title = "Page - Login | LinkList";
-    }, []); 
+    }, []);
     
 
     class login {
@@ -34,7 +34,6 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                 try {
                     const { data: response } = await axios.post("http://localhost:3000/admin/account/login", {
                         username: String(PrimaryAuthenticationObject?.username) as Required<Readonly<string>>,
-                        password: password,
                         avatar: String(PrimaryAuthenticationObject?.avatar) as Required<Readonly<string>>,
                         email: String(PrimaryAuthenticationObject?.email) as Required<Readonly<string>>,
                     }, {
@@ -77,39 +76,19 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
             <CookiesSiteMessageComponent />
             <PrimaryPageLoaderComponent />
             <SecondaryNavigationBarComponent />
-            <section className="account-login-page-elements-component">
+            <section className="account-un-register-page-elements-component">
                 <form
                     action=""
                     method="post"
                     encType="multipart/form-data"
-                    className="account-login-page-form"
+                    className="account-un-register-page-form"
                 >
-                    <div id="_wrapper">
-                    <h1>Login as {
-                        PrimaryAuthenticationObject?.username ? PrimaryAuthenticationObject?.username : "Admin Username Undefined"
-                    }</h1>
-                    <span className="login-response-message-placeholder">{responseMessage}</span>
-                    <p></p>
-                    <img src={`${String(`/avatars/${
-                        PrimaryAuthenticationObject?.avatar ? PrimaryAuthenticationObject?.avatar : "avatar-2.png"
-                        }`).toLocaleLowerCase()}`} alt="Admin Avatar" />
-                    <span>{
-                        PrimaryAuthenticationObject?.email ? PrimaryAuthenticationObject?.email : "Admin Email Undefined"
-                    }</span>
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        aria-placeholder="Password"
-                        onInput={(event) => setPassword((event.target as Required<HTMLInputElement>).value)}
-                        value={password}
-                        required
-                        aria-required="true"
-                    />
-                    <Link to={{
-                        pathname: "/admin/account/un-register"
-                    }}>
-                        Forgot password?
-                    </Link>
+                    <h1>
+                       <MdSecurity />
+                    </h1>
+                    <h2>Forgot admin account login password!</h2>
+                    {/* <span className="un-register-response-message-placeholder">{responseMessage}</span> */}
+                   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt quidem impedit et ipsum, nemo necessitatibus laudantium facilis fuga sapiente, excepturi dolorem suscipit, nostrum quaerat exercitationem. Placeat culpa tempora, quo beatae explicabo velit esse similique dolor voluptatibus ab incidunt, ullam quae.</p>
                     <button
                     disabled={Boolean(false) as Required<boolean>}
                     ref={buttonRef}
@@ -120,26 +99,25 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                             new login();
                         }}
                     >
-                        Login
+                        Unregister Account
                     </button>
-                    </div>
                 </form>
                 <br />
                 <br />
                 <p>
-                    Have no admin account?{" "}
+                    Remembered your admin account login password?{" "}
                     <Link
                         to={{
-                            pathname: "/admin/account/signup",
+                            pathname: "/admin/account/login",
                             search: "query=signup&form=password&username&email",
                         }}
                     >
-                        Signup
-                    </Link> for a new admin account in order to log into a fresh new dashboard to start saving your links in only one safest place anywhere.
+                        Login
+                    </Link> to your admin account in order to continue to a fresh new dashboard to continue saving your links in only one safest place anywhere.
                 </p>
             </section>
         </>
     );
 };
 
-export default AdminAccountLoginPageElementsComponent;
+export default AdminAccountUnRegisterPageElementsComponent;

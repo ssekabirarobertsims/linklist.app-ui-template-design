@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
+import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 
 const DashboardInformationPageElementsComponent: React.FunctionComponent = () => {
 
@@ -11,6 +12,7 @@ useEffect(() => {
 
     return <>
             <CookiesSiteMessageComponent /> 
+            <AdminAccountVerificationAlertMessageComponent /> 
             <NotificationsSideBarComponent />
         <section className={String("dashboard-information-page-elements-component").toLocaleLowerCase()}>
             <div className={String("dashboard-information-page-elements-component-content-wrapper").toLocaleLowerCase()}>
@@ -26,7 +28,7 @@ useEffect(() => {
             <p>API: <a href="https://api-linklist-restapi.onrender.com/" target="_blank">api.linklist.restapi</a></p>
             <br />
             <h3>Linklist.app</h3>
-            <span>Linklist &copy;right {Number(2025 as number)} All Rights Reserved</span>
+            <span>Linklist &copy;right {Number(2025 as Required<Readonly<number>>)} All Rights Reserved</span>
         </article>
             </div>
         </section>

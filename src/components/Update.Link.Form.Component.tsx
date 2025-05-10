@@ -9,15 +9,17 @@ import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentic
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string;
+    request_id: string; 
     status_code: string;
     data: {
-        id: string;
-        username: string;
-        avatar: string;
-        email: string;
-        token: string;
-    };
+        id: string,
+        username: string,
+        avatar: string,
+        email: string,
+        token: string,
+        subscribed: string,
+        verified: string,
+    }
 }
 
 type ListItemProperties = {
@@ -57,7 +59,7 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
                 { title, link },
                 {
                     headers: {
-                        Authorization: `Bearer ${currentAdmin?.data?.token}`,
+                        Authorization: String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
                         "Content-Type": "application/json",
                     },
                 }
@@ -65,15 +67,15 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
 
             const response = request.data;
 
-            if (request.status === 200) {
+            if (request.status === 200 as Required<Readonly<number>>) {
                 onUpdate({ ...selectedLink, title, link });
-                const updateForm = document.querySelector(".update-link-form-component") as HTMLElement;
+                const updateForm = document.querySelector(".update-link-form-component") as Required<HTMLElement>;
                 RemoveElement(updateForm);
-                const notification = document.querySelector(".link-updating-notification-hamburg-component") as HTMLElement;
+                const notification = document.querySelector(".link-updating-notification-hamburg-component") as Required<HTMLElement>;
                 DisplayElement(notification);
                 setTimeout(() => {
                     RemoveElement(notification);
-                }, 5500);
+                }, 5500 as Required<Readonly<number>>);
             } else {
                 console.error("Failed to update the link:", response);
             }
@@ -89,9 +91,9 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
                 <span
                     className="close"
                     onClick={() => {
-                        RemoveElement((document.querySelector(".update-link-form-component") as HTMLElement));
-                        (window.document.querySelector("#update-link-form-title-input") as HTMLInputElement).value = "" as string;
-                        (window.document.querySelector("#update-link-form-link-input") as HTMLInputElement).value = "" as string;
+                        RemoveElement((document.querySelector(".update-link-form-component") as Required<HTMLElement>));
+                        (window.document.querySelector("#update-link-form-title-input") as Required<HTMLInputElement>).value = "" as Required<Readonly<string>>;
+                        (window.document.querySelector("#update-link-form-link-input") as Required<HTMLInputElement>).value = "" as Required<Readonly<string>>;
                     }}
                 >
                     <CgClose />
@@ -104,7 +106,7 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
-                    maxLength={Number(20) as number}
+                    maxLength={Number(20) as Required<Readonly<number>>}
                 />
                 <input
                     type="url"
