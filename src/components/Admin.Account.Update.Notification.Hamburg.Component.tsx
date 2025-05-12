@@ -3,26 +3,30 @@ import RemoveElement from "../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
 
 const AdminAccountUpdateNotificationHamburgComponent: React.FunctionComponent = () => {
-    return <>
-        <div 
-            className={String("admin-account-update-notification-hamburg-component").toLocaleLowerCase()}
-             id={String("notification-hamburg-component").toLocaleLowerCase()}
+    const handleClose = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        const element = document.querySelector(
+            ".admin-account-update-notification-hamburg-component"
+        ) as HTMLElement | null;
+
+        if (element) {
+            RemoveElement(element);
+        }
+    };
+
+    return (
+        <div
+            className="admin-account-update-notification-hamburg-component"
+            id="notification-hamburg-component"
         >
             <article>
-                <p>
-                    Admin account updated successfully!
-                </p>
-                <span
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        RemoveElement(
-                            (window.document.querySelector(".admin-account-update-notification-hamburg-component") as Required<HTMLElement>)
-                        );
-                    }}
-                ><CgClose /></span>
+                <p>Admin account updated successfully!</p>
+                <span onClick={handleClose}>
+                    <CgClose />
+                </span>
             </article>
         </div>
-    </> 
-}
+    );
+};
 
 export default AdminAccountUpdateNotificationHamburgComponent;

@@ -6,14 +6,14 @@ import DashboardSettingsPageSiteCookiesPermissionComponent from "./Dashboard.Set
 import "../../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
 
 const DashboardSettingsPageContentComponent: React.FunctionComponent = () => {
-    return <>
-        <article className={String("dashboard-settings-page-content-component").toLocaleLowerCase()}>
+    return (
+        <article className="dashboard-settings-page-content-component">
             <DashboardSettingsPageAdminProfileComponent />
             <DashboardSettingsPageAvatarFormComponent />
             <AdminProfileDeletionWarningComponent />
             <DashboardSettingsPageSiteCookiesPermissionComponent />
         </article>
-    </>
-}
+    );
+};
 
 export default DashboardSettingsPageContentComponent;

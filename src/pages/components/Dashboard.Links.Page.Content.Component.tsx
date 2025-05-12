@@ -4,193 +4,195 @@ import LinkDeletionNotificationHamburgComponent from "../../components/Link.Dele
 import LinkUpdatingNotificationHamburgComponent from "../../components/Link.Updating.Notification.Hamburg.Component";
 import "../../stylesheets/Dashboard.Links.Page.Stylesheet.css";
 
+import { BiPencil, BiTrash, BiCopy } from "react-icons/bi";
+import { BsSearch } from "react-icons/bs";
+import Copy from "../../functions/Copy.Link.Function";
+import DisplayElement from "../../functions/Display.Element.Function";
+import axios from "axios";
+
+import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
+import UpdateLinkFormComponent from "../../components/Update.Link.Form.Component";
+import { v4 as uuid } from "uuid";
+
 type ListItemProperties = {
     id: string;
     title: string;
     link: string;
     admin_id: string;
-} 
-
-import { BiPencil, BiTrash, BiCopy } from "react-icons/bi";
-import Copy from "../../functions/Copy.Link.Function";
-import { BsSearch } from "react-icons/bs";
-import DisplayElement from "../../functions/Display.Element.Function";
-import axios from "axios";
-
-import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
+};
 
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string; 
+    request_id: string;
     status_code: string;
     data: {
-        id: string,
-        username: string,
-        avatar: string,
-        email: string,
-        token: string,
-        subscribed: string,
-        verified: string,
-    }
+        id: string;
+        username: string;
+        avatar: string;
+        email: string;
+        token: string;
+        subscribed: string;
+        verified: string;
+    };
 }
-
-import UpdateLinkFormComponent from "../../components/Update.Link.Form.Component";
-import { v4 as uuid } from "uuid"; 
 
 const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
-    const [list, setList] = useState<ListItemProperties[]>([] as ListItemProperties[]);
+    const [list, setList] = useState<ListItemProperties[]>([]);
+    const [searchResults, setSearchResults] = useState<ListItemProperties[]>([]);
+    const [value, setValue] = useState<string>("");
+    const [selectedLink, setSelectedLink] = useState<ListItemProperties | null>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as Required<Readonly<(SecondaryAuthenticationProps)>>;
+    const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
 
-        useEffect(() => {
-            (async function () {
-                const { data: response } = await axios.get("http://localhost:3000/saved/links", { 
+    useEffect(() => {
+        (async function fetchLinks() {
+            try {
+                const { data: response } = await axios.get("http://localhost:3000/saved/links", {
                     headers: {
-                        "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
-                        "Content-Type": "Application/json"
-                    }
-                }); 
-                
-                const links: ListItemProperties[] = response?.saved_links;
-                setList(links?.filter((item: ListItemProperties) => {
-                    return String(item?.admin_id ) === String(currentAdmin?.data?.id) as Required<string>;
-                }));
-            }());
-        }, [currentAdmin?.data?.token, currentAdmin?.data?.id]);
-    
-        const [searchResults, setSearchResults] = useState<ListItemProperties[]>(list as ListItemProperties[]);
-        const [value, setValue] = useState<string>("" as Required<Readonly<string>>);
-    
-        useEffect(() => { 
-            // Filter the list whenever the search value changes
-            const filteredResults = list.filter((item: ListItemProperties) =>
-                item.title.toLocaleLowerCase().includes(value.toLowerCase())
-            );
-            setSearchResults(filteredResults);
-        }, [value, list]);
+                        Authorization: `Bearer ${currentAdmin?.data?.token}`,
+                        "Content-Type": "application/json",
+                    },
+                });
 
-        const [selectedLink, setSelectedLink] = useState<ListItemProperties | null>(null);
-
-        class trashLink {
-            private static readonly notification: HTMLElement = (window.document.querySelector(".link-deletion-notification-hamburg-component") as Readonly<HTMLElement>);
-
-            constructor(id: string) {
-                (async function (): Promise<void> {
-                    const { data: response } = await axios.delete(`http://localhost:3000/saved/links/${String(id) as Readonly<string>}`, { 
-                        headers: {
-                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
-                            "Content-Type": "Application/json"
-                        }
-                    }); 
-                    
-                    if(response.status_code === Number(200) as Partial<Readonly<number>>) {
-                        DisplayElement(trashLink.notification);
-                        window.setTimeout(() => window.location.reload(), Number(1500) as Partial<Readonly<number>>);
-                    } else (async function(): Promise<string> {
-                        return response;
-                    }());
-            }());
+                const links: ListItemProperties[] = response?.saved_links || [];
+                setList(
+                    links.filter((item) => item.admin_id === currentAdmin?.data?.id)
+                );
+            } catch (error) {
+                console.error("Error fetching links:", error);
             }
-        }
+        })();
+    }, [currentAdmin?.data?.token, currentAdmin?.data?.id]);
 
-    return <>
-        <article className={String("dashboard-home-page-content-component").toLocaleLowerCase()}>
-            <br />
-            <p></p>
-            <LinkCreationNotificationHamburgComponent content={"Link has been saved successfully!"}  />
-            <LinkDeletionNotificationHamburgComponent />
-            <LinkUpdatingNotificationHamburgComponent />
-            <UpdateLinkFormComponent
-                selectedLink={selectedLink}
-                onUpdate={(updatedLink) => {
-                    // Update the list with the new link data
-                    setList((prevList) =>
-                        prevList.map((link) =>
-                            link.id === updatedLink.id ? updatedLink : link
-                        )
-                    );
-                }}
-            />
-            <div className={String("dashboard-page-search-input").toLocaleLowerCase()}>
-                <span>
-                    <BsSearch />
-                </span>
-                <input type="search" name="search" id="search"
-                    onInput={(event) => setValue((event.target as Required<HTMLInputElement>).value)}
-                    value={value}
-                    placeholder="search for a link..."
-                    aria-placeholder="search for a link..."
-                /> 
-            </div>
-        <span className="link_no">{Number(list.length) as Partial<Readonly<number>>} saved links</span>
-            {
-                searchResults?.length > 0 ? <ul className={String("dashboard-page-saved-links-ul-list-component").toLocaleLowerCase()}>
+    useEffect(() => {
+        const filteredResults = list.filter((item) =>
+            item.title.toLowerCase().includes(value.toLowerCase())
+        );
+        setSearchResults(filteredResults);
+    }, [value, list]);
+
+    const handleDeleteLink = async (id: string) => {
+        try {
+            const { data: response } = await axios.delete(
+                `http://localhost:3000/saved/links/${id}`,
                 {
-                    searchResults.map((item: ListItemProperties) => ( 
-                        <li key={uuid() as Required<Readonly<string>>}>
-                            
-                            <div className={String("dashboard-page-saved-links-upper-content-wrapper").toLocaleLowerCase()}>
-                                <h2>{String(item.title)}</h2>
-                                <a href={String(item.link).toLocaleLowerCase()} target="_blank">{String(item.link).toLocaleLowerCase()}</a>
-                            </div>
-                            <div className={String("dashboard-page-saved-links-down-content-wrapper").toLocaleLowerCase()}>
-                                <button type="button"  
-                                disabled={Boolean(false) as Required<boolean>}
-                                ref={buttonRef}
-                                    className={String("edit-link-button").toLocaleLowerCase()}
-                                    onClick={async (event): Promise<void> => {
-                                        event.stopPropagation();
-                                        console.log(event.target);
-                                        const updateLinkForm = window.document.querySelector(".update-link-form-component") as Required<HTMLElement>;
-                                        DisplayElement(updateLinkForm as Required<HTMLElement>);
-                                        const updateLinkFormTitleInput = window.document.querySelector("#update-link-form-title-input") as Required<HTMLInputElement>;
-                                        const updateLinkFormLinkInput = window.document.querySelector("#update-link-form-link-input") as Required<HTMLInputElement>;
-                                        updateLinkFormTitleInput.value = String(item.title);
-                                        updateLinkFormLinkInput.value = String(item.link);
-                                        setSelectedLink(item as ListItemProperties);
-                                    }}
-                                    >
-                                    <BiPencil />
-                                </button>
-                                <button type="button"  
-                                disabled={Boolean(false) as Required<boolean>}
-                                ref={buttonRef}
-                                className={String("delete-link-button").toLocaleLowerCase()}
-                                onClick={async (event): Promise<void> => {
-                                    event.stopPropagation();
-                                    new trashLink(item?.id);
-                                }}
-                                > 
-                                    <BiTrash />
-                                </button>
-                                <button type="button" 
-                                disabled={Boolean(false) as Required<boolean>}
-                                ref={buttonRef}
-                                className={String("copy-link-button").toLocaleLowerCase()}
-                                     onClick={(event) => {
-                                        event.stopPropagation();
-                                        Copy(item.link);
-                                    }}
-                                >
-                                    <BiCopy />
-                                </button>
-                               
-                            </div> 
-                        </li>
-                    ))
+                    headers: {
+                        Authorization: `Bearer ${currentAdmin?.data?.token}`,
+                        "Content-Type": "application/json",
+                    },
                 }
-            </ul> : <div className={String("no-results-message").toLocaleLowerCase()}>
-                <h2>No links found!</h2>
-                <p>
-                    Your link list is empty. Please add a link to your list.
-                </p>
-            </div>
-            }
-            <p></p>
-        </article>
-    </> 
-}
+            );
 
-export default DashboardLinksPageContentComponent; 
+            if (response.status_code === 200) {
+                DisplayElement(
+                    document.querySelector(".link-deletion-notification-hamburg-component") as HTMLElement
+                );
+                setTimeout(() => window.location.reload(), 1500);
+            }
+        } catch (error) {
+            console.error("Error deleting link:", error);
+        }
+    };
+
+    return (
+        <>
+            <article className="dashboard-home-page-content-component">
+                <br />
+                <LinkCreationNotificationHamburgComponent content="Link has been saved successfully!" />
+                <LinkDeletionNotificationHamburgComponent />
+                <LinkUpdatingNotificationHamburgComponent />
+                <UpdateLinkFormComponent
+                    selectedLink={selectedLink}
+                    onUpdate={(updatedLink) => {
+                        setList((prevList) =>
+                            prevList.map((link) =>
+                                link.id === updatedLink.id ? updatedLink : link
+                            )
+                        );
+                    }}
+                />
+                <div className="dashboard-page-search-input">
+                    <span>
+                        <BsSearch />
+                    </span>
+                    <input
+                        type="search"
+                        name="search"
+                        id="search"
+                        onInput={(event) =>
+                            setValue((event.target as HTMLInputElement).value)
+                        }
+                        value={value}
+                        placeholder="search for a link..."
+                        aria-placeholder="search for a link..."
+                    />
+                </div>
+                <span className="link_no">{list.length} saved links</span>
+                {searchResults.length > 0 ? (
+                    <ul className="dashboard-page-saved-links-ul-list-component">
+                        {searchResults.map((item) => (
+                            <li key={uuid()}>
+                                <div className="dashboard-page-saved-links-upper-content-wrapper">
+                                    <h2>{item.title}</h2>
+                                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                        {item.link}
+                                    </a>
+                                </div>
+                                <div className="dashboard-page-saved-links-down-content-wrapper">
+                                    <button
+                                        type="button"
+                                        ref={buttonRef}
+                                        className="edit-link-button"
+                                        onClick={() => {
+                                            const updateLinkForm = document.querySelector(
+                                                ".update-link-form-component"
+                                            ) as HTMLElement;
+                                            DisplayElement(updateLinkForm);
+                                            const titleInput = document.querySelector(
+                                                "#update-link-form-title-input"
+                                            ) as HTMLInputElement;
+                                            const linkInput = document.querySelector(
+                                                "#update-link-form-link-input"
+                                            ) as HTMLInputElement;
+                                            titleInput.value = item.title;
+                                            linkInput.value = item.link;
+                                            setSelectedLink(item);
+                                        }}
+                                    >
+                                        <BiPencil />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        ref={buttonRef}
+                                        className="delete-link-button"
+                                        onClick={() => handleDeleteLink(item.id)}
+                                    >
+                                        <BiTrash />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        ref={buttonRef}
+                                        className="copy-link-button"
+                                        onClick={() => Copy(item.link)}
+                                    >
+                                        <BiCopy />
+                                    </button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="no-results-message">
+                        <h2>No links found!</h2>
+                        <p>Your link list is empty. Please add a link to your list.</p>
+                    </div>
+                )}
+            </article>
+            <p></p>
+        </>
+    );
+};
+
+export default DashboardLinksPageContentComponent;

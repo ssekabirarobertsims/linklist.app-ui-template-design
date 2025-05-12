@@ -75,7 +75,7 @@ const SecondaryAuthenticationObject: (object | SecondaryAuthenticationProps) =
   console.log(SecondaryAuthenticationObject)
 
 function App() {
-  return window.navigator.onLine ? (
+  return !window.navigator.onLine ? (
     <SecondaryAuthenticationObjectContext.Provider
       value={SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>}
     >

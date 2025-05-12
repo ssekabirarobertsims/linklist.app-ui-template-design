@@ -6,208 +6,189 @@ import LinksTrashEmptyingNotificationHamburgComponent from "../../components/Lin
 import TrashLinkDeletionNotificationHamburgComponent from "../../components/Trash.Link.Deletion.Notification.Hamburg.Component";
 import "../../stylesheets/Dashboard.Trash.Page.Stylesheet.css";
 
-type ListItemProperties = {
-    id: string;
-    title: string;
-    link: string;
-    admin_id: string;
-}
-
 import { BiTrash, BiCopy } from "react-icons/bi";
 import { MdRestore } from "react-icons/md";
 import Copy from "../../functions/Copy.Link.Function";
 import DisplayElement from "../../functions/Display.Element.Function";
 import axios from "axios";
+import { v4 as uuid } from "uuid";
 
 import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
+
+type ListItemProperties = {
+    id: string;
+    title: string;
+    link: string;
+    admin_id: string;
+};
 
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
-    request_id: string; 
+    request_id: string;
     status_code: string;
     data: {
-        id: string,
-        username: string,
-        avatar: string,
-        email: string,
-        token: string,
-        subscribed: string,
-        verified: string,
-    }
+        id: string;
+        username: string;
+        avatar: string;
+        email: string;
+        token: string;
+        subscribed: string;
+        verified: string;
+    };
 }
 
-import RemoveElement from "../../functions/Remove.Element.Function";
-import { v4 as uuid } from "uuid";
-
 const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
-    const [list, setList] = useState<ListItemProperties[]>([] as ListItemProperties[]);
+    const [list, setList] = useState<ListItemProperties[]>([]);
+    const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
+    const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
-const buttonRef = useRef<HTMLButtonElement>(null);
-
-        useEffect(() => {
-            (async function () {
-                const request = await axios.get("http://localhost:3000/trash/links", { 
+    useEffect(() => {
+        (async function fetchTrashedLinks() {
+            try {
+                const { data: response } = await axios.get("http://localhost:3000/trash/links", {
                     headers: {
-                        "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
-                        "Content-Type": "Application/json"
-                    }
-                }); 
-                
-                const response = await request.data;
-                const links: ListItemProperties[] = response?.saved_links;
+                        Authorization: `Bearer ${currentAdmin?.data?.token}`,
+                        "Content-Type": "application/json",
+                    },
+                });
 
-                setList(links?.filter((item: ListItemProperties) => {
-                    return String(item?.admin_id) === String(currentAdmin?.data?.id);
-                }));
-            }());
-
-        }, [currentAdmin?.data?.token, currentAdmin?.data?.id]);
-    
-        class deleteLink {
-            private static readonly notification: HTMLElement = (window.document.querySelector(".trash-link-deletion-notification-hamburg-component") as Required<HTMLElement>);
-
-            constructor(id: string) {
-                (async function (): Promise<void> {
-                    const { data: response } = await axios.delete(`http://localhost:3000/trash/links/${String(id)}`, { 
-                        headers: {
-                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
-                            "Content-Type": "Application/json"
-                        }
-                    });
-                    
-                    if(response.status_code === Number(200) as Required<Readonly<number>>) {
-                        DisplayElement((deleteLink.notification));
-                        window.setTimeout(() => window.location.reload(), 1500);
-                    } else (async function(): Promise<string> {
-                        return response;
-                    }());
-            }());
+                const links: ListItemProperties[] = response?.saved_links || [];
+                setList(links.filter((item) => item.admin_id === currentAdmin?.data?.id));
+            } catch (error) {
+                console.error("Error fetching trashed links:", error);
             }
-        }
+        })();
+    }, [currentAdmin?.data?.token, currentAdmin?.data?.id]);
 
-        class restoreLink {
-            private static readonly notification: HTMLElement = (window.document.querySelector(".link-restoration-notification-hamburg-component") as Required<HTMLElement>);
+    const handleDeleteLink = async (id: string) => {
+        try {
+            const { data: response } = await axios.delete(`http://localhost:3000/trash/links/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${currentAdmin?.data?.token}`,
+                    "Content-Type": "application/json",
+                },
+            });
 
-            constructor(id: string, title: string, link: string) {
-                (async function (): Promise<unknown> {
-                    const { data: response } = await axios.post(`http://localhost:3000/trash/links/${String(id)}`, {
-                        title: title as Required<Readonly<string>>,
-                        link: link,
-                        admin_id: String(`${currentAdmin?.data?.id}`),
-                    } ,{ 
-                        headers: {
-                            "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
-                            "Content-Type": "Application/json"
-                        }
-                    }); 
-                    
-                    return response;
-            }());
-
-            DisplayElement(restoreLink.notification);
-            window.setTimeout(() => window.location.reload(), 1500);
+            if (response.status_code === 200) {
+                DisplayElement(document.querySelector(".trash-link-deletion-notification-hamburg-component") as HTMLElement);
+                setTimeout(() => window.location.reload(), 1500 as Required<number>);
             }
+        } catch (error) {
+            console.error("Error deleting link:", error);
         }
+    };
 
-    return <>
-        <article className={String("dashboard-home-page-content-component").toLocaleLowerCase()}>
+    const handleRestoreLink = async (id: string, title: string, link: string) => {
+        try {
+            const { data: response } = await axios.post(
+                `http://localhost:3000/trash/links/${id}`,
+                {
+                    title,
+                    link,
+                    admin_id: currentAdmin?.data?.id,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${currentAdmin?.data?.token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (response.status_code === 200 as Required<number>) {
+                DisplayElement(document.querySelector(".link-restoration-notification-hamburg-component") as HTMLElement);
+                setTimeout(() => window.location.reload(), 1500 as Required<number>);
+            }
+        } catch (error) {
+            console.error("Error restoring link:", error);
+        }
+    };
+
+    const handleEmptyTrash = async (event: React.MouseEvent) => {
+        event.stopPropagation();
+
+        try {
+            const { data: response } = await axios.delete(`http://localhost:3000/trash/empty/${currentAdmin?.data?.id}`, {
+                headers: {
+                    Authorization: `Bearer ${currentAdmin?.data?.token}`,
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (response.status_code === 200 as Required<number>) {
+                const notification = document.querySelector(".links-trash-emptying-notification-hamburg-component") as HTMLElement;
+                DisplayElement(notification);
+                setTimeout(() =>  window.location.reload(), 1500 as Required<number>);
+            }
+        } catch (error) {
+            console.error("Error emptying trash:", error);
+        }
+    };
+
+    return (
+        <article className="dashboard-home-page-content-component">
             <br />
-            <p></p>
             <LinkDeletionNotificationHamburgComponent />
             <LinksTrashEmptyingNotificationHamburgComponent />
             <LinkRestorationNotificationHamburgComponent />
-            <LinkUpdatingNotificationHamburgComponent /> 
+            <LinkUpdatingNotificationHamburgComponent />
             <TrashLinkDeletionNotificationHamburgComponent />
             <h1>Links Trash</h1>
-        <span className="link_no">{Number(list.length) as Required<Readonly<number>>} trashed links</span>
-            {
-                list?.length > 0 ? <ul className={String("dashboard-trash-page-ul-list-component").toLocaleLowerCase()}>
-                {
-                    list.map((item: ListItemProperties) => ( 
-                        <li key={uuid() as Required<Readonly<string>>}>
-                            
-                            <div className={String("dashboard-trash-page-upper-content-wrapper").toLocaleLowerCase()}>
-                                <h2>{String(item.title)}</h2>
-                                <a href={String(item.link).toLocaleLowerCase()} target="_blank">{String(item.link).toLocaleLowerCase()}</a>
+            <span className="link_no">{list.length} trashed links</span>
+            {list.length > 0 ? (
+                <ul className="dashboard-trash-page-ul-list-component">
+                    {list.map((item) => (
+                        <li key={uuid()}>
+                            <div className="dashboard-trash-page-upper-content-wrapper">
+                                <h2>{item.title}</h2>
+                                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                    {item.link}
+                                </a>
                             </div>
-                            <div className={String("dashboard-trash-page-down-content-wrapper").toLocaleLowerCase()}>
-                                <button type="button"
-                                disabled={Boolean(false) as Required<boolean>}
-                                ref={buttonRef}
-                                className={String("restore-link-button").toLocaleLowerCase()}
-                                onClick={async (event): Promise<void> => {
-                                    event.stopPropagation();
-                                    new restoreLink(item?.id as Required<Readonly<string>>, item?.title as Required<Readonly<string>>, item?.link as Required<Readonly<string>>);
-                                }}
-                                ><MdRestore /></button>
-                                <button type="button" 
-                                disabled={Boolean(false) as Required<boolean>}
-                                ref={buttonRef}
-                                className={String("delete-link-button").toLocaleLowerCase()}
-                                onClick={async (event): Promise<void> => {
-                                    event.stopPropagation();
-                                    new deleteLink(item.id);
-                                }}
-                                > 
-                                    <BiTrash />
-                                </button>
-                                <button type="button" 
-                                disabled={Boolean(false) as Required<boolean>}
-                                ref={buttonRef}
-                                className={String("copy-link-button").toLocaleLowerCase()}
-                                     onClick={(event) => {
+                            <div className="dashboard-trash-page-down-content-wrapper">
+                                <button
+                                    type="button"
+                                    ref={buttonRef}
+                                    className="restore-link-button"
+                                    onClick={(event: React.MouseEvent) => {
                                         event.stopPropagation();
-                                        Copy(item.link);
+                                        handleRestoreLink(item.id, item.title, item.link)
                                     }}
                                 >
-                                    <BiCopy /> 
+                                    <MdRestore />
                                 </button>
-                            </div> 
+                                <button
+                                    type="button"
+                                    ref={buttonRef}
+                                    className="delete-link-button"
+                                    onClick={() => handleDeleteLink(item.id)}
+                                >
+                                    <BiTrash />
+                                </button>
+                                <button
+                                    type="button"
+                                    ref={buttonRef}
+                                    className="copy-link-button"
+                                    onClick={() => Copy(item.link)}
+                                >
+                                    <BiCopy />
+                                </button>
+                            </div>
                         </li>
-                    ))
-                }
-            </ul> : <div className={String("no-results-message").toLocaleLowerCase()}>
-                <h2>No links found in trash!</h2>
-                <p>
-                    Your trash link list is empty. Delete links to add to your trash list.
-                </p>
-            </div>
-            }
-            <p></p>
-            <button type="button" id="empty-trash-button"
-            disabled={Boolean(false) as Required<boolean>}
-            ref={buttonRef}
-                onClick={async (event): Promise<void> => {
-                    event.stopPropagation();
-                    (async function (): Promise<void> {
-                        const request = await axios.delete(`http://localhost:3000/trash/empty/${String(currentAdmin?.data?.id)}`, { 
-                            headers: {
-                                "Authorization": String(`Bearer ${currentAdmin?.data?.token}` as Partial<Pick<SecondaryAuthenticationProps, "message">>),
-                                "Content-Type": "Application/json"
-                            }
-                        }); 
-                        
-                        const response = await request.data;
-                        
-                        if(request.status === 200 as Required<Readonly<number>>) {
-                            DisplayElement((window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as Required<HTMLElement>));
-                            window.setTimeout(() => {
-                                window.location.reload();
-                                RemoveElement(
-                                    (window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as Required<HTMLElement>)
-                                );
-                            }, 1500);
-                        } else (async function(): Promise<string> {
-                            return response;
-                        }());
-                }());
-                }}
-            ><BiTrash /> Empty trash</button>
-        <p></p>
+                    ))}
+                </ul>
+            ) : (
+                <div className="no-results-message">
+                    <h2>No links found in trash!</h2>
+                    <p>Your trash link list is empty. Delete links to add to your trash list.</p>
+                </div>
+            )}
+            <button type="button" id="empty-trash-button" ref={buttonRef} onClick={handleEmptyTrash}>
+                <BiTrash /> Empty trash
+            </button>
         </article>
-    </> 
-}
+    );
+};
 
 export default DashboardTrashPageContentComponent;

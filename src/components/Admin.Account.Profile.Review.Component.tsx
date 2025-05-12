@@ -1,6 +1,8 @@
 import React from "react";
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
+import { CiSettings } from "react-icons/ci";
+// import { LuLogOut } from "react-icons/lu";
 
 interface SecondaryAuthenticationProps {
     date: string;
@@ -8,49 +10,67 @@ interface SecondaryAuthenticationProps {
     request_id: string; 
     status_code: string;
     data: {
-        id: string,
-        username: string,
-        avatar: string,
-        email: string,
-        token: string,
-        subscribed: string,
-        verified: string,
-    }
+        id: string;
+        username: string;
+        avatar: string;
+        email: string;
+        token: string;
+        subscribed: string;
+        verified: string;
+    };
 }
 
-import { CiSettings } from "react-icons/ci";
-// import { LuLogOut } from "react-icons/lu";
-
 const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
-    const currentAdmin: (SecondaryAuthenticationProps) = React.useContext(SecondaryAuthenticationObjectContext) as (SecondaryAuthenticationProps);
+    const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
 
-    return <>
-        <article className={String("admin-account-profile-review-side-bar").toLocaleLowerCase()} 
-            onClick={(event) => {
-                event.stopPropagation();
-            }}
+    // Helper variables for better readability
+    const username = currentAdmin?.data?.username || "Admin username undefined";
+    const email = currentAdmin?.data?.email || "Admin email undefined";
+    const avatar = currentAdmin?.data?.avatar || "avatar-2.png";
+    const isVerified = currentAdmin?.data?.verified === "true" ? "Verified" : "Unverified";
+
+    return (
+        <article
+            className="admin-account-profile-review-side-bar"
+            onClick={(event) => event.stopPropagation()}
         >
             <div id="_wrapper">
                 <aside>
-                <Link to={{
-                    pathname: `/dashboard/settings`,
-                    search: `admin=${String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin").toLocaleLowerCase().replace(" ", "")}`
-                }}  className={String("admin-account-profile-review-side-bar-settings-page").toLocaleLowerCase()}>
-                    <CiSettings />
-                </Link>
-                <img src={`${String(`/avatars/${
-                        currentAdmin?.data?.avatar ? currentAdmin?.data?.avatar : "avatar-2.png"
-                        }`).toLocaleLowerCase()}`} alt="admin avatar" />
-                <div>
-                    <p>{String(currentAdmin?.data?.username ? currentAdmin?.data?.username : "Admin username undefined")}</p>
-                    <span>{String(currentAdmin?.data?.email ? currentAdmin?.data?.email : "Admin email undefined")}</span>
-                    <strong>{String((currentAdmin?.data?.verified === String(Boolean(true)) ? "Verified" : "Unverified"))}</strong>
-                </div>
+                    {/* Settings Link */}
+                    <Link
+                        to={{
+                            pathname: "/dashboard/settings",
+                            search: `admin=${encodeURIComponent(username.toLowerCase().replace(" ", ""))}`,
+                        }}
+                        className="admin-account-profile-review-side-bar-settings-page"
+                    >
+                        <CiSettings />
+                    </Link>
+
+                    {/* Avatar */}
+                    <img
+                        src={`/avatars/${avatar.toLowerCase()}`}
+                        alt={`${username}'s avatar`}
+                    />
+
+                    {/* Admin Details */}
+                    <div>
+                        <p>{username}</p>
+                        <span>{email}</span>
+                        <strong>{isVerified}</strong>
+                    </div>
                 </aside>
-                {/* <button type="button" className={String("admin-account-profile-review-side-bar-settings-page").toLocaleLowerCase()}><LuLogOut /> Logout</button> */}
+
+                {/* Logout Button (Commented Out) */}
+                {/* <button
+                    type="button"
+                    className="admin-account-profile-review-side-bar-settings-page"
+                >
+                    <LuLogOut /> Logout
+                </button> */}
             </div>
         </article>
-    </>
-}
+    );
+};
 
 export default AdminAccountProfileReviewComponent;
