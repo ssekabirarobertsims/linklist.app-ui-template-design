@@ -15,25 +15,25 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     justify-content: center;
     flex-direction: row; 
     flex-wrap: nowrap;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     /* background-color: hsl(0, 0%, 98%); */ 
     /* border: 1px solid red; */
     gap: 2em;
 }
 /*  */
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) {
     height: 87vh;
-    width: min(100%, 50em) !important;
+    width: min(100%, 62.5em) !important;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    /* border: 1px solid red; */
-    flex-grow: 1;
+    /* border: 1px solid rgb(0, 255, 115); */
+    /* flex-grow: 1; */
     gap: .5em;
     position: relative;
 }
-/* section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) :where(button[id="trash-links-button"]) {
+/* section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) :where(button[id="trash-links-button"]) {
     height: 3.5em;
     width: min(100%, 10em);
     border: none;
@@ -51,20 +51,20 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     box-shadow: 2px 1px 2px -1px rgba(0, 0, 0, .1);
     font-weight: bold;
 } */
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) :where(button[id="trash-links-button"]):is(:focus, :hover) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) :where(button[id="trash-links-button"]):is(:focus, :hover) {
     width: min(100%, 15em);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > h1[class="current-admin-message"] {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > h1[class="current-admin-message"] {
     font-size: 2em;
     font-weight: bold;
     color: #000;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > p[class="welcome-p-tag"] {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > p[class="welcome-p-tag"] {
     font-size: .9em;
     font-weight: normal;
     color: #000;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="dashboard-page-search-input"] {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="dashboard-page-search-input"] {
     min-height: 4em;
     width: min(97%, 97%);
     display: flex;
@@ -80,20 +80,21 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
     -moz-box-shadow: 1px  1px 5px -1px #dddddd;
     box-shadow: 1px  1px 5px -1px #dddddd;
+    /* border: 1px solid red; */
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="dashboard-page-search-input"] :where(span) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="dashboard-page-search-input"] :where(span) {
     font-weight: bold;
     color: hsl(0, 0%, 60%);
     font-size: 1.2em;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="dashboard-page-search-input"] :where(input) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="dashboard-page-search-input"] :where(input) {
     min-height: 3em;
     width: min(90%, 90%);
     border: none;
     outline-style: none;
     background-color: transparent;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="no-results-message"] {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="no-results-message"] {
     height: 27em;
     width: min(97%, 97%);
     border: 1px solid #eee;
@@ -107,14 +108,15 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
     -moz-box-shadow: 1px  1px 5px -1px #dddddd;
     box-shadow: 1px  1px 5px -1px #dddddd;
+    /* border: 1px solid red; */
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="no-results-message"] :where(p) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="no-results-message"] :where(p) {
     font-size: .9em;
     font-weight: normal;
     color: hsl(0, 0%, 20%);
     text-align: center;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] {
     height: 27em;
     width: min(97%, 97%);
     display: grid;
@@ -126,9 +128,10 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
     -moz-box-shadow: 1px  1px 5px -1px #dddddd;
     box-shadow: 1px  1px 5px -1px #dddddd;
+    /* border: 1px solid red; */
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) {
-    height: 7.5em;
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) {
+    height: 8em;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
@@ -141,17 +144,17 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     border: 1px solid hsl(0, 0%, 93%);
     background-color: #fff;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li):is(:hover, :focus) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li):is(:hover, :focus) {
     -webkit-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
     -moz-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
     box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div {
     width: min(95%, 95%);
     /* border: 1px solid red; */
     display: flex;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div[class="dashboard-page-saved-links-upper-content-wrapper"] {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div[class="dashboard-page-saved-links-upper-content-wrapper"] {
     height: 2.5em;
     align-items: flex-start;
     justify-content: center;
@@ -159,7 +162,7 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     /* border: 1px solid red; */
     gap: .2em;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div[class="dashboard-page-saved-links-down-content-wrapper"] {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div[class="dashboard-page-saved-links-down-content-wrapper"] {
     height: 1.9em;
     align-items: center;
     justify-content: flex-start;
@@ -167,12 +170,12 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     gap: .5em;
     position: relative;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(h2) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(h2) {
     font-size: 1.2em;
     font-weight: calc(290 + 250);
     color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(button) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(button) {
     height: 1.5em;
     width: 1.5em;
     border-radius: .3em;
@@ -183,18 +186,18 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     cursor: pointer;
     color: #000;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(button):where(:hover, :focus) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(button):where(:hover, :focus) {
     color: var(--primary-theme-color);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(a) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(a) {
     font-weight: normal;
     font-size: .9em;
     color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(a):is(:hover, :focus) {
+section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(a):is(:hover, :focus) {
     color: var(--primary-theme-color);
 }
-/* section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(input[id="select-text-box"]) {
+/* section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(input[id="select-text-box"]) {
     height: 1.2em;
     width: 1.2em;
     cursor: pointer;

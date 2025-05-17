@@ -57,7 +57,6 @@ import PrimaryAuthenticationObjectContext from "./context/Primary.Authentication
 import SecondaryAuthenticationObjectContext from "./context/Secondary.Authentication.Object.Context";
 import OfflinePageElementsComponent from "./pages/Offline.Page";
 import DashboardTrashPageElementsComponent from "./pages/Dashboard.Trash.Page";
-import AdminAccountUnRegisterPageElementsComponent from "./pages/Admin.Account.UnRegister.Page";
 const PrimaryAuthenticationObject: (object | PrimaryAuthenticationObjectProps) =
   JSON.parse(
     window.decodeURIComponent(
@@ -162,24 +161,6 @@ function App() {
         />
 
         <Route
-          path="/admin/account/un-register"
-          element={
-            (PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>) && 
-            !(SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) ? (
-              <PrimaryAuthenticationObjectContext.Provider
-                value={
-                  PrimaryAuthenticationObject as Required<Readonly<PrimaryAuthenticationObjectProps>>
-                }
-              >
-                <AdminAccountUnRegisterPageElementsComponent />
-              </PrimaryAuthenticationObjectContext.Provider>
-            ) : (
-              <AdminAccountLoginPageElementsComponent />
-            )
-          }
-        />
-
-        <Route
           path="/admin/account/subscription"
           element={
             (SecondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
@@ -215,6 +196,7 @@ function App() {
               <AdminAccountVerificationPageElementsComponent />
           }
         />
+
       </Routes>
     </SecondaryAuthenticationObjectContext.Provider>
   ) : (

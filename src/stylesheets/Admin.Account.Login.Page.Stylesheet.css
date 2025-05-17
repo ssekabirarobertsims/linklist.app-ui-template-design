@@ -6,6 +6,7 @@ section[class="account-login-page-elements-component"] {
     justify-content: center;
     flex-direction: column;
     /* border: 1px solid red; */
+    gap: 1em;
 }
 section[class="account-login-page-elements-component"] > form {
     min-height: 25em;
@@ -71,7 +72,8 @@ section[class="account-login-page-elements-component"] > form :is(img) {
     height: 5em;
     width: 5em;
     border-radius: 100%;
-    border: 5px solid #fff;
+    border: 3px solid var(--primary-theme-color);
+    padding: 3px;
 }
 section[class="account-login-page-elements-component"] > form :is(span) {
     font-weight: calc(290 + 250);

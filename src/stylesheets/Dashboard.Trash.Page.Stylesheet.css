@@ -21,7 +21,7 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     gap: 2em;
 }
 /*  */
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) {
     height: 87vh;
     width: min(100%, 50em) !important;
     display: flex;
@@ -33,17 +33,17 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     gap: .5em;
     position: relative;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > h1 {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > h1 {
     font-size: 2em;
     font-weight: bold;
     color: #000;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > p[class="welcome-p-tag"] {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > p[class="welcome-p-tag"] {
     font-size: .9em;
     font-weight: normal;
     color: #000;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="no-results-message"] {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > div[class="no-results-message"] {
     height: 27em;
     width: min(97%, 97%);
     border: 1px solid #eee;
@@ -58,13 +58,13 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
     box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="no-results-message"] :where(p) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > div[class="no-results-message"] :where(p) {
     font-size: .9em;
     font-weight: normal;
     color: hsl(0, 0%, 20%);
     text-align: center;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) :where(button[id="empty-trash-button"]) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(button[id="empty-trash-button"]) {
     height: 3.5em;
     width: min(100%, 10em);
     border: none;
@@ -82,13 +82,13 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     box-shadow: 2px 1px 2px -1px rgba(0, 0, 0, .1);
     font-weight: bold;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) :where(button[id="empty-trash-button"]):is(:focus, :hover) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(button[id="empty-trash-button"]):is(:focus, :hover) {
     width: min(100%, 15em);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] {
     height: 25.5em;
     width: min(97%, 97%);
-    display: grid;
+    display: grid; 
     gap: .5em;
     overflow-y: scroll;
     list-style: none;
@@ -98,8 +98,8 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
     box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) {
-    height: 7.5em;
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) {
+    height: 8em;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
@@ -112,17 +112,17 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     border: 1px solid hsl(0, 0%, 93%);
     background-color: #fff;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li):is(:hover, :focus) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li):is(:hover, :focus) {
     -webkit-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
     -moz-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
     box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div {
     width: min(95%, 95%);
     /* border: 1px solid red; */
     display: flex;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div[class="dashboard-trash-page-upper-content-wrapper"] {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div[class="dashboard-trash-page-upper-content-wrapper"] {
     height: 2.5em;
     align-items: flex-start;
     justify-content: center;
@@ -130,7 +130,7 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     /* border: 1px solid red; */
     gap: .0em;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div[class="dashboard-trash-page-down-content-wrapper"] {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div[class="dashboard-trash-page-down-content-wrapper"] {
     height: 1.9em;
     align-items: center;
     justify-content: flex-start;
@@ -138,7 +138,7 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     gap: .5em;
     position: relative;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button) {
     height: 1.5em;
     width: 1.5em;
     border-radius: .3em;
@@ -149,23 +149,23 @@ section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-
     cursor: pointer;
     color: #000;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button):is(:hover, :focus) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button):is(:hover, :focus) {
     color: var(--primary-theme-color);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(h2) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(h2) {
     font-size: 1.2em;
     font-weight: calc(290 + 250);
     color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(a) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(a) {
     font-weight: normal;
     font-size: .9em;
     color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(a):is(:hover, :focus) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(a):is(:hover, :focus) {
     color: var(--primary-theme-color);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(input[id="select-text-box"]) {
+section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(input[id="select-text-box"]) {
     height: 1.2em;
     width: 1.2em;
     cursor: pointer;
