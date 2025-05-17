@@ -9,7 +9,7 @@ section[class="dashboard-page-elements-component"] {
 }
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] {
     min-height: 87vh;
-    width: min(97%, 97%);
+    width: min(100%, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +76,7 @@ section[class="dashboard-page-elements-component"] > div[class="dashboard-page-e
 } */
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > div[class="dashboard-settings-admin-profile-component"] > article {
     height: 8em;
-    width: min(95%, 30em);
+    width: min(95%, 28em);
     /* border: 1px solid red; */
     display: flex;
     align-items: center;
