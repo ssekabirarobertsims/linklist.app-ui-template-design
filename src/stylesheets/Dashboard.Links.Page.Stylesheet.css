@@ -29,28 +29,10 @@ section[class="dashboard-links-page-elements-component"] > div[class="dashboard-
     justify-content: flex-start;
     flex-direction: column;
     /* border: 1px solid rgb(0, 255, 115); */
-    /* flex-grow: 1; */
+    flex-grow: 1;
     gap: .5em;
     position: relative;
 }
-/* section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) :where(button[id="trash-links-button"]) {
-    height: 3.5em;
-    width: min(100%, 10em);
-    border: none;
-    color: #fff;
-    background-color: #000;
-    cursor: pointer;
-    position: absolute;
-    right: 0em;
-    bottom: 5em;
-    overflow: hidden;
-    border-top-left-radius: 10em;
-    border-bottom-left-radius: 10em;
-    -moz-box-shadow: 2px 1px 2px -1px rgba(0, 0, 0, .1);
-    -webkit-box-shadow: 2px 1px 2px -1px rgba(0, 0, 0, .1);
-    box-shadow: 2px 1px 2px -1px rgba(0, 0, 0, .1);
-    font-weight: bold;
-} */
 section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) :where(button[id="trash-links-button"]):is(:focus, :hover) {
     width: min(100%, 15em);
 }

@@ -74,7 +74,8 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
             <PrimaryPageLoaderComponent />
             <aside className="admin-profile-deletion-warning-component">
                 <div>
-                    <img
+                    <article className="_wrapper">
+                        <img
                         src={`/avatars/${currentAdmin?.data?.avatar || "avatar-2.png"}`}
                         alt="admin avatar"
                     />
@@ -91,6 +92,7 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
                         <button type="button" onClick={handleCancel}>
                             Cancel
                         </button>
+                    </article>
                     </article>
                 </div>
             </aside>

@@ -15,7 +15,7 @@ import "./stylesheets/Admin.Account.Verification.Page.Stylesheet.css";
 import "./stylesheets/Admin.Account.Subscription.Page.Stylesheet..css";
 import "./stylesheets/Offline.Page.Stylesheet.css";
 import "./stylesheets/Dashboard.Trash.Page.Stylesheet.css";
-import "./stylesheets/response.stylesheet.css";
+import "./stylesheets/responsive.stylesheet.css"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

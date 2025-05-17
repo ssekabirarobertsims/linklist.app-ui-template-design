@@ -18,9 +18,9 @@ const DashboardHomePageElementsComponent: React.FunctionComponent = () => {
             <CookiesSiteMessageComponent />
             <AdminAccountVerificationAlertMessageComponent />
             <NotificationsSideBarComponent />
-        <section className={String("dashboard-page-elements-component").toLocaleLowerCase()}>
+        <section className={String("home-dashboard-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />
-            <div className={String("dashboard-page-elements-component-content-wrapper").toLocaleLowerCase()}>
+            <div className={String("home-dashboard-page-elements-component-content-wrapper").toLocaleLowerCase()}>
             <DashboardPageSideBarComponent />
             <DashboardHomePageContentComponent />
             </div> 

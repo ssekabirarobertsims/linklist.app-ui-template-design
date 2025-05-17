@@ -15,7 +15,7 @@ const LandingHomePageFooterComponent: React.FunctionComponent = () => {
         {
             id: uuidV4(),
             content: "about",
-            link: "",
+            link: "/dashboard/app/info",
         },
         {
             id: uuidV4(),
@@ -34,7 +34,7 @@ const LandingHomePageFooterComponent: React.FunctionComponent = () => {
     }, [list]);
 
     return (
-        <footer className="dashboard-page-footer-component">
+        <footer className="landing-page-footer-component">
             <div className="footer-content-wrapper">
                 <article>
                     <span>
