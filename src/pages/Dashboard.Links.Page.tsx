@@ -8,6 +8,7 @@ import CreateLinkFormComponent from "../components/Create.Link.Form.Component";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
+import PrimeSideBarComponent from "../components/Prime.Side.Bar.Component";
 
 const DashboardLinksPageElementsComponent: React.FunctionComponent = () => {
     useEffect(() => {
@@ -26,6 +27,7 @@ const DashboardLinksPageElementsComponent: React.FunctionComponent = () => {
             <CreateLinkFormComponent />
             </div>
             <DashboardPageFooterComponent />
+            <PrimeSideBarComponent />
         </section>
     </> 
 }

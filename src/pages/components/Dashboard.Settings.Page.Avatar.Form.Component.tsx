@@ -60,7 +60,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
 
     const handleSave = async () => {
         const loader = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
-        const placeholder = document.querySelector(".admin-form-avatar-placeholder") as HTMLImageElement;
+        const placeholder = document.querySelector("#current-admin-avatar-placeholder") as HTMLImageElement;
 
         DisplayElement(loader);
 
@@ -141,7 +141,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                         <img
                             src={`/avatars/${currentAdmin?.data?.avatar || "avatar-2.png"}`}
                             alt="Current Admin Avatar"
-                            className="admin-form-avatar-placeholder"
+                            id="current-admin-avatar-placeholder"
                         />
                         <ul className="dashboard-settings-page-avatar-form-component-ul-list">
                             {avatars.map((avatar) => (

@@ -7,6 +7,7 @@ import "../stylesheets/Dashboard.Trash.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
+import PrimeSideBarComponent from "../components/Prime.Side.Bar.Component";
 
 const DashboardTrashPageElementsComponent: React.FunctionComponent = () => {
     useEffect(() => {
@@ -15,7 +16,7 @@ const DashboardTrashPageElementsComponent: React.FunctionComponent = () => {
          
     return <> 
             <CookiesSiteMessageComponent />
-            <NotificationsSideBarComponent />
+            <NotificationsSideBarComponent /> 
             <AdminAccountVerificationAlertMessageComponent />
         <section className={String("dashboard-trash-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />
@@ -24,6 +25,7 @@ const DashboardTrashPageElementsComponent: React.FunctionComponent = () => {
             <DashboardTrashPageContentComponent />
             </div>
             <DashboardPageFooterComponent />
+            <PrimeSideBarComponent />
         </section>
     </> 
 }

@@ -26,15 +26,21 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
         <article className="dashboard-home-page-content-component">
             <br />
             <div className="current-admin-profile-banner">
-                <img
+               <article>
+                 <img
                     src={`/avatars/${currentAdmin?.data?.avatar || "avatar-2.png"}`}
                     alt="admin avatar"
                 />
+                {/* <div>
+                    <p>{currentAdmin?.data?.username || "Admin username undefined"}</p>
+                    <span>{currentAdmin?.data?.email || "Admin email undefined"}</span>
+                    <strong>{currentAdmin?.data?.verified === "true" ? "Verified" : "Unverified"}</strong>
+                </div> */}
+               </article>
             </div>
+            <br />
             <aside>
                 <div>
-                    <div>
-                        <article>
                             <h1>
                                 Welcome back {currentAdmin?.data?.username || "Admin"}
                             </h1>
@@ -62,10 +68,9 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
                                     Make Subscription
                                 </button>
                             </Link>
-                        </article>
-                    </div>
                 </div>
             </aside>
+            <br />
         </article>
     );
 };

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidV4 } from "uuid";
 
 type ListItemProperties = {
     id: string;
@@ -11,14 +11,18 @@ type ListItemProperties = {
 const FooterComponent: React.FunctionComponent = () => {
     const [list, setList] = useState<ListItemProperties[]>([
         {
-            id: uuidv4(),
+            id: uuidV4(),
             content: "about",
             link: "",
         },
     ]);
 
+     useEffect(() => {
+            setList(list);
+        }, [list]);
+
     return (
-        <footer className="dashboard-page-footer-component">
+        <footer className="footer">
             <div>
                 <ul>
                     {list.map((item) => (

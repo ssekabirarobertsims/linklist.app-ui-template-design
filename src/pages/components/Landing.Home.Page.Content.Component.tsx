@@ -15,7 +15,7 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
             <br />
             <br />
             <article className="landing-home-page-content-component">
-                <h2>How It Works</h2>
+                <h2>How it works</h2>
                 <div className="steps">
                     {steps.map((item, index) => (
                         <div key={index} className="step">
@@ -28,7 +28,8 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
                     ))}
                 </div>
                 <aside>
-                    <h2>Just save links for later</h2>
+                    <div>
+                        <h2>Just save links for later</h2>
                     <p>
                         Sign up or log in to your account to start saving links for later. You can access your saved links from any device, anywhere, anytime.
                     </p>
@@ -42,6 +43,7 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
                             Sign up or in
                         </button>
                     </Link>
+                    </div>
                 </aside>
             </article>
             <br />

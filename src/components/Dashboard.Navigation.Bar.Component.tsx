@@ -22,6 +22,8 @@ interface SecondaryAuthenticationProps {
     };
 }
 
+import { BiLink } from "react-icons/bi";
+
 const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
 
@@ -51,7 +53,7 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
                     {/* Left Content */}
                     <div className="dashboard-page-navigation-bar-component-left-content-wrapper">
                         <span className="dashboard-page-navigation-bar-icon">
-                            <Link to="/">Linklist</Link>
+                            <Link to="/"><BiLink />Linklist</Link>
                         </span>
                     </div>
 
@@ -64,7 +66,7 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
                             title="Create a new link"
                             onClick={handleCreateLinkClick}
                         >
-                            <GrAdd /> Create Link
+                            <GrAdd /> Add Link
                         </button>
 
                         {/* Notifications Button */}

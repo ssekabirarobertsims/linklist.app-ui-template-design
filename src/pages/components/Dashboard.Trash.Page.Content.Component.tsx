@@ -70,7 +70,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                 },
             });
 
-            if (response.status_code === 200) {
+            if (response.status_code === Number(200)) {
                 DisplayElement(document.querySelector(".trash-link-deletion-notification-hamburg-component") as HTMLElement);
                 setTimeout(() => window.location.reload(), 1500 as Required<number>);
             }
@@ -91,14 +91,17 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                 {
                     headers: {
                         Authorization: `Bearer ${currentAdmin?.data?.token}`,
-                        "Content-Type": "application/json",
+                        "Content-Type": "Application/json",
                     },
                 }
             );
 
-            if (response.status_code === 200 as Required<number>) {
+            if (response.status_code === Number(200) as Required<number>) {
                 DisplayElement(document.querySelector(".link-restoration-notification-hamburg-component") as HTMLElement);
                 setTimeout(() => window.location.reload(), 1500 as Required<number>);
+            } else {
+                console.log(response);
+                return response;
             }
         } catch (error) {
             console.error("Error restoring link:", error);
@@ -116,10 +119,13 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                 },
             });
 
-            if (response.status_code === 200 as Required<number>) {
+            if (response.status_code === Number(200) as Required<number>) {
                 const notification = document.querySelector(".links-trash-emptying-notification-hamburg-component") as HTMLElement;
                 DisplayElement(notification);
                 setTimeout(() =>  window.location.reload(), 1500 as Required<number>);
+            } else {
+                console.log(response);
+                return response;
             }
         } catch (error) {
             console.error("Error emptying trash:", error);
@@ -127,7 +133,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
     };
 
     return (
-        <article className="dashboard-home-page-content-component">
+        <article className="dashboard-trash-page-content-component">
             <br />
             <LinkDeletionNotificationHamburgComponent />
             <LinksTrashEmptyingNotificationHamburgComponent />

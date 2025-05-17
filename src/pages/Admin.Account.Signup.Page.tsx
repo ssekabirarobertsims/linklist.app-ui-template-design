@@ -65,6 +65,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                 placeholder.textContent = response.data.message;
                 setTimeout(() => RemoveElement(loader), 2500);
             }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during signup:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");

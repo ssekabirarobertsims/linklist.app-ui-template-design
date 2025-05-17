@@ -57,6 +57,7 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                 setResponseMessage(response?.message || "Login failed. Please try again.");
                 setTimeout(() => RemoveElement(loader), 2000);
             }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during login:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
@@ -97,7 +98,6 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                             required
                             aria-required="true"
                         />
-                        <Link to="/admin/account/un-register">Forgot password?</Link>
                         <button
                             type="button"
                             ref={buttonRef}
@@ -121,7 +121,7 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                     >
                         Signup
                     </Link>{" "}
-                    for a new admin account to log into a fresh new dashboard and start saving your
+                    for a new admin account to log into a fresh new admin dashboard to manage, organize and start saving your
                     links in one safe place.
                 </p>
             </section>

@@ -98,7 +98,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
 
     return (
         <>
-            <article className="dashboard-home-page-content-component">
+            <article className="dashboard-links-page-content-component">
                 <br />
                 <LinkCreationNotificationHamburgComponent content="Link has been saved successfully!" />
                 <LinkDeletionNotificationHamburgComponent />
@@ -182,6 +182,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
                                 </div>
                             </li>
                         ))}
+                        <p></p>
                     </ul>
                 ) : (
                     <div className="no-results-message">
@@ -189,8 +190,8 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
                         <p>Your link list is empty. Please add a link to your list.</p>
                     </div>
                 )}
-            </article>
             <p></p>
+            </article>
         </>
     );
 };

@@ -49,6 +49,7 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
                 setResponseMessage(response?.message || "Verification failed. Please try again.");
                 setTimeout(() => RemoveElement(loader), 2000);
             }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during verification:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
