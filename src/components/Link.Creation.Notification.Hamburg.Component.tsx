@@ -1,33 +1,33 @@
 import React from "react";
 import RemoveElement from "../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
+
 interface Message {
     content: string;
 }
 
-const LinkCreationNotificationHamburgComponent: React.FunctionComponent<Message> = ({content}) => {
-    return <>
-        <div 
-            className={String("link-creation-notification-hamburg-component").toLocaleLowerCase()}
-            id={String("notification-hamburg-component").toLocaleLowerCase()}
-            >
+const LinkCreationNotificationHamburgComponent: React.FunctionComponent<Message> = ({ content }) => {
+    const handleClose = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        const notificationElement = document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement;
+        if (notificationElement) {
+            RemoveElement(notificationElement);
+        }
+    };
+
+    return (
+        <div
+            className="link-creation-notification-hamburg-component"
+            id="notification-hamburg-component"
+        >
             <article>
-                <p> 
-                    {
-                        content
-                    }
-                </p>
-                <span
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        RemoveElement(
-                            (window.document.querySelector(".link-creation-notification-hamburg-component") as Required<HTMLElement>)
-                        );
-                    }}
-                ><CgClose /></span>
+                <p>{content}</p>
+                <span onClick={handleClose}>
+                    <CgClose />
+                </span>
             </article>
         </div>
-    </> 
-}
+    );
+};
 
 export default LinkCreationNotificationHamburgComponent;

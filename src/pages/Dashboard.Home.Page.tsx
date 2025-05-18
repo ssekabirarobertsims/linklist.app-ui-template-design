@@ -7,6 +7,7 @@ import "../stylesheets/Dashboard.Home.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
+import PrimeSideBarComponent from "../components/Prime.Side.Bar.Component";
 
 const DashboardHomePageElementsComponent: React.FunctionComponent = () => {
     React.useEffect(() => {
@@ -17,13 +18,14 @@ const DashboardHomePageElementsComponent: React.FunctionComponent = () => {
             <CookiesSiteMessageComponent />
             <AdminAccountVerificationAlertMessageComponent />
             <NotificationsSideBarComponent />
-        <section className={String("dashboard-page-elements-component").toLocaleLowerCase()}>
+        <section className={String("home-dashboard-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />
-            <div className={String("dashboard-page-elements-component-content-wrapper").toLocaleLowerCase()}>
+            <div className={String("home-dashboard-page-elements-component-content-wrapper").toLocaleLowerCase()}>
             <DashboardPageSideBarComponent />
             <DashboardHomePageContentComponent />
             </div> 
             <DashboardPageFooterComponent />
+            <PrimeSideBarComponent />
         </section>
     </>
 }

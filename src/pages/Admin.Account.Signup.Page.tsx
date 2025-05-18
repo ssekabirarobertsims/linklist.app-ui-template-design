@@ -10,72 +10,72 @@ import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.
 
 const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
     const [firstName, setFirstName] = useState<string>("");
-    const [lastName, setLastName] = useState<string>(""); 
+    const [lastName, setLastName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string | number>("");
-    const [avatar, setAvatar] = useState<string | number>("avatar-1.png");
+    const [password, setPassword] = useState<string>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    class signup {
-        private static placeholder: HTMLSpanElement = document.querySelector<HTMLSpanElement>(".signup-response-message-placeholder") as HTMLSpanElement;
-        private static loader: HTMLDivElement = (window.document.querySelector(".primary-spinner-wrapper") as HTMLDivElement);
+    const handleSignup = async () => {
+        const loader = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
+        const placeholder = document.querySelector(".signup-response-message-placeholder") as HTMLSpanElement;
 
-        constructor() {
-            (async function(): Promise<void> {
-            
-        setAvatar("avatar-1.png"); // by default
-        DisplayElement(signup.loader);
+        DisplayElement(loader);
 
         try {
-            const response = await axios.post("http://localhost:3000/admin/account/signup", {
-               username: `${firstName} ${lastName}`,
-                email,
-                password,
-                avatar,
-            }, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "Authorization": ""
+            const response = await axios.post(
+                "http://localhost:3000/admin/account/signup",
+                {
+                    username: `${firstName} ${lastName}`,
+                    email,
+                    password,
+                    avatar: "avatar-1.png", // Default avatar
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
                 }
-            });
+            );
 
             if (response?.data?.status_code === 201) {
-                if (signup.placeholder) signup.placeholder.textContent = response.data.message;
+                setResponseMessage(response.data.message || "Signup successful!");
+                placeholder.textContent = response.data.message;
 
                 // Save authentication data to localStorage
-                window.localStorage.setItem(
+                localStorage.setItem(
                     "primary_authentication",
-                    window.encodeURIComponent(
+                    encodeURIComponent(
                         JSON.stringify({
                             email,
                             username: `${firstName} ${lastName}`,
-                            avatar,
+                            avatar: "avatar-1.png",
                         })
                     )
                 );
-                
-                // Redirect to login page after a short delay
-                window.setTimeout(() => RemoveElement(signup.loader), 2500 as Required<Readonly<number>>);
-                setTimeout(() => window.location.href = "/admin/account/verification", 3000);
-                
+
+                // Redirect to verification page
+                setTimeout(() => {
+                    RemoveElement(loader);
+                    window.location.href = "/admin/account/verification";
+                }, 3000);
             } else {
-                window.setTimeout(() => RemoveElement(signup.loader), 2500 as Required<Readonly<number>>);
-                console.error("Signup failed:", response.data);
-                if (signup.placeholder) signup.placeholder.textContent = response.data.message;
+                setResponseMessage(response.data.message || "Signup failed. Please try again.");
+                placeholder.textContent = response.data.message;
+                setTimeout(() => RemoveElement(loader), 2500);
             }
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-            window.setTimeout(() => RemoveElement(signup.loader), 2500 as Required<Readonly<number>>);
             console.error("Error during signup:", error);
-            if (signup.placeholder) signup.placeholder.textContent = error?.response?.data?.message || "An error occurred.";
+            setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
+            placeholder.textContent = error?.response?.data?.message || "An error occurred.";
+            setTimeout(() => RemoveElement(loader), 2500);
         }
-            }());
-        }
-    }
+    };
 
     useEffect(() => {
-            document.title = "Page - Signup | LinkList";
+        document.title = "Page - Signup | LinkList";
     }, []);
 
     return (
@@ -85,20 +85,19 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
             <PrimaryPageLoaderComponent />
             <section className="account-signup-page-elements-component">
                 <form
-                    action=""
                     method="post"
                     encType="multipart/form-data"
                     className="account-signup-page-form"
                 >
-                    <h1>Signup to linkList</h1>
-                    <span className="signup-response-message-placeholder"></span>
+                    <h1>Signup to LinkList</h1>
+                    <span className="signup-response-message-placeholder">{responseMessage}</span>
                     <article>
                         <input
                             type="text"
                             name="first_name"
                             placeholder="First Name"
                             aria-placeholder="First Name"
-                            onInput={(event) => setFirstName((event.target as Required<HTMLInputElement>).value)}
+                            onInput={(event) => setFirstName((event.target as HTMLInputElement).value)}
                             value={firstName}
                             required
                             aria-required="true"
@@ -108,7 +107,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                             name="last_name"
                             placeholder="Last Name"
                             aria-placeholder="Last Name"
-                            onInput={(event) => setLastName((event.target as Required<HTMLInputElement>).value)}
+                            onInput={(event) => setLastName((event.target as HTMLInputElement).value)}
                             value={lastName}
                             required
                             aria-required="true"
@@ -119,7 +118,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                         name="email"
                         placeholder="Email"
                         aria-placeholder="Email"
-                        onInput={(event) => setEmail((event.target as Required<HTMLInputElement>).value)}
+                        onInput={(event) => setEmail((event.target as HTMLInputElement).value)}
                         value={email}
                         required
                         aria-required="true"
@@ -129,24 +128,22 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                         name="password"
                         placeholder="Password"
                         aria-placeholder="Password"
-                        onInput={(event) => setPassword((event.target as Required<HTMLInputElement>).value)}
+                        onInput={(event) => setPassword((event.target as HTMLInputElement).value)}
                         value={password}
                         required
                         aria-required="true"
                     />
                     <button
                         type="button"
-                        disabled={Boolean(false) as Required<boolean>}
                         ref={buttonRef}
                         onClick={(event) => {
                             event.preventDefault();
-                            new signup()
+                            handleSignup();
                         }}
                     >
                         Signup
                     </button>
                 </form>
-                <br />
                 <br />
                 <p>
                     Already have an account?{" "}
@@ -158,7 +155,8 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
                         }}
                     >
                         Login
-                    </Link> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem eos adipisci voluptates! Odio, tempora dolorum.
+                    </Link>{" "}
+                    to access your dashboard and start saving your links.
                 </p>
             </section>
         </>
