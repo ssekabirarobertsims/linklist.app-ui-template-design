@@ -95,7 +95,7 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
                         type="button"
                         ref={buttonRef}
                         onClick={(event) => {
-                            event.preventDefault();
+                            event.preventDefault();  // prevent event bubbling
                             handleVerification();
                         }}
                     >

@@ -109,7 +109,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
     };
 
     const handleEmptyTrash = async (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
 
         try {
             const { data: response } = await axios.delete(`http://localhost:3000/trash/empty/${currentAdmin?.data?.id}`, {
@@ -158,7 +158,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                                     ref={buttonRef}
                                     className="restore-link-button"
                                     onClick={(event: React.MouseEvent) => {
-                                        event.stopPropagation();
+                                        event.stopPropagation();  // prevent event bubbling
                                         handleRestoreLink(item.id, item.title, item.link)
                                     }}
                                 >

@@ -115,7 +115,10 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                 );
 
                 setTimeout(() => RemoveElement(loader), 2000);
-                setTimeout(() => window.location.reload(), 3200);
+                setTimeout(() => {
+                    window.location.reload();
+                    window.location.href = `/${String(username ? username.replace(" ", "") : "admin").toLocaleLowerCase().replace(" ", "")}/settings?admin=${String(username ? username.replace(" ", "") : "admin").toLocaleLowerCase().replace(" ", "")}`
+                }, 3200);
             }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
@@ -150,7 +153,7 @@ const DashboardSettingsPageAvatarFormComponent: React.FunctionComponent = () => 
                                         src={avatar.avatar}
                                         alt="Avatar"
                                         onClick={(event) => {
-                                            event.stopPropagation();
+                                            event.stopPropagation();  // prevent event bubbling
                                             ChangeAdminAvatarFunction(event.target as HTMLImageElement);
                                         }}
                                     />

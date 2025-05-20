@@ -60,6 +60,7 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
             } else {
                 setResponseMessage(response?.message || "Subscription failed. Please try again.");
             }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during subscription:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
@@ -100,7 +101,7 @@ const AdminAccountSubscriptionPageElementsComponent: React.FunctionComponent = (
                                 type="button"
                                 ref={buttonRef}
                                 onClick={(event) => {
-                                    event.preventDefault();
+                                    event.preventDefault();  // prevent event bubbling
                                     handleSubscribe();
                                 }}
                             >

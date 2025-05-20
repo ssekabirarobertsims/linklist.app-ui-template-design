@@ -28,19 +28,22 @@ const DashboardSettingsPageAdminProfileComponent: React.FunctionComponent = () =
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     const handleEditProfile = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+
         const avatarForm = document.querySelector(".dashboard-settings-page-avatar-form-component") as HTMLElement;
         if (avatarForm) DisplayElement(avatarForm);
     };
 
     const handleDeleteProfile = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+
         const deletionWarning = document.querySelector(".admin-profile-deletion-warning-component") as HTMLElement;
         if (deletionWarning) DisplayElement(deletionWarning);
     };
 
     const handleLogout = async (event: React.MouseEvent): Promise<void> => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+        
         const spinner = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
         DisplayElement(spinner);
 

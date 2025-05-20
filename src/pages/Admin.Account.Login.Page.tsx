@@ -46,22 +46,19 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                 }
             );
 
-            if (response.status_code === 200) {
+            if (response.status_code === Number(200) as Required<number>) {
                 setResponseMessage(response?.message || "Login successful!");
                 localStorage.setItem("secondary_authentication", encodeURIComponent(JSON.stringify(response)));
-                setTimeout(() => {
-                    RemoveElement(loader);
-                    window.location.href = `/dashboard`;
-                }, 2500);
+                setTimeout(() => window.location.href = `/dashboard`, Number(2500) as Required<number>);
             } else {
                 setResponseMessage(response?.message || "Login failed. Please try again.");
-                setTimeout(() => RemoveElement(loader), 2000);
+                setTimeout(() => RemoveElement(loader), Number(2000) as Required<number>);
             }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during login:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
-            setTimeout(() => RemoveElement(loader), 2000);
+            setTimeout(() => RemoveElement(loader), Number(2000) as Required<number>);
         }
     };
 
@@ -102,7 +99,8 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                             type="button"
                             ref={buttonRef}
                             onClick={(event) => {
-                                event.preventDefault();
+                                event.preventDefault();  // prevent event bubbling
+                                
                                 handleLogin();
                             }}
                         >

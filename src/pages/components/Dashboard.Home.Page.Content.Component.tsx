@@ -26,6 +26,7 @@ type ListItemProperties = {
 };
 
 import axios from "axios";
+import { format } from "date-fns";
 
 const DashboardHomePageContentComponent: React.FunctionComponent = () => {
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
@@ -76,25 +77,60 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
             <br />
             <div className="current-admin-profile-banner">
                <article>
-                <h1>Welcome back {currentAdmin?.data?.username || "Admin username undefined"}</h1>
-                 <img
-                    src={`/avatars/${currentAdmin?.data?.avatar || "avatar-2.png"}`}
-                    alt="admin avatar"
-                />
-                <div id="admin-info-wrapper">
-                    <h3>{currentAdmin?.data?.username || "Admin username undefined"}</h3>
-                    <span>{currentAdmin?.data?.email || "Admin email undefined"}</span>
-                    <strong>{currentAdmin?.data?.verified === "true" ? "Verified" : "Unverified"}</strong>
-                    <p></p>
-                    <p></p>
+                <p></p>
+                   <h1>Welcome {currentAdmin?.data?.username || "Admin username undefined"}</h1>
+                   <p>Today <strong>
+                        ({
+                        format(new Date(), "dd/MM/yyyy")
+                    })
+                    </strong> everything running smoothly. You may be having unread notifications!</p>
+                 
                     <ul id="content-ul">
-                        <li>{Number(savedLinksList.length) as Required<number>} saved link(s)</li>
-                        <li>{Number(0) as Required<number>} social link(s)</li>
-                        <li>{Number(trashedLinksList.length) as Required<number>} trashed link(s)</li>
+                        <li><span>{Number(savedLinksList.length) as Required<number>}</span>
+                            <Link
+                                to={{ 
+                                    pathname: `/${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/saved/links`,
+                                    search: `admin=${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}`,
+                                }}
+                            >saved link(s)</Link>
+                        </li>
+                        <li>
+                            <span>{Number(trashedLinksList.length) as Required<number>}</span>
+                        <Link
+                                to={{
+                                    pathname: `/${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/links/trash`,
+                                    search: `admin=${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}`,
+                                }}
+                            >trashed link(s)</Link>
+                         </li>
                     </ul>
-                    <br />
-                    <aside>
-                         <Link
+                    <div></div>
+               </article>
+            </div>
+            <br />
+        </article>
+    );
+};
+
+export default DashboardHomePageContentComponent;
+
+/*                         <Link
                                 to={{
                                     pathname: `/admin/account/subscription`,
                                     search: `admin=${encodeURIComponent(
@@ -110,31 +146,4 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
                                 >
                                     Make Subscription
                                 </button>
-                            </Link>
-                             <Link
-                                to={{
-                                    pathname: `/dashboard/settings`,
-                                    search: `admin=${encodeURIComponent(
-                                        currentAdmin?.data?.username?.toLowerCase() || "admin"
-                                    )}`,
-                                }}
-                            >
-                                <button
-                                    type="button"
-                                    disabled={false}
-                                    ref={buttonRef}
-                                    className="btn btn-secondary"
-                                >
-                                    Edit
-                                </button>
-                            </Link>
-                    </aside>
-                </div>
-               </article>
-            </div>
-            <br />
-        </article>
-    );
-};
-
-export default DashboardHomePageContentComponent;
+                            </Link>*/

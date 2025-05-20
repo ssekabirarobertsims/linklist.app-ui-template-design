@@ -7,6 +7,8 @@ const steps = [
     { step: "3", title: "Save Your Links", description: "After logging in, access the Linklist dashboard to save all your favorite links in one place." },
 ];
 
+import LandingHomePageTestimonialsComponent from "./Landing.Home.Page.Testimonials.Component";
+
 const LandingHomePageContentComponent: React.FunctionComponent = () => {
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -27,6 +29,8 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
                         </div>
                     ))}
                 </div>
+                <LandingHomePageTestimonialsComponent />
+
                 <aside>
                     <div>
                         <h2>Just save links for later</h2>
@@ -40,7 +44,7 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
                             ref={buttonRef}
                             className="first-xyz"
                         >
-                            Sign up or in
+                            Join other users 
                         </button>
                     </Link>
                     </div>
