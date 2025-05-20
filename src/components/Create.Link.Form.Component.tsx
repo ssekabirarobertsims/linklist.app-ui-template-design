@@ -29,8 +29,9 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
 
-    const handleFormClose = (event: React.MouseEvent) => {
-        event.stopPropagation();
+    const handleFormClose = async (event: React.MouseEvent): Promise<void> => {
+        event.stopPropagation();  // prevent event bubbling
+
         const formElement = document.querySelector(".create-link-form-component") as HTMLElement;
         const titleInput = document.querySelector("#create-link-form-title-input") as HTMLInputElement;
         const linkInput = document.querySelector("#create-link-form-link-input") as HTMLInputElement;
@@ -41,7 +42,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
     };
 
     const handleSaveLink = async (event: React.MouseEvent): Promise<void> => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
 
         const notification = document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement;
         const formElement = document.querySelector(".create-link-form-component") as HTMLFormElement;

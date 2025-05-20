@@ -25,7 +25,8 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
 
     const handleDeleteProfile = async (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+
         const loader: HTMLDivElement = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
 
         try {
@@ -59,7 +60,8 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
     };
 
     const handleCancel = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+        
         const warningComponent = document.querySelector(
             ".admin-profile-deletion-warning-component"
         ) as HTMLElement;

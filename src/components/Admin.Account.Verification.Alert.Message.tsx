@@ -32,7 +32,7 @@ const AdminAccountVerificationAlertMessageComponent: React.FunctionComponent = (
     return (
         <article
             className="admin-account-verification-alert-message"
-            onClick={(event) => event.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}  // prevent event bubbling
         >
             <div>
                 <div id="_wrapper">

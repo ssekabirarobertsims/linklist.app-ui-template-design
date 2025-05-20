@@ -28,19 +28,22 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
 
     const handleCreateLinkClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+
         const createLinkForm = document.querySelector(".create-link-form-component") as HTMLElement;
         if (createLinkForm) DisplayElement(createLinkForm);
     };
 
     const handleNotificationsClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+
         const notificationsSidebar = document.querySelector(".notifications-side-bar-component") as HTMLElement;
         if (notificationsSidebar) DisplayElement(notificationsSidebar);
     };
 
     const handleProfileClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+        
         const profileSidebar = document.querySelector(".admin-account-profile-review-side-bar") as HTMLElement;
         if (profileSidebar) DisplayElement(profileSidebar);
     };

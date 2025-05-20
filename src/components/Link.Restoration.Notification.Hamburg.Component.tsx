@@ -14,7 +14,8 @@ const LinkRestorationNotificationHamburgComponent: React.FunctionComponent = () 
                 </p>
                 <span
                     onClick={(event) => {
-                        event.stopPropagation();
+                        event.stopPropagation();  // prevent event bubbling
+                        
                         RemoveElement(
                             (window.document.querySelector(".link-restoration-notification-hamburg-component") as Required<HTMLElement>)
                         );

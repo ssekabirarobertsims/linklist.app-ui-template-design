@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import { v4 } from "uuid";
+import { v4 as uuidV4 } from "uuid";
 
 type ListItemProperties = {
   id: string;
@@ -42,67 +42,83 @@ const PrimeSideBarComponent: React.FunctionComponent = () => {
   ) as SecondaryAuthenticationProps;
 
   const [list, setList] = useState<ListItemProperties[]>([
-	{
-	  id: v4(),
-	  content: "Home",
-	  icon: <BiHome />,
-	  link: "/",
-	},
-	{
-	  id: v4(),
-	  content: "Dashboard",
-	  icon: <GrDashboard />,
-	  link: `/dashboard`,
-	  query: `admin=${String(
-		currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
-	  )
-		.toLocaleLowerCase()
-		.replace(" ", "")}`,
-	},
-	{
-	  id: v4(),
-	  content: "Saved Links",
-	  icon: <RiLinksFill />,
-	  link: `/dashboard/saved/links`,
-	  query: `admin=${String(
-		currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
-	  )
-		.toLocaleLowerCase()
-		.replace(" ", "")}`,
-	},
-	{
-	  id: v4(),
-	  content: "Trashed Links",
-	  icon: <FaRegTrashAlt />,
-	  link: `/dashboard/links/trash`,
-	  query: `admin=${String(
-		currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
-	  )
-		.toLocaleLowerCase()
-		.replace(" ", "")}`,
-	},
-	{
-	  id: v4(),
-	  content: "Settings",
-	  icon: <IoSettingsSharp />,
-	  link: `/dashboard/settings`,
-	  query: `admin=${String(
-		currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
-	  )
-		.toLocaleLowerCase()
-		.replace(" ", "")}`,
-	},
-	{
-	  id: v4(),
-	  content: "About Linklist",
-	  icon: <IoInformation />,
-	  link: `/dashboard/app/info`,
-	  query: `admin=${String(
-		currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
-	  )
-		.toLocaleLowerCase()
-		.replace(" ", "")}`,
-	},
+		{
+		  id: uuidV4(),
+		  content: "Home",
+		  icon: <BiHome />,
+		  link: "/",
+		},
+		{
+		  id: uuidV4(),
+		  content: "Dashboard",
+		  icon: <GrDashboard />,
+		  link: `/${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}/dashboard`,
+		  query: `admin=${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}`,
+		},
+		{
+		  id: uuidV4(),
+		  content: "Saved Links",
+		  icon: <RiLinksFill />,
+		  link: `/${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}/saved/links`,
+		  query: `admin=${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}`,
+		},
+		{
+		  id: uuidV4(),
+		  content: "Trashed Links",
+		  icon: <FaRegTrashAlt />,
+		  link: `/${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}/links/trash`,
+		  query: `admin=${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}`,
+		},
+		{
+		  id: uuidV4(),
+		  content: "Settings",
+		  icon: <IoSettingsSharp />,
+		  link: `/${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}/settings`,
+		  query: `admin=${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}`,
+		},
+		{
+		  id: uuidV4(),
+		  content: "About Linklist",
+		  icon: <IoInformation />,
+		  link: `/app/info`,
+		  query: `admin=${String(
+			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+		  )
+			.toLocaleLowerCase()
+			.replace(" ", "")}`,
+		},
   ] as ListItemProperties[]);
   useEffect(() => setList(list), [list]);
 
@@ -129,6 +145,7 @@ const PrimeSideBarComponent: React.FunctionComponent = () => {
 				>
 				  <span>{item.icon as ReactNode}</span>
 				</Link>
+				  <p>{item.content as Required<string>}</p>
 			  </li>
 			))}
 		  </ul>

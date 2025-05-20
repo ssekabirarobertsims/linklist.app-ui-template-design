@@ -278,14 +278,14 @@ div[id="notification-hamburg-component"] > article span {
 /*  */
 aside[class="dashboard-page-side-bar-component"] {
     height: 87vh;
-    width: min(100%, 20em) !important;
+    width: min(100%, 17em) !important;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     flex-direction: row;
     flex-wrap: nowrap;
     flex-flow: row nowrap;
-    /* border-right: 1px solid hsl(0, 0%, 90%); */
+    /* border: 1px solid hsl(0, 100%, 50%); */
     background-color: hsl(0, 0%, 100%);
     -webkit-box-shadow: 1px 0 1px -0.1px rgba(0, 0, 0, .1);
 -moz-box-shadow: 1px 0 1px -0.1px rgba(0, 0, 0, .1);
@@ -295,11 +295,24 @@ aside[class="dashboard-page-side-bar-component"] > div {
     height: 82vh;
     width: min(95%, 95%);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
     /* border: 1px solid red; */
-    gap: 0em;
+    gap: 1em;
+}
+aside[class="dashboard-page-side-bar-component"] > div > h3 {
+   font-weight: normal;
+   font-size: 1em;
+   color: var(--primary-theme-color);
+   margin-left: .6em;
+}
+aside[class="dashboard-page-side-bar-component"] > div > img {
+   height: 3em;
+   width: 3em;
+   border: 3px solid #000;
+   border-radius: 100%;
+   padding: 5px;
 }
 aside[class="dashboard-page-side-bar-component"] > div > ul {
     height: 65vh;
@@ -312,13 +325,13 @@ aside[class="dashboard-page-side-bar-component"] > div > ul {
     gap: 1em;
 }
 aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) {
-    height: 3.5em;
+    height: 3em;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    border: 1px solid #eee;
+    /* border: 1px solid #eee; */
     gap: 1em;
     list-style-type: none;
     border-radius: .2em;
@@ -333,14 +346,14 @@ aside[class="dashboard-page-side-bar-component"] > div > ul :where(li):is(:hover
     border-bottom-right-radius: 10em;
 }
 aside[class="dashboard-page-side-bar-component"] > div > ul :where(li):is(:hover, :focus) > a :is(span) {
-    color: hsl(0, 0%, 90%) !important;
+    color: hsl(0, 0%, 100%) !important;
 }
 aside[class="dashboard-page-side-bar-component"] > div > ul :where(li):is(:hover, :focus) > a :is(p) {
-    color: hsl(0, 0%, 90%) !important;
+    color: hsl(0, 0%, 100%) !important;
 }
 aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) > a {
-    height: 3.5em;
-    width: min(90%, 90%);
+    height: 3em;
+    width: min(95%, 95%);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -351,7 +364,7 @@ aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) > a {
 }
 aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) > a :is(span) {
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em;
     color: #000;
 }
 aside[class="dashboard-page-side-bar-component"] > div > ul :where(li) > a :is(p) {
@@ -918,7 +931,7 @@ div[class="primary-spinner-wrapper"] {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 5em;
+    gap: 1em;
     background-color: #fff;
     position: fixed;
     top: 0px;
@@ -927,7 +940,16 @@ div[class="primary-spinner-wrapper"] {
 }
 div[class="primary-spinner-wrapper"] > span {
     font-weight: calc(290 + 290);
-    font-size: 1em;
+    font-size: 1.5em;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .1em;
+    color: var(--primary-theme-color);
+}
+div[class="primary-spinner-wrapper"] > p {
+    font-weight: normal;
+    font-size: .9em;
     color: hsl(0, 0%, 10%);
 }
 .spinner {
@@ -950,7 +972,7 @@ border: 1px solid rgba(221,221,221,0.25);
 
  /*  */
  aside[class="prime-side-bar-component"] {
-    min-height: 3em;
+    min-height: 4.5em;
     width: min(100%, 100%);
     background-color: #000;
     color: #fff;
@@ -978,14 +1000,27 @@ border: 1px solid rgba(221,221,221,0.25);
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    flex-flow: row nowrap;
+    flex-flow: row nowrap; 
     gap: 2em;
     list-style-type: none;
+ }
+ aside[class="prime-side-bar-component"] > div :is(ul) > li {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .1em;
  }
  aside[class="prime-side-bar-component"] > div :is(ul) > li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.1em;
+ }
+ aside[class="prime-side-bar-component"] > div :is(ul) > li p {
+    color: #fff;
+    font-size: .6em;
+    font-weight: normal;
  }
 
 /*  */
@@ -1002,7 +1037,7 @@ footer[class="footer"] {
     background-color: #fff;
     /* border: 1px solid red; */
     flex-grow: 1;
-    background-color: transparent;
+    background-color: #fff;
 }
 footer[class="footer"] > div {
     height: 10vh;

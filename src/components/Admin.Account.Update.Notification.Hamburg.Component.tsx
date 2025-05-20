@@ -4,7 +4,8 @@ import { CgClose } from "react-icons/cg";
 
 const AdminAccountUpdateNotificationHamburgComponent: React.FunctionComponent = () => {
     const handleClose = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+        
         const element = document.querySelector(
             ".admin-account-update-notification-hamburg-component"
         ) as HTMLElement | null;

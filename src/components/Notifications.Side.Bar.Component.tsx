@@ -37,7 +37,7 @@ const NotificationsSideBarComponent: React.FunctionComponent = () => {
     return <>
         <aside className={String("notifications-side-bar-component").toLocaleLowerCase()}
              onClick={(event) => {
-                event.stopPropagation();
+                event.stopPropagation();  // prevent event bubbling
             }}
         >
             <div>

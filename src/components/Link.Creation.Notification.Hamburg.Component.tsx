@@ -8,7 +8,8 @@ interface Message {
 
 const LinkCreationNotificationHamburgComponent: React.FunctionComponent<Message> = ({ content }) => {
     const handleClose = (event: React.MouseEvent) => {
-        event.stopPropagation();
+        event.stopPropagation();  // prevent event bubbling
+        
         const notificationElement = document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement;
         if (notificationElement) {
             RemoveElement(notificationElement);

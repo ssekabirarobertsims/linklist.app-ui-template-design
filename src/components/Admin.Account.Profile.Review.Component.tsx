@@ -2,8 +2,8 @@ import React from "react";
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
 import { CiSettings } from "react-icons/ci";
-// import { LuLogOut } from "react-icons/lu";
 
+// defined props types for the current admin object
 interface SecondaryAuthenticationProps {
     date: string;
     message: string;
@@ -21,6 +21,7 @@ interface SecondaryAuthenticationProps {
 }
 
 const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
+    // configured and use the admin info context
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
 
     // Helper variables for better readability
@@ -32,7 +33,7 @@ const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
     return (
         <article
             className="admin-account-profile-review-side-bar"
-            onClick={(event) => event.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}  // prevent event bubbling
         >
             <div id="_wrapper">
                 <aside>

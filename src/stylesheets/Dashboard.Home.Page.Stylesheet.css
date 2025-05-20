@@ -49,8 +49,8 @@ section[class="home-dashboard-page-elements-component"] > div[class="home-dashbo
     box-shadow: 1px 1px 5px -1px #dddddd;
 }
 section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article {
-    height: 60vh;
-    width: min(90%, 90%);
+    height: 70vh;
+    width: min(95%, 95%);
     /* border: 1px solid red; */
     display: flex;
     align-items: flex-start;
@@ -60,8 +60,8 @@ section[class="home-dashboard-page-elements-component"] > div[class="home-dashbo
     gap: 1.5em;
 }
 section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article img {
-    height: 6.5em;
-    width: 6.5em;
+    height: 5em;
+    width: 5em;
     border-radius: 100%;
     border: 4px solid hsl(0, 0%, 15%);
     padding: 5px;
@@ -77,13 +77,15 @@ section[class="home-dashboard-page-elements-component"] > div[class="home-dashbo
     gap: .2em;
 }
 section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > h1 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: calc(250 + 250);
     color: hsl(0, 0%, 15%);
+    line-height: .7;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div > h3 {
-    font-size: 1.5em;
-    font-weight: calc(250 + 250);
+section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > p {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: .6;
     color: hsl(0, 0%, 15%);
 }
 section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div > span {
@@ -96,27 +98,60 @@ section[class="home-dashboard-page-elements-component"] > div[class="home-dashbo
     font-weight: normal;
     color: var(--primary-theme-color);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div > ul[id="content-ul"] {
+section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] {
+    min-height: 5.5em;
+    width: min(100%, 100%);
+    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
     gap: 1em;
     list-style: none;
     font-size: 1em;
     font-weight: calc(290 + 290);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div > ul[id="socials-ul"] {
+section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] > li {
+    min-height: 5.5em;
+    width: min(100%, 25em);
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .2em;
+    list-style: none;
+    font-size: 1em;
+    font-weight: calc(290 + 290);
+    flex-grow: 1;
+    border-radius: .2em;
+     background-color: hsl(0, 0%, 100%);
+    -moz-box-shadow: 1px 1px 5px -1px #dddddd;
+    -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
+    box-shadow: 1px 1px 5px -1px #dddddd;
+    background-color: var(--primary-theme-color);
+    color: #fff;
+}
+section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] > li :where(span) {
+    font-size: 1.7em;
+    font-weight: calc(290 + 290);
+}
+section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] > li :where(a) {
+    font-size: .9em;
+    font-weight: normal;
+    text-decoration: none;
+    color:hsl(0, 0%, 100%);
+}
+section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > div {
+    height: 15em;
+    width: min(100%, 100%);
+    border: 1px solid hsl(0, 0%, 90%);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1em;
-    list-style: none;
-    font-weight: calc(290 + 290);
-}
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div > ul[id="socials-ul"] :where(li) > a {
-    font-size: 1.5em;
-    font-weight: calc(290 + 290);
-    color: hsl(0, 0%, 5%);
+    border-radius: .2em;
 }
 section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div aside {
     min-height: 1em;

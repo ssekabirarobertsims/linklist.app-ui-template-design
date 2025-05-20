@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import { v4 } from "uuid";
+import { v4 as uuidV4 } from "uuid";
 
 type ListItemProperties = {
   id: string;
@@ -43,62 +43,78 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
 
   const [list, setList] = useState<ListItemProperties[]>([
     {
-      id: v4(),
+      id: uuidV4(),
       content: "Home",
       icon: <BiHome />,
       link: "/",
     },
     {
-      id: v4(),
+      id: uuidV4(),
       content: "Dashboard",
       icon: <GrDashboard />,
-      link: `/dashboard`,
+      link: `/${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/dashboard`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
     },
     {
-      id: v4(),
+      id: uuidV4(),
       content: "Saved Links",
       icon: <RiLinksFill />,
-      link: `/dashboard/saved/links`,
+      link: `/${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/saved/links`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
     },
     {
-      id: v4(),
+      id: uuidV4(),
       content: "Trashed Links",
       icon: <FaRegTrashAlt />,
-      link: `/dashboard/links/trash`,
+      link: `/${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/links/trash`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
     },
     {
-      id: v4(),
+      id: uuidV4(),
       content: "Settings",
       icon: <IoSettingsSharp />,
-      link: `/dashboard/settings`,
+      link: `/${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/settings`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
     },
     {
-      id: v4(),
+      id: uuidV4(),
       content: "About Linklist",
       icon: <IoInformation />,
-      link: `/dashboard/app/info`,
+      link: `/app/info`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username : "admin"
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
@@ -114,6 +130,12 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
         ).toLocaleLowerCase()}
       >
         <div>
+          {/* <h3>Admin Dashboard</h3> */}
+           {/* <img
+                            src={`/avatars/${currentAdmin?.data?.avatar || "avatar-2.png"}`}
+                            alt="Current Admin Avatar"
+                            id="current-admin-avatar-placeholder"
+                        /> */}
           <ul
             className={String(
               "dashboard-page-side-bar-component-ul-list"
