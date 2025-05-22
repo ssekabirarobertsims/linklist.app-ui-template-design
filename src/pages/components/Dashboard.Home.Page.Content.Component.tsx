@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
 
@@ -31,7 +31,7 @@ import LinksCreatedChart from "../../components/Line.Chart.Component";
 
 const DashboardHomePageContentComponent: React.FunctionComponent = () => {
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    // const buttonRef = useRef<HTMLButtonElement>(null);
     const [savedLinksList, setSavedLinksList] = useState<ListItemProperties[]>([]);
     const [trashedLinksList, setTrashedLinksList] = useState<ListItemProperties[]>([]);
 
