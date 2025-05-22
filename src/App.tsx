@@ -7,21 +7,20 @@ import DashboardSettingsPageElementsComponent from "./pages/Dashboard.Settings.P
 import DashboardInformationPageElementsComponent from "./pages/Dashboard.Information.Page";
 import DashboardLinksPageElementsComponent from "./pages/Dashboard.Links.Page";
 import AdminAccountVerificationPageElementsComponent from "./pages/Admin.Account.Verification.Page";
-import RemoveElement from "./functions/Remove.Element.Function";
-import AdminAccountSubscriptionPageElementsComponent from "./pages/Admin.Account.Subscription.Page";
+import removeElement from "./functions/Remove.Element.Function";
 
 // try catch block to prevent errors that may rise due to undefined elements on the DOM
 try {
   window.document.body.addEventListener("click", (event) => {
     event.stopPropagation(); // prevent event bubbling
 
-    RemoveElement(
+    removeElement(
       window.document.querySelector(
         ".notifications-side-bar-component"
       ) as Required<HTMLElement>
     );
 
-    RemoveElement(
+    removeElement(
       window.document.querySelector(
         ".admin-account-profile-review-side-bar"
       ) as Required<HTMLElement>
@@ -60,6 +59,9 @@ import primaryAuthenticationObjectContext from "./context/Primary.Authentication
 import secondaryAuthenticationObjectContext from "./context/Secondary.Authentication.Object.Context";
 import OfflinePageElementsComponent from "./pages/Offline.Page";
 import DashboardTrashPageElementsComponent from "./pages/Dashboard.Trash.Page";
+import SubscriptionPaymentPlansPageContentComponent from "./pages/Subscription.Payment.Plans.Page";
+import FreeAdminAccountSubscriptionPaymentPageElementsComponent from "./pages/Free.Subscription.Payment.Plan.Page";
+import AdminAccountSubscriptionStatusPageElementsComponent from "./pages/Admin.Account.Subscription.Status.Page";
 
 const primaryAuthenticationObject: (primaryAuthenticationObjectProps) =
   JSON.parse(
@@ -77,7 +79,7 @@ const secondaryAuthenticationObject: (SecondaryAuthenticationProps) =
   console.log(secondaryAuthenticationObject)
 
 function App() {
-  return !window.navigator.onLine ? (
+  return window.navigator.onLine ? (
     <secondaryAuthenticationObjectContext.Provider
       value={secondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>}
     >
@@ -196,7 +198,11 @@ function App() {
         />
 
         <Route
-          path="/admin/account/subscription"
+          path={`/${String(
+        secondaryAuthenticationObject?.data?.username ? secondaryAuthenticationObject?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/account/subscription/status`}
           element={
             (secondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) &&
             (primaryAuthenticationObject as Required<Readonly<primaryAuthenticationObjectProps>>) ? (
@@ -205,10 +211,48 @@ function App() {
                   primaryAuthenticationObject as Required<Readonly<primaryAuthenticationObjectProps>>
                 }
               >
-                <AdminAccountSubscriptionPageElementsComponent />
+                <AdminAccountSubscriptionStatusPageElementsComponent />
               </primaryAuthenticationObjectContext.Provider>
             ) : (
               <AdminAccountSignupPageElementsComponent />
+            )
+          }
+        />
+
+        <Route
+          path={`/${String(
+       primaryAuthenticationObject?.username ? primaryAuthenticationObject?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/account/subscription/free/plan`}
+          element={
+            (primaryAuthenticationObject as Required<Readonly<primaryAuthenticationObjectProps>>) ? (
+              <primaryAuthenticationObjectContext.Provider
+                value={
+                  primaryAuthenticationObject as Required<Readonly<primaryAuthenticationObjectProps>>
+                }
+              >
+                <FreeAdminAccountSubscriptionPaymentPageElementsComponent />
+              </primaryAuthenticationObjectContext.Provider>
+            ) : (
+              <AdminAccountSignupPageElementsComponent />
+            )
+          }
+        />
+
+        <Route
+          path={`/account/subscription/plans`}
+          element={
+            (primaryAuthenticationObject) ? (
+              <primaryAuthenticationObjectContext.Provider
+                value={
+                  primaryAuthenticationObject as Required<Readonly<primaryAuthenticationObjectProps>>
+                }
+              >
+                <SubscriptionPaymentPlansPageContentComponent />
+              </primaryAuthenticationObjectContext.Provider>
+            ) : (
+              <AdminAccountSubscriptionStatusPageElementsComponent />
             )
           }
         />

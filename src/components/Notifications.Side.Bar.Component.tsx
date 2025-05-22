@@ -15,6 +15,14 @@ const NotificationsSideBarComponent: React.FunctionComponent = () => {
     const [notifications, setNotifications] = React.useState<NotificationProperties[]>([
         {
             id: v4() as Required<Readonly<string>>,
+            title: "Free plan trial",
+            description: "Currently you are using a free plan that allows you to store 50 links. Remaining only 20 links",
+            date: format(new Date(), "dd/MM/yyyy"),
+            read: false,
+            type: "info"
+        },
+        {
+            id: v4() as Required<Readonly<string>>,
             title: "Admin account login",
             description: "You have logged into your account successfully.",
             date: format(new Date(), "dd/MM/yyyy"),

@@ -5,8 +5,8 @@ import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Comp
 import axios from "axios";
 import PrimaryAuthenticationObjectContext from "../context/Primary.Authentication.Object.Context";
 import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Component";
-import DisplayElement from "../functions/Display.Element.Function";
-import RemoveElement from "../functions/Remove.Element.Function";
+import displayElement from "../functions/Display.Element.Function";
+import removeElement from "../functions/Remove.Element.Function";
 import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
 
 interface AdminAccountContextProperties {
@@ -27,7 +27,7 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
 
     const handleLogin = async () => {
         const loader = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
-        DisplayElement(loader);
+        displayElement(loader);
 
         try {
             const { data: response } = await axios.post(
@@ -52,13 +52,13 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
                 setTimeout(() => window.location.href = `/dashboard`, Number(2500) as Required<number>);
             } else {
                 setResponseMessage(response?.message || "Login failed. Please try again.");
-                setTimeout(() => RemoveElement(loader), Number(2000) as Required<number>);
+                setTimeout(() => removeElement(loader), Number(2000) as Required<number>);
             }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during login:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
-            setTimeout(() => RemoveElement(loader), Number(2000) as Required<number>);
+            setTimeout(() => removeElement(loader), Number(2000) as Required<number>);
         }
     };
 

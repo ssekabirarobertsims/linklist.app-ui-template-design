@@ -34,7 +34,8 @@ interface SecondaryAuthenticationProps {
 
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { IoSettingsSharp } from "react-icons/io5";
+// import { IoSettingsSharp } from "react-icons/io5";
+import { MdSubscriptions } from "react-icons/md";
 
 const DashboardPageSideBarComponent: React.FunctionComponent = () => {
   const currentAdmin: SecondaryAuthenticationProps = React.useContext(
@@ -78,7 +79,7 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
         .toLocaleLowerCase()
         .replace(" ", "")}`,
     },
-    {
+    { 
       id: uuidV4(),
       content: "Trashed Links",
       icon: <FaRegTrashAlt />,
@@ -95,13 +96,9 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
     },
     {
       id: uuidV4(),
-      content: "Settings",
-      icon: <IoSettingsSharp />,
-      link: `/${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
-      )
-        .toLocaleLowerCase()
-        .replace(" ", "")}/settings`,
+      content: "Subscription",
+      icon: <MdSubscriptions />,
+      link: `/account/subscription/plans`,
       query: `admin=${String(
         currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
       )

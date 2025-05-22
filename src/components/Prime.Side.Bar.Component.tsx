@@ -34,7 +34,8 @@ interface SecondaryAuthenticationProps {
 
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { IoSettingsSharp } from "react-icons/io5";
+// import { IoSettingsSharp } from "react-icons/io5";
+import { MdSubscriptions } from "react-icons/md";
 
 const PrimeSideBarComponent: React.FunctionComponent = () => {
   const currentAdmin: SecondaryAuthenticationProps = React.useContext(
@@ -44,13 +45,13 @@ const PrimeSideBarComponent: React.FunctionComponent = () => {
   const [list, setList] = useState<ListItemProperties[]>([
 		{
 		  id: uuidV4(),
-		  content: "Home",
+		  content: "home",
 		  icon: <BiHome />,
 		  link: "/",
 		},
 		{
 		  id: uuidV4(),
-		  content: "Dashboard",
+		  content: "dashboard",
 		  icon: <GrDashboard />,
 		  link: `/${String(
 			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
@@ -65,7 +66,7 @@ const PrimeSideBarComponent: React.FunctionComponent = () => {
 		},
 		{
 		  id: uuidV4(),
-		  content: "Saved Links",
+		  content: "links",
 		  icon: <RiLinksFill />,
 		  link: `/${String(
 			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
@@ -80,7 +81,7 @@ const PrimeSideBarComponent: React.FunctionComponent = () => {
 		},
 		{
 		  id: uuidV4(),
-		  content: "Trashed Links",
+		  content: "trash",
 		  icon: <FaRegTrashAlt />,
 		  link: `/${String(
 			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
@@ -94,23 +95,23 @@ const PrimeSideBarComponent: React.FunctionComponent = () => {
 			.replace(" ", "")}`,
 		},
 		{
-		  id: uuidV4(),
-		  content: "Settings",
-		  icon: <IoSettingsSharp />,
-		  link: `/${String(
-			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
-		  )
-			.toLocaleLowerCase()
-			.replace(" ", "")}/settings`,
-		  query: `admin=${String(
-			currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
-		  )
-			.toLocaleLowerCase()
-			.replace(" ", "")}`,
-		},
+			  id: uuidV4(),
+			  content: "Subscription",
+			  icon: <MdSubscriptions />,
+			  link: `/${String(
+				currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+			  )
+				.toLocaleLowerCase()
+				.replace(" ", "")}/account/subscription`,
+			  query: `admin=${String(
+				currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+			  )
+				.toLocaleLowerCase()
+				.replace(" ", "")}`,
+			},
 		{
 		  id: uuidV4(),
-		  content: "About Linklist",
+		  content: "about",
 		  icon: <IoInformation />,
 		  link: `/app/info`,
 		  query: `admin=${String(

@@ -2,6 +2,7 @@ import React from "react";
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
 import { CiSettings } from "react-icons/ci";
+import { MdVerified } from "react-icons/md";
 
 // defined props types for the current admin object
 interface SecondaryAuthenticationProps {
@@ -28,7 +29,7 @@ const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
     const username = currentAdmin?.data?.username || "Admin username undefined";
     const email = currentAdmin?.data?.email || "Admin email undefined";
     const avatar = currentAdmin?.data?.avatar || "avatar-2.png";
-    const isVerified = currentAdmin?.data?.verified === "true" ? "Verified" : "Unverified";
+    const isVerified = currentAdmin?.data?.verified === "true" ? "verified" : "unverified";
 
     return (
         <article
@@ -40,15 +41,23 @@ const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
                     {/* Settings Link */}
                     <Link
                         to={{
-                            pathname: "/dashboard/settings",
-                            search: `admin=${encodeURIComponent(username.toLowerCase().replace(" ", ""))}`,
+                            pathname: `/${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}/settings`,
+                            search: `admin=${String(
+        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+      )
+        .toLocaleLowerCase()
+        .replace(" ", "")}`,
                         }}
                         className="admin-account-profile-review-side-bar-settings-page"
                     >
                         <CiSettings />
                     </Link>
 
-                    {/* Avatar */}
+                    {/* Avatar */} 
                     <img
                         src={`/avatars/${avatar.toLowerCase()}`}
                         alt={`${username}'s avatar`}
@@ -58,7 +67,7 @@ const AdminAccountProfileReviewComponent: React.FunctionComponent = () => {
                     <div>
                         <p>{username}</p>
                         <span>{email}</span>
-                        <strong>{isVerified}</strong>
+                        <strong><MdVerified /> {isVerified}</strong>
                     </div>
                 </aside>
 

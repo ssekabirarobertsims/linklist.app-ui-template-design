@@ -3,8 +3,8 @@ import "../stylesheets/Admin.Account.Signup.Page.Stylesheet.css";
 import { Link } from "react-router-dom";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import axios from "axios";
-import DisplayElement from "../functions/Display.Element.Function";
-import RemoveElement from "../functions/Remove.Element.Function";
+import displayElement from "../functions/Display.Element.Function";
+import removeElement from "../functions/Remove.Element.Function";
 import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Component";
 import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
 
@@ -20,7 +20,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
         const loader = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
         const placeholder = document.querySelector(".signup-response-message-placeholder") as HTMLSpanElement;
 
-        DisplayElement(loader);
+        displayElement(loader);
 
         try {
             const response = await axios.post(
@@ -57,20 +57,20 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
 
                 // Redirect to verification page
                 setTimeout(() => {
-                    RemoveElement(loader);
+                    removeElement(loader);
                     window.location.href = "/admin/account/verification";
                 }, 3000);
             } else {
                 setResponseMessage(response.data.message || "Signup failed. Please try again.");
                 placeholder.textContent = response.data.message;
-                setTimeout(() => RemoveElement(loader), 2500);
+                setTimeout(() => removeElement(loader), 2500);
             }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during signup:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
             placeholder.textContent = error?.response?.data?.message || "An error occurred.";
-            setTimeout(() => RemoveElement(loader), 2500);
+            setTimeout(() => removeElement(loader), 2500);
         }
     };
 

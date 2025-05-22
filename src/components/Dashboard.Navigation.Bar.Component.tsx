@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { GrAdd } from "react-icons/gr";
-import DisplayElement from "../functions/Display.Element.Function";
+import displayElement from "../functions/Display.Element.Function";
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
 import AdminAccountProfileReviewComponent from "./Admin.Account.Profile.Review.Component";
 
@@ -31,21 +31,21 @@ const DashboardPageNavigationBarComponent: React.FunctionComponent = () => {
         event.stopPropagation();  // prevent event bubbling
 
         const createLinkForm = document.querySelector(".create-link-form-component") as HTMLElement;
-        if (createLinkForm) DisplayElement(createLinkForm);
+        if (createLinkForm) displayElement(createLinkForm);
     };
 
     const handleNotificationsClick = (event: React.MouseEvent) => {
         event.stopPropagation();  // prevent event bubbling
 
         const notificationsSidebar = document.querySelector(".notifications-side-bar-component") as HTMLElement;
-        if (notificationsSidebar) DisplayElement(notificationsSidebar);
+        if (notificationsSidebar) displayElement(notificationsSidebar);
     };
 
     const handleProfileClick = (event: React.MouseEvent) => {
         event.stopPropagation();  // prevent event bubbling
         
         const profileSidebar = document.querySelector(".admin-account-profile-review-side-bar") as HTMLElement;
-        if (profileSidebar) DisplayElement(profileSidebar);
+        if (profileSidebar) displayElement(profileSidebar);
     };
 
     return (

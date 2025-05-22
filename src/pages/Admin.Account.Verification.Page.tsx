@@ -4,8 +4,8 @@ import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Comp
 import axios from "axios";
 import PrimaryAuthenticationObjectContext from "../context/Primary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
-import RemoveElement from "../functions/Remove.Element.Function";
-import DisplayElement from "../functions/Display.Element.Function";
+import removeElement from "../functions/Remove.Element.Function";
+import displayElement from "../functions/Display.Element.Function";
 import PrimaryPageLoaderComponent from "../components/Primary.Page.Loader.Component";
 import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
 
@@ -31,7 +31,7 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
 
     const handleVerification = async () => {
         const loader = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
-        DisplayElement(loader);
+        displayElement(loader);
 
         try {
             const { data: response } = await axios.post("http://localhost:3000/admin/account/verification", {
@@ -42,18 +42,18 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
             if (response.status_code === 200) {
                 setResponseMessage(response?.message || "Admin Account Verified!");
                 setTimeout(() => {
-                    RemoveElement(loader);
-                    window.location.href = `/admin/account/login`;
+                    removeElement(loader);
+                    window.location.href = `/admin/account/login`; 
                 }, 2000);
             } else {
                 setResponseMessage(response?.message || "Verification failed. Please try again.");
-                setTimeout(() => RemoveElement(loader), 2000);
+                setTimeout(() => removeElement(loader), 2000);
             }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error("Error during verification:", error);
             setResponseMessage(error?.response?.data?.message || "An error occurred. Please try again.");
-            setTimeout(() => RemoveElement(loader), 2000);
+            setTimeout(() => removeElement(loader), 2000);
         }
     };
 

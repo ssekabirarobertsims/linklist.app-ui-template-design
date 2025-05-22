@@ -1,5 +1,5 @@
 import React from "react";
-import RemoveElement from "../functions/Remove.Element.Function";
+import removeElement from "../../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
 
 interface Message {
@@ -12,7 +12,7 @@ const LinkCreationNotificationHamburgComponent: React.FunctionComponent<Message>
         
         const notificationElement = document.querySelector(".link-creation-notification-hamburg-component") as HTMLElement;
         if (notificationElement) {
-            RemoveElement(notificationElement);
+            removeElement(notificationElement);
         }
     };
 

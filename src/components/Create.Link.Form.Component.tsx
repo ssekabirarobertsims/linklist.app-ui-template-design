@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
-import RemoveElement from "../functions/Remove.Element.Function";
-import DisplayElement from "../functions/Display.Element.Function";
+import removeElement from "../functions/Remove.Element.Function";
+import displayElement from "../functions/Display.Element.Function";
 import { CgClose } from "react-icons/cg";
 import axios from "axios";
 
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
-import LinkCreationNotificationHamburgComponent from "./Link.Creation.Notification.Hamburg.Component";
+import LinkCreationNotificationHamburgComponent from "./messages/Link.Creation.Notification.Hamburg.Component";
 
 interface SecondaryAuthenticationProps {
     date: string;
@@ -36,7 +36,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
         const titleInput = document.querySelector("#create-link-form-title-input") as HTMLInputElement;
         const linkInput = document.querySelector("#create-link-form-link-input") as HTMLInputElement;
 
-        if (formElement) RemoveElement(formElement);
+        if (formElement) removeElement(formElement);
         if (titleInput) titleInput.value = "";
         if (linkInput) linkInput.value = "";
     };
@@ -66,8 +66,8 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
             if (response.status_code === 201 as Required<number>) {
                 console.log(response);
                 console.log("Link saved successfully:", response.data);
-                DisplayElement(notification);
-                RemoveElement(formElement);
+                displayElement(notification);
+                removeElement(formElement);
                 setTimeout(() => window.location.reload(), 1500 as Required<number>);
             }
         } catch (error) {

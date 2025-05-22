@@ -8,6 +8,8 @@ import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Comp
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 import PrimeSideBarComponent from "../components/Prime.Side.Bar.Component";
+import SettingsButtonLinkComponent from "../components/Settings.Button.Link.Component";
+import AdminAccountSubscriptionAlertMessageComponent from "../components/Admin.Account.Subscription.Alert.Message";
 
 const DashboardTrashPageElementsComponent: React.FunctionComponent = () => {
     useEffect(() => {
@@ -16,8 +18,10 @@ const DashboardTrashPageElementsComponent: React.FunctionComponent = () => {
          
     return <> 
             <CookiesSiteMessageComponent />
+            <SettingsButtonLinkComponent />
             <NotificationsSideBarComponent /> 
             <AdminAccountVerificationAlertMessageComponent />
+            <AdminAccountSubscriptionAlertMessageComponent />
         <section className={String("dashboard-trash-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />
             <div className={String("dashboard-trash-page-elements-component-content-wrapper").toLocaleLowerCase()}>

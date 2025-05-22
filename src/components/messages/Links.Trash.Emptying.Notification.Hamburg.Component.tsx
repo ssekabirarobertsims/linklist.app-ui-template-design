@@ -1,5 +1,5 @@
 import React from "react";
-import RemoveElement from "../functions/Remove.Element.Function";
+import removeElement from "../../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
 
 const LinksTrashEmptyingNotificationHamburgComponent: React.FunctionComponent = () => {
@@ -16,7 +16,7 @@ const LinksTrashEmptyingNotificationHamburgComponent: React.FunctionComponent = 
                     onClick={(event) => {
                         event.stopPropagation();  // prevent event bubbling
                         
-                        RemoveElement(
+                        removeElement(
                             (window.document.querySelector(".links-trash-emptying-notification-hamburg-component") as Required<HTMLElement>)
                         );
                     }}

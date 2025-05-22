@@ -8,15 +8,17 @@ import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Comp
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message"; 
 import PrimeSideBarComponent from "../components/Prime.Side.Bar.Component";
+import AdminAccountSubscriptionAlertMessageComponent from "../components/Admin.Account.Subscription.Alert.Message";
 
 const DashboardSettingsPageElementsComponent: React.FunctionComponent = () => {
      React.useEffect(() => {
             document.title = "Dashboard - Settings | LinkList";
         }, []);
-
+ 
     return <>
             <CookiesSiteMessageComponent />
             <NotificationsSideBarComponent />
+            <AdminAccountSubscriptionAlertMessageComponent />
             <AdminAccountVerificationAlertMessageComponent />
         <section className={String("dashboard-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />
