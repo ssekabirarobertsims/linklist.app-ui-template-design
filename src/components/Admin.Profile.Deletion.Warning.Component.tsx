@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import RemoveElement from "../functions/Remove.Element.Function";
-import DisplayElement from "../functions/Display.Element.Function";
+import removeElement from "../functions/Remove.Element.Function";
+import displayElement from "../functions/Display.Element.Function";
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
 import PrimaryPageLoaderComponent from "./Primary.Page.Loader.Component";
 
@@ -30,7 +30,7 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
         const loader: HTMLDivElement = document.querySelector(".primary-spinner-wrapper") as HTMLDivElement;
 
         try {
-            DisplayElement(loader);
+            displayElement(loader);
 
             const response = await axios.delete(
                 `http://localhost:3000/admin/account/unlink/${currentAdmin?.data?.id}`,
@@ -47,15 +47,15 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
                 localStorage.removeItem("primary_authentication");
                 localStorage.removeItem("secondary_authentication");
 
-                setTimeout(() => RemoveElement(loader), 1900);
+                setTimeout(() => removeElement(loader), 1900);
                 setTimeout(() => (window.location.href = "/"), 2100);
             } else {
                 console.error("Error deleting profile");
-                setTimeout(() => RemoveElement(loader), 2000);
+                setTimeout(() => removeElement(loader), 2000);
             }
         } catch (error) {
             console.error("Error:", error);
-            setTimeout(() => RemoveElement(loader), 2000);
+            setTimeout(() => removeElement(loader), 2000);
         }
     };
 
@@ -67,7 +67,7 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
         ) as HTMLElement;
 
         if (warningComponent) {
-            RemoveElement(warningComponent);
+            removeElement(warningComponent);
         }
     };
 

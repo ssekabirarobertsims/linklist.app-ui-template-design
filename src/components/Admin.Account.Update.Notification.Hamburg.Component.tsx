@@ -1,5 +1,5 @@
 import React from "react";
-import RemoveElement from "../functions/Remove.Element.Function";
+import removeElement from "../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
 
 const AdminAccountUpdateNotificationHamburgComponent: React.FunctionComponent = () => {
@@ -11,7 +11,7 @@ const AdminAccountUpdateNotificationHamburgComponent: React.FunctionComponent = 
         ) as HTMLElement | null;
 
         if (element) {
-            RemoveElement(element);
+            removeElement(element);
         }
     };
 

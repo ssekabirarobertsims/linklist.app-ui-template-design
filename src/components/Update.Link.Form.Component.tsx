@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import RemoveElement from "../functions/Remove.Element.Function";
+import removeElement from "../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
-import DisplayElement from "../functions/Display.Element.Function";
+import displayElement from "../functions/Display.Element.Function";
 import axios from "axios";
 
 import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
@@ -70,11 +70,11 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
             if (request.status === 200 as Required<Readonly<number>>) {
                 onUpdate({ ...selectedLink, title, link });
                 const updateForm = document.querySelector(".update-link-form-component") as Required<HTMLElement>;
-                RemoveElement(updateForm);
+                removeElement(updateForm);
                 const notification = document.querySelector(".link-updating-notification-hamburg-component") as Required<HTMLElement>;
-                DisplayElement(notification);
+                displayElement(notification);
                 setTimeout(() => {
-                    RemoveElement(notification);
+                    removeElement(notification);
                 }, 5500 as Required<Readonly<number>>);
             } else {
                 console.error("Failed to update the link:", response);
@@ -91,7 +91,7 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
                 <span
                     className="close"
                     onClick={() => {
-                        RemoveElement((document.querySelector(".update-link-form-component") as Required<HTMLElement>));
+                        removeElement((document.querySelector(".update-link-form-component") as Required<HTMLElement>));
                         (window.document.querySelector("#update-link-form-title-input") as Required<HTMLInputElement>).value = "" as Required<Readonly<string>>;
                         (window.document.querySelector("#update-link-form-link-input") as Required<HTMLInputElement>).value = "" as Required<Readonly<string>>;
                     }}

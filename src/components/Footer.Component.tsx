@@ -13,7 +13,7 @@ const FooterComponent: React.FunctionComponent = () => {
         {
             id: uuidV4(),
             content: "about",
-            link: "",
+            link: "/app/info",
         },
     ]);
 
@@ -30,6 +30,15 @@ const FooterComponent: React.FunctionComponent = () => {
                             <Link to={item.link}>{item.content}</Link>
                         </li>
                     ))}
+                    <li>
+                        <a
+                            href="https://github.com/ssekabirarobertsims/linklist.app-ui-template-design"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            github
+                        </a>
+                    </li>
                     <li>
                         <a
                             href="https://ssekabirarobertsims.netlify.app/"
