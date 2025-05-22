@@ -258,6 +258,27 @@ function App() {
         />
 
         <Route
+          path={`/${String(
+									secondaryAuthenticationObject?.data?.username ? secondaryAuthenticationObject?.data?.username.replace(" ", "") : "admin"
+								  )
+									.toLocaleLowerCase()
+									.replace(" ", "")}/account/subscription/plans`}
+          element={
+            (primaryAuthenticationObject) ? (
+              <primaryAuthenticationObjectContext.Provider
+                value={
+                  primaryAuthenticationObject as Required<Readonly<primaryAuthenticationObjectProps>>
+                }
+              >
+                <SubscriptionPaymentPlansPageContentComponent />
+              </primaryAuthenticationObjectContext.Provider>
+            ) : (
+              <AdminAccountSubscriptionStatusPageElementsComponent />
+            )
+          }
+        />
+
+        <Route
           path="/admin/account/signup"
           element={
             (secondaryAuthenticationObject as Required<Readonly<SecondaryAuthenticationProps>>) ||

@@ -47,7 +47,7 @@ const AdminAccountSubscriptionAlertMessageComponent: React.FunctionComponent = (
                     <Link to={{
 						pathname: "/account/subscription/plans"
 					}}>
-                        <button type="button">Verify Account</button>
+                        <button type="button">Make subscription</button>
                     </Link>
                 </div>
             </div>

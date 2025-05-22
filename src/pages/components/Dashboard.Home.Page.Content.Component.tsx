@@ -27,6 +27,7 @@ type ListItemProperties = {
 
 import axios from "axios";
 import { format } from "date-fns";
+import LinksCreatedChart from "../../components/Line.Chart.Component";
 
 const DashboardHomePageContentComponent: React.FunctionComponent = () => {
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
@@ -120,7 +121,9 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
                             >trashed link(s)</Link>
                          </li>
                     </ul>
-                    <div></div>
+                    <div>
+                        <LinksCreatedChart />
+                    </div>
                </article>
             </div>
             <br />

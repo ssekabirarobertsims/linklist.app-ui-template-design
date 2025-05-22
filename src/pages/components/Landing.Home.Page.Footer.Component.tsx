@@ -40,7 +40,9 @@ const LandingHomePageFooterComponent: React.FunctionComponent = () => {
                     <span>
                         <BiLink /> Linklist
                     </span>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quae deleniti sapiente tempore obcaecati, impedit saepe, nostrum officia id repellat quia temporibus. Excepturi in soluta laborum, est aliquid amet inventore?</p>
+                    <p>
+                        Linklist is a simple and easy to use link management tool that allows you to create, manage and share your links with ease. It is designed to help you organize your links in a way that makes sense to you, so you can find them quickly and easily.
+                    </p>
                 </article>
                 <article>
                     <span>

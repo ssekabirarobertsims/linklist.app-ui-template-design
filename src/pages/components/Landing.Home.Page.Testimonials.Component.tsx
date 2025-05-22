@@ -8,11 +8,11 @@ const LandingHomePageTestimonialsComponent: React.FunctionComponent = () => {
             <div>
                 <article className="testimonial_wrapper">
 					<p>
-Sign up or log in to your account to start saving links for later. You can access your saved links from any device, anywhere, anytime. Join other users Lorem20 Linklist Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quae deleniti sapiente tempore obcaecati, impedit saepe, nostrum officia id repellat quia temporibus. Excepturi in soluta laborum, est aliquid amet inventore? Resourcesabout signup login More links developer api guide Linklist © 2025 All Rights Reserved
+                        Linklist is a game-changer for anyone who loves to save and organize their favorite links. The user interface is clean and intuitive, making it easy to find what I need when I need it. I can't imagine going back to my old way of saving links which used to waste me alot of time and at the end i lost my links.
 					</p>
 					<div>
 						    <img
-                            src="/photos/person-1.jpg"
+                            src="/avatars/avatar-1.png"
                             alt="Current Admin Avatar"
                             id="current-admin-avatar-placeholder"
                         />
@@ -24,11 +24,11 @@ Sign up or log in to your account to start saving links for later. You can acces
             <div>
                 <article className="testimonial_wrapper">
 					<p>
-Sign up or log in to your account to start saving links for later. You can access your saved links from any device, anywhere, anytime. Join other users Lorem20 Linklist Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quae deleniti sapiente tempore obcaecati, impedit saepe, nostrum officia id repellat quia temporibus. Excepturi in soluta laborum, est aliquid amet inventore? Resourcesabout signup login More links developer api guide Linklist © 2025 All Rights Reserved
-					</p>
+                        I am so glad I found Linklist! It's the perfect solution for keeping all my favorite links in one place. The ability to categorize and tag links makes it easy to find what I'm looking for, and the design is just beautiful and simple to be accessed and operated easily.
+                    </p>
 					<div>
 						    <img
-                            src="/photos/person-2.jpg"
+                            src="/avatars/avatar-5.png"
                             alt="Current Admin Avatar"
                             id="current-admin-avatar-placeholder"
                         />

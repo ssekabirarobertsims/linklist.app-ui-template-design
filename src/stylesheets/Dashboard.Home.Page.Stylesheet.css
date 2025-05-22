@@ -153,6 +153,16 @@ section[class="home-dashboard-page-elements-component"] > div[class="home-dashbo
     gap: 1em;
     border-radius: .2em;
 }
+section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > div div[class="chart-container"] {
+    height: 15em;
+    width: min(100%, 100%);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    border-radius: .2em;
+}
 section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div aside {
     min-height: 1em;
     width: min(100%, 30em);

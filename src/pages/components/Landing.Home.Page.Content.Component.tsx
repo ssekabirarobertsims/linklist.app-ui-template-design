@@ -4,34 +4,23 @@ import "../../stylesheets/Landing.Home.Page.Component.Stylesheet.css";
 
 const steps = [
     { step: "1", title: "Sign up for an account", description: "Sign up for an account on Linklist to get an admin account and proceed to log in to access the dashboard." },
-    { step: "2", title: "Login to your account", description: "Log in to your admin account to access the main dashboard and manage your links." },
-    { step: "3", title: "Save Your Links", description: "After logging in, access the Linklist dashboard to save all your favorite links in one place." },
+    { step: "2", title: "Login to your account", description: "Log in to your admin account to access the main dashboard and manage your links in one perfect secure place." },
+    { step: "3", title: "Save Your Links", description: "After logging in, access the Linklist dashboard to save all your favorite links in one place and also manage how to handle them." },
 ];
 
 import LandingHomePageTestimonialsComponent from "./Landing.Home.Page.Testimonials.Component";
-import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
-
-interface SecondaryAuthenticationProps {
-  date: string;
-  message: string;
-  request_id: string;
-  status_code: string;
-  data: {
-    id: string;
+import { TiTick } from "react-icons/ti";
+import PrimaryAuthenticationObjectContext from "../../context/Primary.Authentication.Object.Context";
+interface AdminAccountContextProperties {
     username: string;
     avatar: string;
     email: string;
-    token: string;
-    subscribed: string;
-    verified: string;
-  };
 }
 
+
 const LandingHomePageContentComponent: React.FunctionComponent = () => {
+    const PrimaryAuthenticationObject = React.useContext(PrimaryAuthenticationObjectContext) as AdminAccountContextProperties;
     const buttonRef = useRef<HTMLButtonElement>(null);
- const currentAdmin: SecondaryAuthenticationProps = React.useContext(
-    SecondaryAuthenticationObjectContext
-  ) as SecondaryAuthenticationProps;
 
     return (
         <>
@@ -56,21 +45,29 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
                     <aside className="subscription-payments-component">
                         <div className="subscription-payment-plan" id="free">
                             <article>
-                                <h2>Free</h2>
+                                <h2>Free Plan (Starter Tier)</h2> 
                                 <span>$0/year</span>
                                 <Link to={{
                                     pathname: `/${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        PrimaryAuthenticationObject?.username ? PrimaryAuthenticationObject?.username.replace(" ", "") : "admin"
       )
         .toLocaleLowerCase()
-        .replace(" ", "")}/account/subscription`
+        .replace(" ", "")}/account/subscription/free/plan`
                                 }}><button type="button" ref={buttonRef}>Use linklist for free</button></Link>
                                 <h3>Whats included in plan:</h3>
                                 <ul>
-                                    <li>limited storage of links(50)</li>
-                                    <li>no subscription needed</li>
-                                    <li>sample</li>
-                                    <li>sample</li>
+                                    <li>
+                                        <TiTick />Limited storage of links(50)
+                                    </li>
+                                    <li>
+                                        <TiTick />No subscription needed
+                                    </li>
+                                    <li>
+                                        <TiTick />Trash bin storage of 25 links
+                                    </li>
+                                    <li>
+                                        <TiTick />Basic metadata preview (title, favicon)
+                                    </li>
                                 </ul>
                                 <br />
                                 <p>status: available</p>
@@ -78,15 +75,15 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
                         </div>
                         <div className="subscription-payment-plan" id="pro">
                             <article>
-                                <h2>Pro</h2>
+                                <h2> Pro Plan (Power Users & Professionals)</h2>
                                 <span>$15/year</span>
                                 <button type="button" ref={buttonRef}>Use linklist as a pro</button>
                                 <h3>Whats included in plan:</h3>
                                 <ul>
-                                    <li>sample</li>
-                                    <li>sample</li>
-                                    <li>sample</li>
-                                    <li>sample</li>
+                                    <li><TiTick />Unlimited storage of links</li>
+                                    <li><TiTick />API access</li>
+                                    <li><TiTick />Boosted performance (faster link previews)</li>
+                                    <li><TiTick />End-to-end encryption for sensitive links</li>
                                 </ul>
                                 <br />
                                 <p>status: not available</p>
@@ -94,15 +91,15 @@ const LandingHomePageContentComponent: React.FunctionComponent = () => {
                         </div>
                         <div className="subscription-payment-plan" id="basic">
                             <article>
-                                <h2>Basic</h2>
+                                <h2>Basic Plan (Entry Premium Tier)</h2>
                                 <span>$5/year</span>
                                 <button type="button" ref={buttonRef}>Use linklist at basic</button>
                                 <h3>Whats included in plan:</h3>
                                 <ul>
-                                    <li>sample</li>
-                                    <li>sample</li>
-                                    <li>sample</li>
-                                    <li>sample</li>
+                                    <li><TiTick />Save up to 500 links</li>
+                                    <li><TiTick />Smart suggestions (duplicates, broken links)</li>
+                                    <li><TiTick />Trash bin storage of 250 links</li>
+                                    <li><TiTick />Import/export links (CSV/HTML)</li>
                                 </ul>
                                 <br />
                                 <p>status: not available</p>
