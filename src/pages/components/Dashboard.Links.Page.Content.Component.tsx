@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import LinkCreationNotificationHamburgComponent from "../../components/Link.Creation.Notification.Hamburg.Component";
-import LinkDeletionNotificationHamburgComponent from "../../components/Link.Deletion.Notification.Hamburg.Component";
-import LinkUpdatingNotificationHamburgComponent from "../../components/Link.Updating.Notification.Hamburg.Component";
+import LinkCreationNotificationHamburgComponent from "../../components/messages/Link.Creation.Notification.Hamburg.Component";
+import LinkDeletionNotificationHamburgComponent from "../../components/messages/Link.Deletion.Notification.Hamburg.Component";
+import LinkUpdatingNotificationHamburgComponent from "../../components/messages/Link.Updating.Notification.Hamburg.Component";
 import "../../stylesheets/Dashboard.Links.Page.Stylesheet.css";
 
 import { BiPencil, BiTrash, BiCopy } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import Copy from "../../functions/Copy.Link.Function";
-import DisplayElement from "../../functions/Display.Element.Function";
+import displayElement from "../../functions/Display.Element.Function";
 import axios from "axios";
 
 import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
@@ -86,7 +86,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
             );
 
             if (response.status_code === 200) {
-                DisplayElement(
+                displayElement(
                     document.querySelector(".link-deletion-notification-hamburg-component") as HTMLElement
                 );
                 setTimeout(() => window.location.reload(), 1500);
@@ -149,7 +149,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
                                             const updateLinkForm = document.querySelector(
                                                 ".update-link-form-component"
                                             ) as HTMLElement;
-                                            DisplayElement(updateLinkForm);
+                                            displayElement(updateLinkForm);
                                             const titleInput = document.querySelector(
                                                 "#update-link-form-title-input"
                                             ) as HTMLInputElement;

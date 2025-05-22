@@ -79,11 +79,11 @@ const LandingHomePageFooterComponent: React.FunctionComponent = () => {
                     </li>
                     <li>
                         <a
-                            href="https://api-linklist-restapi.onrender.com"
+                            href="https://github.com/ssekabirarobertsims/linklist.app-ui-template-design"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            guide
+                            github
                         </a>
                     </li>
                 </ul>

@@ -3,6 +3,8 @@ import "../stylesheets/Dashboard.Settings.Page.Stylesheet.css";
 import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
+import SettingsButtonLinkComponent from "../components/Settings.Button.Link.Component";
+import AdminAccountSubscriptionAlertMessageComponent from "../components/Admin.Account.Subscription.Alert.Message";
 
 const DashboardInformationPageElementsComponent: React.FunctionComponent = () => {
     useEffect(() => {
@@ -12,6 +14,8 @@ const DashboardInformationPageElementsComponent: React.FunctionComponent = () =>
     return (
         <>
             <CookiesSiteMessageComponent />
+            <SettingsButtonLinkComponent />
+            <AdminAccountSubscriptionAlertMessageComponent />
             <AdminAccountVerificationAlertMessageComponent />
             <NotificationsSideBarComponent />
             <section className="dashboard-information-page-elements-component">

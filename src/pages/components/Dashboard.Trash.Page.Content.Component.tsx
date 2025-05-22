@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import LinkDeletionNotificationHamburgComponent from "../../components/Link.Deletion.Notification.Hamburg.Component";
-import LinkUpdatingNotificationHamburgComponent from "../../components/Link.Updating.Notification.Hamburg.Component";
-import LinkRestorationNotificationHamburgComponent from "../../components/Link.Restoration.Notification.Hamburg.Component";
-import LinksTrashEmptyingNotificationHamburgComponent from "../../components/Links.Trash.Emptying.Notification.Hamburg.Component";
-import TrashLinkDeletionNotificationHamburgComponent from "../../components/Trash.Link.Deletion.Notification.Hamburg.Component";
+import LinkDeletionNotificationHamburgComponent from "../../components/messages/Link.Deletion.Notification.Hamburg.Component";
+import LinkUpdatingNotificationHamburgComponent from "../../components/messages/Link.Updating.Notification.Hamburg.Component";
+import LinkRestorationNotificationHamburgComponent from "../../components/messages/Link.Restoration.Notification.Hamburg.Component";
+import LinksTrashEmptyingNotificationHamburgComponent from "../../components/messages/Links.Trash.Emptying.Notification.Hamburg.Component";
+import TrashLinkDeletionNotificationHamburgComponent from "../../components/messages/Trash.Link.Deletion.Notification.Hamburg.Component";
 import "../../stylesheets/Dashboard.Trash.Page.Stylesheet.css";
 
 import { BiTrash, BiCopy } from "react-icons/bi";
 import { MdRestore } from "react-icons/md";
 import Copy from "../../functions/Copy.Link.Function";
-import DisplayElement from "../../functions/Display.Element.Function";
+import displayElement from "../../functions/Display.Element.Function";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 
@@ -71,7 +71,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
             });
 
             if (response.status_code === Number(200)) {
-                DisplayElement(document.querySelector(".trash-link-deletion-notification-hamburg-component") as HTMLElement);
+                displayElement(document.querySelector(".trash-link-deletion-notification-hamburg-component") as HTMLElement);
                 setTimeout(() => window.location.reload(), 1500 as Required<number>);
             }
         } catch (error) {
@@ -97,7 +97,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
             );
 
             if (response.status_code === Number(200) as Required<number>) {
-                DisplayElement(document.querySelector(".link-restoration-notification-hamburg-component") as HTMLElement);
+                displayElement(document.querySelector(".link-restoration-notification-hamburg-component") as HTMLElement);
                 setTimeout(() => window.location.reload(), 1500 as Required<number>);
             } else {
                 console.log(response);
@@ -121,7 +121,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
 
             if (response.status_code === Number(200) as Required<number>) {
                 const notification = document.querySelector(".links-trash-emptying-notification-hamburg-component") as HTMLElement;
-                DisplayElement(notification);
+                displayElement(notification);
                 setTimeout(() =>  window.location.reload(), 1500 as Required<number>);
             } else {
                 console.log(response);
@@ -190,9 +190,20 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                     <p>Your trash link list is empty. Delete links to add to your trash list.</p>
                 </div>
             )}
-            <button type="button" id="empty-trash-button" ref={buttonRef} onClick={handleEmptyTrash}>
-                <BiTrash /> Empty trash
+             {
+                list.length > 25 ? <aside id="trash-emptying-warning-component">
+                    <div>
+                        <article>
+                            <h2><BiTrash /></h2>
+                    <span>Trash is full!</span>
+                    <p>Your trash link is currently full, please make sure that you empty it to free up space for more storage on this device.</p>
+                     <button type="button" id="empty-trash-button" ref={buttonRef} onClick={handleEmptyTrash}>
+              Empty trash
             </button>
+                        </article>
+                    </div>
+                </aside> : ""
+            }
         </article>
     );
 };

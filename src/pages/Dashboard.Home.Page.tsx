@@ -8,6 +8,8 @@ import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Comp
 import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.Component";
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 import PrimeSideBarComponent from "../components/Prime.Side.Bar.Component";
+import SettingsButtonLinkComponent from "../components/Settings.Button.Link.Component";
+import AdminAccountSubscriptionAlertMessageComponent from "../components/Admin.Account.Subscription.Alert.Message";
 
 const DashboardHomePageElementsComponent: React.FunctionComponent = () => {
     React.useEffect(() => {
@@ -15,8 +17,10 @@ const DashboardHomePageElementsComponent: React.FunctionComponent = () => {
     }, []); 
     
     return <>
+            <SettingsButtonLinkComponent />
             <CookiesSiteMessageComponent />
             <AdminAccountVerificationAlertMessageComponent />
+            <AdminAccountSubscriptionAlertMessageComponent />
             <NotificationsSideBarComponent />
         <section className={String("home-dashboard-page-elements-component").toLocaleLowerCase()}>
             <DashboardPageNavigationBarComponent />
