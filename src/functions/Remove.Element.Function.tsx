@@ -1,4 +1,4 @@
-const RemoveElement = (element: HTMLElement): void => {
+const removeElement = (element: HTMLElement): void => {
    try {
      element.style.display = "none";
    } catch (error) {
@@ -8,4 +8,4 @@ const RemoveElement = (element: HTMLElement): void => {
    }
 }
 
-export default RemoveElement;
+export default removeElement;
