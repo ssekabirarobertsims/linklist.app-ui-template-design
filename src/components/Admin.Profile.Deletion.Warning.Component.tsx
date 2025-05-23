@@ -33,7 +33,7 @@ const AdminProfileDeletionWarningComponent: React.FunctionComponent = () => {
             displayElement(loader);
 
             const response = await axios.delete(
-                `http://localhost:3000/admin/account/unlink/${currentAdmin?.data?.id}`,
+                `https://api-linklist-restapi.onrender.com/admin/account/unlink/${currentAdmin?.data?.id}`,
                 {
                     headers: {
                         "Content-Type": "application/json",

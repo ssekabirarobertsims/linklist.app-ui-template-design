@@ -49,7 +49,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
 
         try {
             const {data: response} = await axios.post(
-                "http://localhost:3000/saved/links",
+                "https://api-linklist-restapi.onrender.com/saved/links",
                 {
                     title,
                     link,
@@ -64,7 +64,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
             );
 
             if (response.status_code === 201 as Required<number>) {
-                console.log(response);
+                // console.log(response);
                 console.log("Link saved successfully:", response.data);
                 displayElement(notification);
                 removeElement(formElement);

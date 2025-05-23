@@ -38,7 +38,7 @@ const FreeAdminAccountSubscriptionPaymentPageElementsComponent: React.FunctionCo
 	const handleSubscribe = async () => {
 		try {
 			const { data: response } = await axios.post(
-				"http://localhost:3000/admin/account/subscription",
+				"https://api-linklist-restapi.onrender.com/admin/account/subscription",
 				{
 					email: currentAdmin?.data?.email || "",
 				},

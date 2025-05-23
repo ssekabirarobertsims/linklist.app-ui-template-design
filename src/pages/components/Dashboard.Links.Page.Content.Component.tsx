@@ -49,7 +49,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
     useEffect(() => {
         (async function fetchLinks() {
             try {
-                const { data: response } = await axios.get("http://localhost:3000/saved/links", {
+                const { data: response } = await axios.get("https://api-linklist-restapi.onrender.com/saved/links", {
                     headers: {
                         Authorization: `Bearer ${currentAdmin?.data?.token}`,
                         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const DashboardLinksPageContentComponent: React.FunctionComponent = () => {
     const handleDeleteLink = async (id: string) => {
         try {
             const { data: response } = await axios.delete(
-                `http://localhost:3000/saved/links/${id}`,
+                `https://api-linklist-restapi.onrender.com/saved/links/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${currentAdmin?.data?.token}`,
