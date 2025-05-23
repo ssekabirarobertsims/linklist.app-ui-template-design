@@ -31,7 +31,7 @@ const AdminAccountLoginPageElementsComponent: React.FunctionComponent = () => {
 
         try {
             const { data: response } = await axios.post(
-                "http://localhost:3000/admin/account/login",
+                "https://api-linklist-restapi.onrender.com/admin/account/login",
                 {
                     username: PrimaryAuthenticationObject?.username || "",
                     password,

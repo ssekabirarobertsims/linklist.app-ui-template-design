@@ -46,7 +46,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
     useEffect(() => {
         (async function fetchTrashedLinks() {
             try {
-                const { data: response } = await axios.get("http://localhost:3000/trash/links", {
+                const { data: response } = await axios.get("https://api-linklist-restapi.onrender.com/trash/links", {
                     headers: {
                         Authorization: `Bearer ${currentAdmin?.data?.token}`,
                         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
 
     const handleDeleteLink = async (id: string) => {
         try {
-            const { data: response } = await axios.delete(`http://localhost:3000/trash/links/${id}`, {
+            const { data: response } = await axios.delete(`https://api-linklist-restapi.onrender.com/trash/links/${id}`, {
                 headers: {
                     Authorization: `Bearer ${currentAdmin?.data?.token}`,
                     "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
     const handleRestoreLink = async (id: string, title: string, link: string) => {
         try {
             const { data: response } = await axios.post(
-                `http://localhost:3000/trash/links/${id}`,
+                `https://api-linklist-restapi.onrender.com/trash/links/${id}`,
                 {
                     title,
                     link,
@@ -112,7 +112,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
         event.stopPropagation();  // prevent event bubbling
 
         try {
-            const { data: response } = await axios.delete(`http://localhost:3000/trash/empty/${currentAdmin?.data?.id}`, {
+            const { data: response } = await axios.delete(`https://api-linklist-restapi.onrender.com/trash/empty/${currentAdmin?.data?.id}`, {
                 headers: {
                     Authorization: `Bearer ${currentAdmin?.data?.token}`,
                     "Content-Type": "application/json",

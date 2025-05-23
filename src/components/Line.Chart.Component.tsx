@@ -37,7 +37,7 @@ export default function LinksCreatedChart() {
 		useEffect(() => {
 				(async function fetchSavedLinks() {
 					try {
-						const { data: response } = await axios.get("http://localhost:3000/saved/links", {
+						const { data: response } = await axios.get("https://api-linklist-restapi.onrender.com/saved/links", {
 							headers: {
 								Authorization: `Bearer ${currentAdmin?.data?.token}`,
 								"Content-Type": "application/json",

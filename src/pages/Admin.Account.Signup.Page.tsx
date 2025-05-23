@@ -24,7 +24,7 @@ const AdminAccountSignupPageElementsComponent: React.FunctionComponent = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:3000/admin/account/signup",
+                "https://api-linklist-restapi.onrender.com/admin/account/signup",
                 {
                     username: `${firstName} ${lastName}`,
                     email,

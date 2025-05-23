@@ -34,7 +34,7 @@ const AdminAccountVerificationPageElementsComponent: React.FunctionComponent = (
         displayElement(loader);
 
         try {
-            const { data: response } = await axios.post("http://localhost:3000/admin/account/verification", {
+            const { data: response } = await axios.post("https://api-linklist-restapi.onrender.com/admin/account/verification", {
                 email: PrimaryAuthenticationObject?.email || "",
                 code: codeDigits.join(""),
             });

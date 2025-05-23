@@ -1,6 +1,7 @@
 import React from "react";
 import removeElement from "../../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
+import { IoNotificationsSharp } from "react-icons/io5";
 
 const TrashLinkDeletionNotificationHamburgComponent: React.FunctionComponent = () => {
     return <>
@@ -10,7 +11,7 @@ const TrashLinkDeletionNotificationHamburgComponent: React.FunctionComponent = (
             >
             <article>
                 <p>
-                Link deleted successfully from trash!
+                <IoNotificationsSharp />Link deleted successfully from trash!
                 </p>
                 <span
                     onClick={(event) => {
