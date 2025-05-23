@@ -55,7 +55,7 @@ const UpdateLinkFormComponent: React.FunctionComponent<UpdateLinkFormProps> = ({
 
         try {
             const request = await axios.put(
-                `http://localhost:3000/saved/links/${selectedLink.id}`,
+                `https://api-linklist-restapi.onrender.com/saved/links/${selectedLink.id}`,
                 { title, link },
                 {
                     headers: {

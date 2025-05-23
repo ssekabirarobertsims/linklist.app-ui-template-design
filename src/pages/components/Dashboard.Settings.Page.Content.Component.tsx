@@ -86,7 +86,7 @@ const DashboardSettingsPageContentComponent: React.FunctionComponent = () => {
     
             try {
                 const response = await axios.post(
-                    `http://localhost:3000/admin/account/logout/${currentAdmin?.data?.id}`,
+                    `https://api-linklist-restapi.onrender.com/admin/account/logout/${currentAdmin?.data?.id}`,
                     {
                         id: currentAdmin?.data?.id,
                         username: currentAdmin?.data?.username,
@@ -142,7 +142,7 @@ const DashboardSettingsPageContentComponent: React.FunctionComponent = () => {
 
         try {
             const response = await axios.patch(
-                `http://localhost:3000/admin/account/append/${currentAdmin?.data?.id}`,
+                `https://api-linklist-restapi.onrender.com/admin/account/append/${currentAdmin?.data?.id}`,
                 {
                     username,
                     avatar: placeholder.src.split("/avatars/")[1],

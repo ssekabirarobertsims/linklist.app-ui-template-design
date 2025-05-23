@@ -49,7 +49,7 @@ const CreateLinkFormComponent: React.FunctionComponent = () => {
 
         try {
             const {data: response} = await axios.post(
-                "http://localhost:3000/saved/links",
+                "https://api-linklist-restapi.onrender.com/saved/links",
                 {
                     title,
                     link,

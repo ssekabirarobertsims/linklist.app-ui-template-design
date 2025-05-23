@@ -38,7 +38,7 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
     useEffect(() => {
             (async function fetchSavedLinks() {
                 try {
-                    const { data: response } = await axios.get("http://localhost:3000/saved/links", {
+                    const { data: response } = await axios.get("https://api-linklist-restapi.onrender.com/saved/links", {
                         headers: {
                             Authorization: `Bearer ${currentAdmin?.data?.token}`,
                             "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const DashboardHomePageContentComponent: React.FunctionComponent = () => {
     useEffect(() => {
         (async function fetchTrashedLinks() {
             try {
-                const { data: response } = await axios.get("http://localhost:3000/trash/links", {
+                const { data: response } = await axios.get("https://api-linklist-restapi.onrender.com/trash/links", {
                     headers: {
                         Authorization: `Bearer ${currentAdmin?.data?.token}`,
                         "Content-Type": "application/json",
