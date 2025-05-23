@@ -76,8 +76,6 @@ const secondaryAuthenticationObject: (SecondaryAuthenticationProps) =
     )
   ) as (SecondaryAuthenticationProps);
 
-  console.log(secondaryAuthenticationObject)
-
 function App() {
   return window.navigator.onLine ? (
     <secondaryAuthenticationObjectContext.Provider

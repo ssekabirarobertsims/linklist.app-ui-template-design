@@ -8,6 +8,7 @@ interface primaryAuthenticationObjectProps { // props for the primary auth obj a
   email: string;
 }
 
+import CookiesSiteMessageComponent from "../components/Cookies.Site.Message.Component";
 import { TiTick } from "react-icons/ti";
 
 const SubscriptionPaymentPlansPageContentComponent: React.FunctionComponent = () => {
@@ -23,6 +24,7 @@ const SubscriptionPaymentPlansPageContentComponent: React.FunctionComponent = ()
 	return (
 		<>
 		<SecondaryNavigationBarComponent />
+		<CookiesSiteMessageComponent />
 		<section className="subscription-payment-plans-page-content-component">
 		<div className="subscription-payment-plans-page-content-component-content-wrapper">
 			<article className="subscription-payment-plans-page-content-component">

@@ -671,7 +671,7 @@ aside[class="admin-profile-deletion-warning-component"] > div :is(article[class=
 aside[class="cookies-site-message-component"] {
     height: 12em;
     width: min(100%, 30em);
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
