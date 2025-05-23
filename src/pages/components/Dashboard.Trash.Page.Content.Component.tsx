@@ -140,7 +140,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
             <LinkRestorationNotificationHamburgComponent />
             <LinkUpdatingNotificationHamburgComponent />
             <TrashLinkDeletionNotificationHamburgComponent />
-            <h1>Links Trash</h1>
+            <h1>Trashed links</h1>
             <span className="link_no">{list.length} trashed links</span>
             {list.length > 0 ? (
                 <ul className="dashboard-trash-page-ul-list-component">
@@ -191,6 +191,7 @@ const DashboardTrashPageContentComponent: React.FunctionComponent = () => {
                 </div>
             )}
              {
+                // condition the amount to be trashed depending on the users subscription plan
                 list.length > 25 ? <aside id="trash-emptying-warning-component">
                     <div>
                         <article>

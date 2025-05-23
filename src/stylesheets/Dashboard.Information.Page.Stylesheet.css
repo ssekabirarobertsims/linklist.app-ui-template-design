@@ -1,5 +1,5 @@
 section[class="dashboard-information-page-elements-component"] {
-    min-height: 100vh;
+    min-height: 90vh;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@ section[class="dashboard-information-page-elements-component"] {
     position: relative;
 }
 section[class="dashboard-information-page-elements-component"] > div[class="dashboard-information-page-elements-component-content-wrapper"] {
-    min-height: 100vh;
+    min-height: 90vh;
     width: min(90%, 90%);
     display: flex;
     align-items: center;
@@ -22,7 +22,7 @@ section[class="dashboard-information-page-elements-component"] > div[class="dash
     gap: 2em;
 }
 section[class="dashboard-information-page-elements-component"] > div[class="dashboard-information-page-elements-component-content-wrapper"] :is(article[class="dashboard-information-page-content-component"]) {
-    height: 100vh;
+    height: 90vh;
     width: min(100%, 50em) !important;
     display: flex;
     align-items: center;

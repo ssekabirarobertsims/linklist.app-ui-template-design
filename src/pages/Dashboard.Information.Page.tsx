@@ -5,6 +5,7 @@ import NotificationsSideBarComponent from "../components/Notifications.Side.Bar.
 import AdminAccountVerificationAlertMessageComponent from "../components/Admin.Account.Verification.Alert.Message";
 import SettingsButtonLinkComponent from "../components/Settings.Button.Link.Component";
 import AdminAccountSubscriptionAlertMessageComponent from "../components/Admin.Account.Subscription.Alert.Message";
+import SecondaryNavigationBarComponent from "../components/Secondary.Navigation.Bar.Component";
 
 const DashboardInformationPageElementsComponent: React.FunctionComponent = () => {
     useEffect(() => {
@@ -13,6 +14,7 @@ const DashboardInformationPageElementsComponent: React.FunctionComponent = () =>
 
     return (
         <>
+            <SecondaryNavigationBarComponent />
             <CookiesSiteMessageComponent />
             <SettingsButtonLinkComponent />
             <AdminAccountSubscriptionAlertMessageComponent />

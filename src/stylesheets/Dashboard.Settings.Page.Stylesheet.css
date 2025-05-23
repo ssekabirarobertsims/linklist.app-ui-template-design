@@ -185,61 +185,23 @@ section[class="dashboard-page-elements-component"] > div[class="dashboard-page-e
     background-color: hsl(0, 100%, 98%);
     border: 1px solid rgb(228, 0, 0);
 }
-section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > form[class="dashboard-settings-page-social-links-form-component"] {
-    min-height: 10em;
-    width: min(98%, 98%); 
-    border: 1px solid hsl(0, 0%, 90%);
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > a  {
+    height: 3em;
+    width: min(100%, 12em); 
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    border-radius: .4em;background-color: #fff;
-    -moz-box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
-    -webkit-box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
-    box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
+    text-decoration: none;
 }
-section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > form[class="dashboard-settings-page-social-links-form-component"] :where(div) {
-    min-height: 9em;
-    width: min(98%, 98%); 
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    gap: .5em;
-}
-section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > form[class="dashboard-settings-page-social-links-form-component"] :where(div) > article {
-    min-height: 2.5em;
-    width: min(98%, 98%); 
-    border: 1px solid hsl(0, 0%, 80%);
+section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > a > button[class="download-this-page"]  {
+    height: 3.5em;
+    width: min(100%, 15em); 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    gap: .5em;
-    border-radius: .2em;
-}
-section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > form[class="dashboard-settings-page-social-links-form-component"] :where(div) > article :is(span) {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-left: .5em;
-}
-section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > form[class="dashboard-settings-page-social-links-form-component"] :where(div) > button {
-    height: 2.8em;
-    width: min(100%, 10em);
-    border-radius: .2em;
-    border: none;
-    background-color: var(--primary-theme-color);
-    color: #fff;
+    justify-content: center;
+    gap: .3em;
     cursor: pointer;
-}
-section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > form[class="dashboard-settings-page-social-links-form-component"] :where(div) > article :is(input) {
-    height: 1.5em;
-    width: min(98%, 20em);
-    border: none;
-    background-color: transparent;
-    outline-style: none;
-    flex-grow: 1;
+    font-weight: bold;
 }
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > aside[class="dashboard-settings-page-avatar-form-component"]  {
     height: 100%;
@@ -351,90 +313,4 @@ section[class="dashboard-page-elements-component"] > div[class="dashboard-page-e
 }
 section[class="dashboard-page-elements-component"] > div[class="dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-settings-page-content-component"]) > aside[class="dashboard-settings-page-avatar-form-component"] > div[class="dashboard-settings-page-avatar-form-component-wrapper"] :where(article) button[id="discard"] {
    background-color: #000;
-}
-
-/*  */
-article[class="cookies-and-site-permissions-content-wrapper"] {
-    min-height: 15em;
-    width: min(98%, 98%);
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1em;
-    -moz-box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
-    -webkit-box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
-    box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, .1);
-    cursor: pointer;
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > div {
-    min-height: 13em;
-    width: min(100%, 100%);
-    background-color: #fff;
-    /* border: 1px solid hsl(0, 100%, 50%); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2em;
-    border-radius: .3em;
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > div aside {
-    min-height: 9em;
-    width: min(95%, 95%);
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0em;
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(label) {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 1em;
-    font-size: .9em;
-    font-weight: bold;
-    color: hsl(0, 0%, 10%);
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(button) {
-    height: 3em;
-    width: min(100%, 15em);
-    border: none;
-    background-color: hsl(0, 0%, 5%);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .3em;
-    font-weight: bold;
-    cursor: not-allowed;
-    border-radius: .3em;
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(button) > span {
-    font-size: 1.5em;
-    color: #fff;
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(span) {
-    font-size: 2em;
-    font-weight: bold;
-    color: hsl(0, 0%, 10%);
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > div aside :where(p) {
-    font-size: .9em;
-    font-weight: normal;
-    color: hsl(0, 0%, 10%);
-    max-width: 65em;
-}
-article[class="cookies-and-site-permissions-content-wrapper"] > button {
-    height: 3.5em;
-    width: min(100%, 15em);
-    /* border: 1px solid red; */
-    cursor: pointer;
-    border: none;
-    border-radius: .3em;
-    color: #fff;
-    background-color:hsl(0, 0%, 5%);
 }
