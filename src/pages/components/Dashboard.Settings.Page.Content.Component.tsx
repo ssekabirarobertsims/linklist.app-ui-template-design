@@ -23,7 +23,6 @@ interface SecondaryAuthenticationProps {
     };
 }
 
-import { FaPaintBrush } from "react-icons/fa";
 import { BsCookie } from "react-icons/bs";
 import { MdManageAccounts } from "react-icons/md";
 import { BiPencil, BiTrash } from "react-icons/bi";
@@ -31,8 +30,6 @@ import { LuLogOut } from "react-icons/lu";
 import { v4 as uuidV4 } from "uuid";
 import { format } from "date-fns";
 import { MdVerified } from "react-icons/md";
-import { BsFacebook } from "react-icons/bs";
-import { BiWorld } from "react-icons/bi";
 
 import ChangeAdminAvatarFunction from "../../functions/Change.Admin.Avatar.Function";
 import AdminAccountUpdateNotificationHamburgComponent from "../../components/Admin.Account.Update.Notification.Hamburg.Component";
@@ -59,6 +56,8 @@ interface SecondaryAuthenticationProps {
         verified: string;
     };
 }
+
+import { BiDownload } from "react-icons/bi";
 
 const DashboardSettingsPageContentComponent: React.FunctionComponent = () => {
     const currentAdmin = React.useContext(SecondaryAuthenticationObjectContext) as SecondaryAuthenticationProps;
@@ -210,9 +209,6 @@ const DashboardSettingsPageContentComponent: React.FunctionComponent = () => {
         removeElement(document.querySelector(".dashboard-settings-page-avatar-form-component") as HTMLElement);
     };
 
-    const [websiteLink, setWebsiteLink] = useState<string>("");
-    const [facebookLink, setFacebookLink] = useState<string>("");
-
 
     return (
         <article className="dashboard-settings-page-content-component">
@@ -222,7 +218,7 @@ const DashboardSettingsPageContentComponent: React.FunctionComponent = () => {
             <div className="settings-buttons-wrapper">
                 <button type="button"><span><MdManageAccounts /></span>Manage account</button>
                 <button type="button"><span><BsCookie /></span>Clear cookies</button>
-                <button type="button"><span><FaPaintBrush /></span>Customize theme</button>
+                {/* <button type="button"><span><FaPaintBrush /></span>Customize theme</button> */}
             </div>
                         <h2>Your profile</h2>
                         <div className="dashboard-settings-admin-profile-component">
@@ -264,35 +260,12 @@ const DashboardSettingsPageContentComponent: React.FunctionComponent = () => {
                                 </button>
                             </article>
                         </div>
-                        <h2>Your social links</h2>
-                        {/* social links form component */}
-                        <form action="" method="post" className="dashboard-settings-page-social-links-form-component">
-                            <div className="dashboard-settings-page-social-links-form-component-wrapper">
-                               <article>
-                                <span><BiWorld /></span>
-                                 <input
-                                    type="text"
-                                    name="website-link"
-                                    id="website-link"
-                                    placeholder="your website link"
-                                    value={websiteLink}
-                                    onChange={(event) => setWebsiteLink(event.target.value)}
-                                />
-                               </article>
-                               <article>
-                                <span><BsFacebook /></span>
-                                 <input
-                                    type="text"
-                                    name="facebook-link"
-                                    id="facebook-link"
-                                    placeholder="your facebook profile link"
-                                    value={facebookLink}
-                                    onChange={(event) => setFacebookLink(event.target.value)}
-                                />
-                               </article>
-                               <button type="button">Save links</button>
-                            </div>
-                        </form>
+                        <h2>Download this page</h2>
+                        {/* download page component */}
+                        <a href="" download>
+                            <button type="button" className="download-this-page"><BiDownload />Download page</button>
+                        </a>
+
                         {/* reusable components */}
             <AdminAccountUpdateNotificationHamburgComponent />
             <PrimaryPageLoaderComponent />

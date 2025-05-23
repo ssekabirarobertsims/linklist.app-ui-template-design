@@ -36,6 +36,7 @@ import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentic
 import { FaRegTrashAlt } from "react-icons/fa";
 // import { IoSettingsSharp } from "react-icons/io5";
 import { MdSubscriptions } from "react-icons/md";
+import { BsArrowRight } from "react-icons/bs";
 
 const DashboardPageSideBarComponent: React.FunctionComponent = () => {
   const currentAdmin: SecondaryAuthenticationProps = React.useContext(
@@ -127,12 +128,6 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
         ).toLocaleLowerCase()}
       >
         <div>
-          {/* <h3>Admin Dashboard</h3> */}
-           {/* <img
-                            src={`/avatars/${currentAdmin?.data?.avatar || "avatar-2.png"}`}
-                            alt="Current Admin Avatar"
-                            id="current-admin-avatar-placeholder"
-                        /> */}
           <ul
             className={String(
               "dashboard-page-side-bar-component-ul-list"
@@ -153,6 +148,23 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
             ))}
           </ul>
         </div>
+        <article>
+          <div>
+            <p>50 links remaining on your free plan</p>
+            <Link to={{
+              pathname: `/${String(
+									currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+								  )
+									.toLocaleLowerCase()
+									.replace(" ", "")}/account/subscription/plans`,
+									search: `admin=${String(
+									currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+								  )
+									.toLocaleLowerCase()
+									.replace(" ", "")}`
+            }}>Upgrade plan<BsArrowRight /></Link>
+          </div>
+        </article>
       </aside>
     </>
   );

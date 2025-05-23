@@ -313,11 +313,9 @@ aside[class="dashboard-page-side-bar-component"] {
     height: 87vh;
     width: min(100%, 17em) !important;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-flow: row nowrap;
+    flex-direction: column;
     /* border: 1px solid hsl(0, 100%, 50%); */
     background-color: hsl(0, 0%, 100%);
     -webkit-box-shadow: 1px 0 1px -0.1px rgba(0, 0, 0, .1);
@@ -325,7 +323,7 @@ aside[class="dashboard-page-side-bar-component"] {
 box-shadow: 1px 0 1px -0.1px rgba(0, 0, 0, .1);
 }
 aside[class="dashboard-page-side-bar-component"] > div {
-    height: 82vh;
+    height: 70vh;
     width: min(95%, 95%);
     display: flex;
     align-items: flex-start;
@@ -446,6 +444,43 @@ aside[class="dashboard-page-side-bar-component"] > div > button {
     background-color: #000;
     border: none;
     cursor: pointer;
+}
+aside[class="dashboard-page-side-bar-component"] > article {
+    height: 11vh;
+    width: min(95%, 95%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--primary-theme-color);
+    background-color: hsl(216, 100%, 90%);
+    gap: 1em;
+    border-radius: .2em;
+}
+aside[class="dashboard-page-side-bar-component"] > article :is(div) {
+    height: 8.5vh;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: .1em;
+    /* border: 1px solid red; */
+}
+aside[class="dashboard-page-side-bar-component"] > article :is(div) > p {
+    font-size: .8em;
+    font-weight: normal;
+    color: hsl(0, 0%, 10%);
+}
+aside[class="dashboard-page-side-bar-component"] > article :is(div) > a {
+    font-size: .9em;
+    font-weight: bold;
+    color: var(--primary-theme-color);
+    text-decoration: none;
+     display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: .2em;
 }
 
 /*  */
