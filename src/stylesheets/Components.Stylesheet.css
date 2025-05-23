@@ -248,7 +248,7 @@ a[class="settings-button"] {
     width: 3em;
     position: fixed;
     right: 2em;
-    bottom: 2em;
+    bottom: 8em;
      display: flex;
     align-items: center;
     justify-content: center;
@@ -286,7 +286,7 @@ div[id="notification-hamburg-component"] {
     border: 1px solid #eee;
     border-bottom: 4px solid var(--primary-theme-color);
     position: fixed;
-    bottom: 1em;
+    bottom: 6.5em;
     right: 25em;
     z-index: 2;
 }
@@ -300,6 +300,13 @@ div[id="notification-hamburg-component"] > article {
     flex-flow: row nowrap;
     gap: 5em;
     position: relative;
+}
+div[id="notification-hamburg-component"] > article p {
+    font-weight: calc(250 + 290);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .2em;
 }
 div[id="notification-hamburg-component"] > article span {
     position: absolute;

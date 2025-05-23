@@ -9,6 +9,7 @@ interface primaryAuthenticationObjectProps { // props for the primary auth obj a
 }
 
 import { TiTick } from "react-icons/ti";
+import LandingHomePageFooterComponent from "./components/Landing.Home.Page.Footer.Component";
 
 const SubscriptionPaymentPlansPageContentComponent: React.FunctionComponent = () => {
 	const buttonRef = useRef<HTMLButtonElement>(null);
@@ -18,7 +19,6 @@ const SubscriptionPaymentPlansPageContentComponent: React.FunctionComponent = ()
       window.localStorage.getItem("primary_authentication") as string
     )
   ) as (primaryAuthenticationObjectProps);
-  console.log(primaryAuthenticationObject)
 
 	return (
 		<>
@@ -28,6 +28,11 @@ const SubscriptionPaymentPlansPageContentComponent: React.FunctionComponent = ()
 			<article className="subscription-payment-plans-page-content-component">
 				{/* payments for the software plans */}
 					<h2>Choose subscription plan</h2>
+					<p>
+						Choose a subscription plan that best fits your needs. You can always upgrade or downgrade your plan later. 
+						<br />
+						<strong>Note:</strong> All plans come with a 30-day money-back guarantee. If you're not satisfied, just let us know within 30 days of purchase and we'll refund your money.
+					</p>
 					<br />
 					<aside className="subscription-payments-component">
 						<div className="subscription-payment-plan" id="free">
@@ -98,6 +103,9 @@ const SubscriptionPaymentPlansPageContentComponent: React.FunctionComponent = ()
 	</section>
 	<br />
 	<br />
+	<br />
+	<br />
+	<LandingHomePageFooterComponent />
 		</>
 	);
 };

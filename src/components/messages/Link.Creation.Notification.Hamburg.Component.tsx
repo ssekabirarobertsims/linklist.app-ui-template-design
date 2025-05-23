@@ -6,6 +6,8 @@ interface Message {
     content: string;
 }
 
+import { IoNotificationsSharp } from "react-icons/io5";
+
 const LinkCreationNotificationHamburgComponent: React.FunctionComponent<Message> = ({ content }) => {
     const handleClose = (event: React.MouseEvent) => {
         event.stopPropagation();  // prevent event bubbling
@@ -22,7 +24,7 @@ const LinkCreationNotificationHamburgComponent: React.FunctionComponent<Message>
             id="notification-hamburg-component"
         >
             <article>
-                <p>{content}</p>
+                <p><IoNotificationsSharp />{content}</p>
                 <span onClick={handleClose}>
                     <CgClose />
                 </span>

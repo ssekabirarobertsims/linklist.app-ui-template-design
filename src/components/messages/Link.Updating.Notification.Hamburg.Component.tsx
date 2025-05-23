@@ -1,6 +1,7 @@
 import React from "react";
 import removeElement from "../../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
+import { IoNotificationsSharp } from "react-icons/io5";
 
 const LinkUpdatingNotificationHamburgComponent: React.FunctionComponent = () => {
     return <>
@@ -10,7 +11,7 @@ const LinkUpdatingNotificationHamburgComponent: React.FunctionComponent = () => 
         >
             <article>
                 <p>
-                    Link has been updated successfully!
+                    <IoNotificationsSharp />Link has been updated successfully!
                 </p>
                 <span
                     onClick={(event) => {
