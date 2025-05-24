@@ -1,7 +1,6 @@
 import React from "react";
-import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
+import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
-import { MdSecurity } from "react-icons/md";
 
 interface SecondaryAuthenticationProps {
   date: string;
@@ -19,14 +18,16 @@ interface SecondaryAuthenticationProps {
   };
 }
 
-const AdminAccountVerificationAlertMessageComponent: React.FunctionComponent =
+import { MdSubscriptions } from "react-icons/md";
+
+const AdminAccountSubscriptionAlertMessageComponent: React.FunctionComponent =
   () => {
     const currentAdmin = React.useContext(
       SecondaryAuthenticationObjectContext
     ) as SecondaryAuthenticationProps;
 
     // Check if the admin is verified
-    const isVerified = currentAdmin?.data?.verified === "true";
+    const isVerified = currentAdmin?.data?.subscribed === "true";
 
     if (isVerified) {
       return null; // Return null if the admin is verified
@@ -34,22 +35,25 @@ const AdminAccountVerificationAlertMessageComponent: React.FunctionComponent =
 
     return (
       <article
-        className="admin-account-verification-alert-message"
+        className="admin-account-subscription-alert-message"
         onClick={(event) => event.stopPropagation()} // prevent event bubbling
       >
         <div>
           <div id="_wrapper">
             <span>
-              <MdSecurity />
+              <MdSubscriptions />
             </span>
-            <h3>Admin account verification</h3>
+            <h3>Admin account subscription</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Necessitatibus eaque eos, eius recusandae vitae iusto harum vero
-              ut, possimus nulla, quos minus!
+              Make sure to subscribe to our subscription plan to unlock all
+              features and benefits of LinkList.
             </p>
-            <Link to="/admin/account/verification">
-              <button type="button">Verify Account</button>
+            <Link
+              to={{
+                pathname: "/account/subscription/plans",
+              }}
+            >
+              <button type="button">Make subscription</button>
             </Link>
           </div>
         </div>
@@ -57,4 +61,4 @@ const AdminAccountVerificationAlertMessageComponent: React.FunctionComponent =
     );
   };
 
-export default AdminAccountVerificationAlertMessageComponent;
+export default AdminAccountSubscriptionAlertMessageComponent;

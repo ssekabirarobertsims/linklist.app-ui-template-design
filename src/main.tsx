@@ -21,7 +21,7 @@ import "./stylesheets/Free.Subscription.Payment.Plan.Page.Stylesheet.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter> 
+    <BrowserRouter>
       <Routes>
         <Route path="/*" element={<App />}></Route>
       </Routes>

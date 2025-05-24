@@ -1,5 +1,5 @@
 import React from "react";
-import removeElement from "../functions/Remove.Element.Function";
+import removeElement from "../../functions/Remove.Element.Function";
 import { CgClose } from "react-icons/cg";
 
 const AdminAccountUpdateNotificationHamburgComponent: React.FunctionComponent =

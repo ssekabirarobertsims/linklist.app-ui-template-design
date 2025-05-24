@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { v4 as uuidV4 } from "uuid";
 
+// Define the type for sidebar navigation items
 type ListItemProperties = {
   id: string;
   content: string;
@@ -39,10 +40,12 @@ import { MdSubscriptions } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
 
 const DashboardPageSideBarComponent: React.FunctionComponent = () => {
+  // Get the current admin's authentication data from context
   const currentAdmin: SecondaryAuthenticationProps = React.useContext(
     SecondaryAuthenticationObjectContext
   ) as SecondaryAuthenticationProps;
 
+  // Sidebar navigation list, dynamically generates links based on admin username
   const [list, setList] = useState<ListItemProperties[]>([
     {
       id: uuidV4(),
@@ -55,12 +58,16 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
       content: "Dashboard",
       icon: <GrDashboard />,
       link: `/${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}/dashboard`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
@@ -70,27 +77,35 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
       content: "Saved Links",
       icon: <RiLinksFill />,
       link: `/${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}/saved/links`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
     },
-    { 
+    {
       id: uuidV4(),
       content: "Trashed Links",
       icon: <FaRegTrashAlt />,
       link: `/${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}/links/trash`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
@@ -101,7 +116,9 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
       icon: <MdSubscriptions />,
       link: `/account/subscription/plans`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
@@ -112,16 +129,22 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
       icon: <IoInformation />,
       link: `/app/info`,
       query: `admin=${String(
-        currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
+        currentAdmin?.data?.username
+          ? currentAdmin?.data?.username.replace(" ", "")
+          : "admin"
       )
         .toLocaleLowerCase()
         .replace(" ", "")}`,
     },
   ] as ListItemProperties[]);
+
+  // Keep the sidebar list in sync (not strictly necessary here)
   useEffect(() => setList(list), [list]);
 
+  // Render the sidebar navigation and upgrade prompt
   return (
     <>
+      {/* Sidebar container */}
       <aside
         className={String(
           "dashboard-page-side-bar-component"
@@ -133,6 +156,7 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
               "dashboard-page-side-bar-component-ul-list"
             ).toLocaleLowerCase()}
           >
+            {/* Render each navigation item */}
             {list.map((item: ListItemProperties) => (
               <li key={item.id}>
                 <Link
@@ -148,21 +172,31 @@ const DashboardPageSideBarComponent: React.FunctionComponent = () => {
             ))}
           </ul>
         </div>
+        {/* Upgrade plan prompt at the bottom of the sidebar */}
         <article>
           <div>
             <p>50 links remaining on your free plan</p>
-            <Link to={{
-              pathname: `/${String(
-									currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
-								  )
-									.toLocaleLowerCase()
-									.replace(" ", "")}/account/subscription/plans`,
-									search: `admin=${String(
-									currentAdmin?.data?.username ? currentAdmin?.data?.username.replace(" ", "") : "admin"
-								  )
-									.toLocaleLowerCase()
-									.replace(" ", "")}`
-            }}>Upgrade plan<BsArrowRight /></Link>
+            <Link
+              to={{
+                pathname: `/${String(
+                  currentAdmin?.data?.username
+                    ? currentAdmin?.data?.username.replace(" ", "")
+                    : "admin"
+                )
+                  .toLocaleLowerCase()
+                  .replace(" ", "")}/account/subscription/plans`,
+                search: `admin=${String(
+                  currentAdmin?.data?.username
+                    ? currentAdmin?.data?.username.replace(" ", "")
+                    : "admin"
+                )
+                  .toLocaleLowerCase()
+                  .replace(" ", "")}`,
+              }}
+            >
+              Upgrade plan
+              <BsArrowRight />
+            </Link>
           </div>
         </article>
       </aside>

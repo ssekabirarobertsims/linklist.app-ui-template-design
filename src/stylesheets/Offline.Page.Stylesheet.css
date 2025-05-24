@@ -1,38 +1,53 @@
+/*
+    Styles for the offline page.
+    - The main section and content wrapper are centered using flexbox for a clean, focused layout.
+    - Headings and messages are styled for clarity and emphasis.
+    - Buttons use theme colors and provide interactive feedback.
+    - Utility selectors and classes are used for easy maintenance and scalability.
+    - Each section is commented for easier navigation and future updates.
+*/
 section[class="offline-page-elements-component"] {
-    min-height: 90vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
+  min-height: 90vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
 }
-section[class="offline-page-elements-component"] > div[class="offline-page-elements-component-content-wrapper"] {
-    min-height: 80vh;
-    width: min(90%, 90%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    text-align: center;
-    gap: 1em;
+section[class="offline-page-elements-component"]
+  > div[class="offline-page-elements-component-content-wrapper"] {
+  min-height: 80vh;
+  width: min(90%, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  text-align: center;
+  gap: 1em;
 }
-section[class="offline-page-elements-component"] > div[class="offline-page-elements-component-content-wrapper"] :where(h1) {
-    font-size: 1.5em;
-    font-weight: calc(290 + 290);
-    color: hsl(0, 0%, 5%);
+section[class="offline-page-elements-component"]
+  > div[class="offline-page-elements-component-content-wrapper"]
+  :where(h1) {
+  font-size: 1.5em;
+  font-weight: calc(290 + 290);
+  color: hsl(0, 0%, 5%);
 }
-section[class="offline-page-elements-component"] > div[class="offline-page-elements-component-content-wrapper"] :where(p) {
-    font-size: 1em;
-    font-weight: calc(250 + 250);
-    color: hsl(0, 0%, 10%);
+section[class="offline-page-elements-component"]
+  > div[class="offline-page-elements-component-content-wrapper"]
+  :where(p) {
+  font-size: 1em;
+  font-weight: calc(250 + 250);
+  color: hsl(0, 0%, 10%);
 }
-section[class="offline-page-elements-component"] > div[class="offline-page-elements-component-content-wrapper"] :where(button) {
-    height: 3em;
-    width: min(100%, 15em);
-    border: none;
-    border-radius: .3em;
-    color: #fff;
-    background-color: hsl(0, 0%, 0%);
+section[class="offline-page-elements-component"]
+  > div[class="offline-page-elements-component-content-wrapper"]
+  :where(button) {
+  height: 3em;
+  width: min(100%, 15em);
+  border: none;
+  border-radius: 0.3em;
+  color: #fff;
+  background-color: hsl(0, 0%, 0%);
 }

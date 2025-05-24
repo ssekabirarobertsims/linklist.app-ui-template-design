@@ -1,102 +1,138 @@
+/*
+    Styles for the admin account subscription status page.
+    - The main section and form are centered and styled with padding, rounded corners, and a subtle shadow for a card-like appearance.
+    - The wrapper div aligns content vertically and horizontally, and positions elements for a clean, modern layout.
+    - Headings, messages, and buttons are styled for clarity, accessibility, and theme consistency.
+    - The avatar image is circular and visually highlighted with a border.
+    - Links and text use theme colors for a cohesive look.
+    - Utility selectors are used for easy maintenance and scalability.
+*/
 section[class="admin-account-subscription-page-elements-component"] {
-    min-height: 90vh;
-    width: min(95%, 95%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
+  min-height: 90vh;
+  width: min(95%, 95%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
 }
 section[class="admin-account-subscription-page-elements-component"] > form {
-    min-height: 15em;
-    width: min(90%, 35em);
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */ 
-    gap: .8em;
-    border-radius: .5em; 
-    background-color: hsl(0, 0%, 100%);
-    -webkit-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .2);
-    -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .2);
-    box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .2);
-    position: relative;
+  min-height: 15em;
+  width: min(90%, 35em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  gap: 0.8em;
+  border-radius: 0.5em;
+  background-color: hsl(0, 0%, 100%);
+  -webkit-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) {
-    min-height: 11em;
-    width: min(90%, 90%);
-    display: flex;
-    align-items: center; 
-    justify-content: flex-end;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    gap: .5em;
-    position: relative;
-    text-align: center;
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"]) {
+  min-height: 11em;
+  width: min(90%, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  gap: 0.5em;
+  position: relative;
+  text-align: center;
 }
 section[class="admin-account-subscription-page-elements-component"] > p {
-    font-size: .7em;
-    font-weight: normal;
-    color: hsl(0, 0%, 15%);
-    max-width: 70em;
-    text-align: center;
+  font-size: 0.7em;
+  font-weight: normal;
+  color: hsl(0, 0%, 15%);
+  max-width: 70em;
+  text-align: center;
 }
-section[class="admin-account-subscription-page-elements-component"] > p :where(a) {
-    color: hsl(0, 0%, 10%);
+section[class="admin-account-subscription-page-elements-component"]
+  > p
+  :where(a) {
+  color: hsl(0, 0%, 10%);
 }
-section[class="admin-account-subscription-page-elements-component"] > p :where(a):is(:hover, :focus) {
-    color: var(--primary-theme-color);
+section[class="admin-account-subscription-page-elements-component"]
+  > p
+  :where(a):is(:hover, :focus) {
+  color: var(--primary-theme-color);
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) :is(h1) {
-    font-size: 1.3em;
-    font-weight: calc(260 + 240);
-    color: hsl(0, 0%, 5%);
-    text-align: center;
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"])
+  :is(h1) {
+  font-size: 1.3em;
+  font-weight: calc(260 + 240);
+  color: hsl(0, 0%, 5%);
+  text-align: center;
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) :is(strong) {
-    font-size: .8em;
-    font-weight: normal;
-    color: var(--primary-theme-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .1em;
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"])
+  :is(strong) {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: var(--primary-theme-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) :is(span[class="subscription-response-message-placeholder"]) {
-    font-size: .8em;
-    font-weight: calc(230 + 240);
-    color: hsl(0, 0%, 5%);
-    text-align: center;
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"])
+  :is(span[class="subscription-response-message-placeholder"]) {
+  font-size: 0.8em;
+  font-weight: calc(230 + 240);
+  color: hsl(0, 0%, 5%);
+  text-align: center;
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) :is(img) {
-    height: 5em;
-    width: 5em;
-    border-radius: 100%;
-    position: absolute;
-    top: -4em;
-    border: 5px solid #fff;
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"])
+  :is(img) {
+  height: 5em;
+  width: 5em;
+  border-radius: 100%;
+  position: absolute;
+  top: -4em;
+  border: 5px solid #fff;
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) :is(span) {
-    font-weight: calc(290 + 250);
-    color: hsl(0, 0%, 5%);
-    font-style: normal;
-    font-size: 1em;
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"])
+  :is(span) {
+  font-weight: calc(290 + 250);
+  color: hsl(0, 0%, 5%);
+  font-style: normal;
+  font-size: 1em;
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) :is(p) {
-    font-weight: normal;
-    color: hsl(0, 0%, 5%);
-    font-style: normal;
-    font-size: .8em;
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"])
+  :is(p) {
+  font-weight: normal;
+  color: hsl(0, 0%, 5%);
+  font-style: normal;
+  font-size: 0.8em;
 }
-section[class="admin-account-subscription-page-elements-component"] > form :is(div[id="_wrapper"]) :is(button[type="button"]) {
-    height: 3em;
-    width: min(90%, 10em);
-    cursor: pointer;
-    border: none;
-    border-radius: .2em;
-    outline-style: none;
-    color: #fff;
-    font-weight: calc(290 + 250);
-    background-color: var(--primary-theme-color);
+section[class="admin-account-subscription-page-elements-component"]
+  > form
+  :is(div[id="_wrapper"])
+  :is(button[type="button"]) {
+  height: 3em;
+  width: min(90%, 10em);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2em;
+  outline-style: none;
+  color: #fff;
+  font-weight: calc(290 + 250);
+  background-color: var(--primary-theme-color);
 }

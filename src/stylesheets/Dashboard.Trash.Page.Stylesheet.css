@@ -1,216 +1,340 @@
+/*
+    Styles for the dashboard trash page.
+    - The main section and content wrapper use flexbox for responsive layout and spacing.
+    - Trashed links list uses a card/grid layout with subtle shadows and rounded corners.
+    - Trash emptying warning modal uses a fixed overlay with a centered card for user actions.
+    - Buttons and interactive elements use theme colors and provide feedback on hover/focus.
+    - "No results" and empty states are visually distinct and easy to read.
+    - Utility selectors and classes are used for easy maintenance and scalability.
+    - Each section is commented for easier navigation and future updates.
+*/
 section[class="dashboard-trash-page-elements-component"] {
-    min-height: 100vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
+  min-height: 100vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] {
-    min-height: 87vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-flow: row nowrap;
-    /* background-color: hsl(0, 0%, 98%); */
-    /* border: 1px solid red; */
-    gap: 2em;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"] {
+  min-height: 87vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow: row nowrap;
+  /* background-color: hsl(0, 0%, 98%); */
+  /* border: 1px solid red; */
+  gap: 2em;
 }
 /*  */
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) {
-    height: 87vh;
-    width: min(100%, 50em) !important;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    flex-grow: 1;
-    gap: .5em;
-    position: relative;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"]) {
+  height: 87vh;
+  width: min(100%, 50em) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  flex-grow: 1;
+  gap: 0.5em;
+  position: relative;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > h1 {
-    font-size: 2em;
-    font-weight: bold;
-    color: #000;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #000;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > p[class="welcome-p-tag"] {
-    font-size: .9em;
-    font-weight: normal;
-    color: #000;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > p[class="welcome-p-tag"] {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #000;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > div[class="no-results-message"] {
-    height: 27em;
-    width: min(97%, 97%);
-    border: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: .5em;
-    border-radius: .3em;
-    background-color: #fff;
-    -webkit-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
-    -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
-    box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > div[class="no-results-message"] {
+  height: 27em;
+  width: min(97%, 97%);
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5em;
+  border-radius: 0.3em;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.1);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > div[class="no-results-message"] :where(p) {
-    font-size: .9em;
-    font-weight: normal;
-    color: hsl(0, 0%, 20%);
-    text-align: center;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > div[class="no-results-message"]
+  :where(p) {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: hsl(0, 0%, 20%);
+  text-align: center;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(aside[id="trash-emptying-warning-component"]) {
-    min-height: 100%;
-    width: min(100%, 100%);
-    border: none;
-    color: #000;
-    background-color: rgba(0, 0, 0, .1);
-    position: fixed;
-    right: 0em;
-    bottom: 0em;
-     display: flex;
-    align-items: center;
-    justify-content: center;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  :where(aside[id="trash-emptying-warning-component"]) {
+  min-height: 100%;
+  width: min(100%, 100%);
+  border: none;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  right: 0em;
+  bottom: 0em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(aside[id="trash-emptying-warning-component"]) > div {
-    min-height: 16em;
-    width: min(90%, 30em);
-    color: #000;
-    background-color: #fff;
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: .3em;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  :where(aside[id="trash-emptying-warning-component"])
+  > div {
+  min-height: 16em;
+  width: min(90%, 30em);
+  color: #000;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3em;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(aside[id="trash-emptying-warning-component"]) > div article {
-    min-height: 100%;
-    width: min(95%, 95%);
-    color: #000;
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: .8em;
-    text-align: center;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  :where(aside[id="trash-emptying-warning-component"])
+  > div
+  article {
+  min-height: 100%;
+  width: min(95%, 95%);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.8em;
+  text-align: center;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(aside[id="trash-emptying-warning-component"]) > div article :is(h2) {
-    font-weight: bold;
-    font-size: 2em;
-    color: hsl(0, 0%, 10%);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  :where(aside[id="trash-emptying-warning-component"])
+  > div
+  article
+  :is(h2) {
+  font-weight: bold;
+  font-size: 2em;
+  color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(aside[id="trash-emptying-warning-component"]) > div article :is(span) {
-    font-weight: calc(250 + 250);
-    font-size: 1.1em;
-    color: hsl(0, 0%, 10%);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  :where(aside[id="trash-emptying-warning-component"])
+  > div
+  article
+  :is(span) {
+  font-weight: calc(250 + 250);
+  font-size: 1.1em;
+  color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(aside[id="trash-emptying-warning-component"]) > div article :is(p) {
-    font-weight: normal;
-    font-size: .9em;
-    color: hsl(0, 0%, 10%);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  :where(aside[id="trash-emptying-warning-component"])
+  > div
+  article
+  :is(p) {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) :where(aside[id="trash-emptying-warning-component"]) > div article :is(button) {
-    height: 2.5em;
-    width: min(100%, 10em);
-    border: none;
-    border-radius: .3em;
-    color: #fff;
-    background-color: var(--primary-theme-color);
-    cursor: pointer;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  :where(aside[id="trash-emptying-warning-component"])
+  > div
+  article
+  :is(button) {
+  height: 2.5em;
+  width: min(100%, 10em);
+  border: none;
+  border-radius: 0.3em;
+  color: #fff;
+  background-color: var(--primary-theme-color);
+  cursor: pointer;
 }
 
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] {
-    height: 25.5em;
-    width: min(97%, 97%);
-    display: grid; 
-    gap: .5em;
-    overflow-y: scroll;
-    list-style: none;
-    border-radius: .3em;
-    background-color: #fff;
-    -webkit-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
-    -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
-    box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .1);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"] {
+  height: 25.5em;
+  width: min(97%, 97%);
+  display: grid;
+  gap: 0.5em;
+  overflow-y: scroll;
+  list-style: none;
+  border-radius: 0.3em;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.1);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) {
-    height: 8em;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-flow: column nowrap;
-    gap: 1em;
-    cursor: pointer;
-    border-radius: .3em;
-    border: 1px solid hsl(0, 0%, 93%);
-    background-color: #fff;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li) {
+  height: 8em;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  gap: 1em;
+  cursor: pointer;
+  border-radius: 0.3em;
+  border: 1px solid hsl(0, 0%, 93%);
+  background-color: #fff;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li):is(:hover, :focus) {
-    -webkit-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
-    -moz-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
-    box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li):is(:hover, :focus) {
+  -webkit-box-shadow: 1px 2px 2px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 2px 2px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 2px -1px rgba(0, 0, 0, 0.2);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div {
-    width: min(95%, 95%);
-    /* border: 1px solid red; */
-    display: flex;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div {
+  width: min(95%, 95%);
+  /* border: 1px solid red; */
+  display: flex;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div[class="dashboard-trash-page-upper-content-wrapper"] {
-    height: 2.5em;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    gap: .0em;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div[class="dashboard-trash-page-upper-content-wrapper"] {
+  height: 2.5em;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  gap: 0em;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div[class="dashboard-trash-page-down-content-wrapper"] {
-    height: 1.9em;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    gap: .5em;
-    position: relative;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div[class="dashboard-trash-page-down-content-wrapper"] {
+  height: 1.9em;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 0.5em;
+  position: relative;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button) {
-    height: 1.5em;
-    width: 1.5em;
-    border-radius: .3em;
-    border: none;
-    background-color: transparent;
-    font-weight: bolder;
-    font-size: 1.1em;
-    cursor: pointer;
-    color: #000;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div
+  :is(button) {
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 0.3em;
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+  font-size: 1.1em;
+  cursor: pointer;
+  color: #000;
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(button):is(:hover, :focus) {
-    color: var(--primary-theme-color);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div
+  :is(button):is(:hover, :focus) {
+  color: var(--primary-theme-color);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(h2) {
-    font-size: 1.2em;
-    font-weight: calc(290 + 250);
-    color: hsl(0, 0%, 10%);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div
+  :is(h2) {
+  font-size: 1.2em;
+  font-weight: calc(290 + 250);
+  color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(a) {
-    font-weight: normal;
-    font-size: .9em;
-    color: hsl(0, 0%, 10%);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div
+  :is(a) {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(a):is(:hover, :focus) {
-    color: var(--primary-theme-color);
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div
+  :is(a):is(:hover, :focus) {
+  color: var(--primary-theme-color);
 }
-section[class="dashboard-trash-page-elements-component"] > div[class="dashboard-trash-page-elements-component-content-wrapper"] :is(article[class="dashboard-trash-page-content-component"]) > ul[class="dashboard-trash-page-ul-list-component"] :where(li) > div :is(input[id="select-text-box"]) {
-    height: 1.2em;
-    width: 1.2em;
-    cursor: pointer;
-    font-weight: bold;
-    border: 1px solid hsl(0, 0%, 85%);
-    border-radius: .2em;
-    position: absolute;
-    top: -1.8em;
-    right: .8em;
+section[class="dashboard-trash-page-elements-component"]
+  > div[class="dashboard-trash-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-trash-page-content-component"])
+  > ul[class="dashboard-trash-page-ul-list-component"]
+  :where(li)
+  > div
+  :is(input[id="select-text-box"]) {
+  height: 1.2em;
+  width: 1.2em;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 0.2em;
+  position: absolute;
+  top: -1.8em;
+  right: 0.8em;
 }

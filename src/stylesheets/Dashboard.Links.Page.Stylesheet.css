@@ -1,183 +1,279 @@
+/*
+    Styles for the dashboard links page.
+    - The main section and content wrapper use flexbox for responsive layout and spacing.
+    - The content area, search input, and saved links list are styled for clarity and accessibility.
+    - Saved links are displayed in a card/grid layout with subtle shadows and rounded corners.
+    - Buttons and links use theme colors and provide interactive feedback on hover/focus.
+    - "No results" and empty states are visually distinct and easy to read.
+    - Utility selectors and classes are used for easy maintenance and scalability.
+    - Each section is commented for easier navigation and future updates.
+*/
 section[class="dashboard-links-page-elements-component"] {
-    min-height: 100vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
+  min-height: 100vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] {
-    min-height: 87vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row; 
-    flex-wrap: nowrap;
-    flex-flow: row wrap;
-    /* background-color: hsl(0, 0%, 98%); */ 
-    /* border: 1px solid red; */
-    gap: 2em;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"] {
+  min-height: 87vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow: row wrap;
+  /* background-color: hsl(0, 0%, 98%); */
+  /* border: 1px solid red; */
+  gap: 2em;
 }
 /*  */
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) {
-    height: 87vh;
-    width: min(100%, 62.5em) !important;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    /* border: 1px solid rgb(0, 255, 115); */
-    flex-grow: 1;
-    gap: .5em;
-    position: relative;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"]) {
+  height: 87vh;
+  width: min(100%, 62.5em) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* border: 1px solid rgb(0, 255, 115); */
+  flex-grow: 1;
+  gap: 0.5em;
+  position: relative;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) :where(button[id="trash-links-button"]):is(:focus, :hover) {
-    width: min(100%, 15em);
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  :where(button[id="trash-links-button"]):is(:focus, :hover) {
+  width: min(100%, 15em);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > h1[class="current-admin-message"] {
-    font-size: 2em;
-    font-weight: bold;
-    color: #000;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > h1[class="current-admin-message"] {
+  font-size: 2em;
+  font-weight: bold;
+  color: #000;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > p[class="welcome-p-tag"] {
-    font-size: .9em;
-    font-weight: normal;
-    color: #000;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > p[class="welcome-p-tag"] {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #000;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="dashboard-page-search-input"] {
-    min-height: 4em;
-    width: min(97%, 97%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-flow: row nowrap;
-    gap: 1em;
-    border-radius: .3em;
-    cursor: pointer;
-    background-color: #fff;
-    border: 1px solid hsl(0, 0%, 90%);
-    -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
-    -moz-box-shadow: 1px  1px 5px -1px #dddddd;
-    box-shadow: 1px  1px 5px -1px #dddddd;
-    /* border: 1px solid red; */
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > div[class="dashboard-page-search-input"] {
+  min-height: 4em;
+  width: min(97%, 97%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  gap: 1em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid hsl(0, 0%, 90%);
+  -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
+  -moz-box-shadow: 1px 1px 5px -1px #dddddd;
+  box-shadow: 1px 1px 5px -1px #dddddd;
+  /* border: 1px solid red; */
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="dashboard-page-search-input"] :where(span) {
-    font-weight: bold;
-    color: hsl(0, 0%, 60%);
-    font-size: 1.2em;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > div[class="dashboard-page-search-input"]
+  :where(span) {
+  font-weight: bold;
+  color: hsl(0, 0%, 60%);
+  font-size: 1.2em;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="dashboard-page-search-input"] :where(input) {
-    min-height: 3em;
-    width: min(90%, 90%);
-    border: none;
-    outline-style: none;
-    background-color: transparent;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > div[class="dashboard-page-search-input"]
+  :where(input) {
+  min-height: 3em;
+  width: min(90%, 90%);
+  border: none;
+  outline-style: none;
+  background-color: transparent;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="no-results-message"] {
-    height: 27em;
-    width: min(97%, 97%);
-    border: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: .5em;
-    border-radius: .3em;
-    background-color: #fff;
-    -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
-    -moz-box-shadow: 1px  1px 5px -1px #dddddd;
-    box-shadow: 1px  1px 5px -1px #dddddd;
-    /* border: 1px solid red; */
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > div[class="no-results-message"] {
+  height: 27em;
+  width: min(97%, 97%);
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5em;
+  border-radius: 0.3em;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
+  -moz-box-shadow: 1px 1px 5px -1px #dddddd;
+  box-shadow: 1px 1px 5px -1px #dddddd;
+  /* border: 1px solid red; */
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > div[class="no-results-message"] :where(p) {
-    font-size: .9em;
-    font-weight: normal;
-    color: hsl(0, 0%, 20%);
-    text-align: center;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > div[class="no-results-message"]
+  :where(p) {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: hsl(0, 0%, 20%);
+  text-align: center;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] {
-    height: 27em;
-    width: min(97%, 97%);
-    display: grid;
-    gap: .5em;
-    overflow-y: scroll;
-    list-style: none;
-    border-radius: .3em;
-    background-color: #fff;
-    -webkit-box-shadow: 1px  1px 5px -1px #dddddd;
-    -moz-box-shadow: 1px  1px 5px -1px #dddddd;
-    box-shadow: 1px  1px 5px -1px #dddddd;
-    /* border: 1px solid red; */
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"] {
+  height: 27em;
+  width: min(97%, 97%);
+  display: grid;
+  gap: 0.5em;
+  overflow-y: scroll;
+  list-style: none;
+  border-radius: 0.3em;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
+  -moz-box-shadow: 1px 1px 5px -1px #dddddd;
+  box-shadow: 1px 1px 5px -1px #dddddd;
+  /* border: 1px solid red; */
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) {
-    height: 8em;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-flow: column nowrap;
-    gap: 1em;
-    cursor: pointer;
-    border-radius: .3em;
-    border: 1px solid hsl(0, 0%, 93%);
-    background-color: #fff;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li) {
+  height: 8em;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  gap: 1em;
+  cursor: pointer;
+  border-radius: 0.3em;
+  border: 1px solid hsl(0, 0%, 93%);
+  background-color: #fff;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li):is(:hover, :focus) {
-    -webkit-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
-    -moz-box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
-    box-shadow: 1px  2px 2px -1px rgba(0, 0, 0, .2);
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li):is(:hover, :focus) {
+  -webkit-box-shadow: 1px 2px 2px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 2px 2px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 2px -1px rgba(0, 0, 0, 0.2);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div {
-    width: min(95%, 95%);
-    /* border: 1px solid red; */
-    display: flex;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div {
+  width: min(95%, 95%);
+  /* border: 1px solid red; */
+  display: flex;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div[class="dashboard-page-saved-links-upper-content-wrapper"] {
-    height: 2.5em;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    gap: .2em;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div[class="dashboard-page-saved-links-upper-content-wrapper"] {
+  height: 2.5em;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  gap: 0.2em;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div[class="dashboard-page-saved-links-down-content-wrapper"] {
-    height: 1.9em;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    gap: .5em;
-    position: relative;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div[class="dashboard-page-saved-links-down-content-wrapper"] {
+  height: 1.9em;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 0.5em;
+  position: relative;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(h2) {
-    font-size: 1.2em;
-    font-weight: calc(290 + 250);
-    color: hsl(0, 0%, 10%);
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div
+  :is(h2) {
+  font-size: 1.2em;
+  font-weight: calc(290 + 250);
+  color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(button) {
-    height: 1.5em;
-    width: 1.5em;
-    border-radius: .3em;
-    border: none;
-    background-color: transparent;
-    font-weight: bolder;
-    font-size: 1.1em;
-    cursor: pointer;
-    color: #000;
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div
+  :is(button) {
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 0.3em;
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+  font-size: 1.1em;
+  cursor: pointer;
+  color: #000;
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(button):where(:hover, :focus) {
-    color: var(--primary-theme-color);
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div
+  :is(button):where(:hover, :focus) {
+  color: var(--primary-theme-color);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(a) {
-    font-weight: normal;
-    font-size: .9em;
-    color: hsl(0, 0%, 10%);
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div
+  :is(a) {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: hsl(0, 0%, 10%);
 }
-section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(a):is(:hover, :focus) {
-    color: var(--primary-theme-color);
+section[class="dashboard-links-page-elements-component"]
+  > div[class="dashboard-links-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-links-page-content-component"])
+  > ul[class="dashboard-page-saved-links-ul-list-component"]
+  :where(li)
+  > div
+  :is(a):is(:hover, :focus) {
+  color: var(--primary-theme-color);
 }
 /* section[class="dashboard-links-page-elements-component"] > div[class="dashboard-links-page-elements-component-content-wrapper"] :is(article[class="dashboard-links-page-content-component"]) > ul[class="dashboard-page-saved-links-ul-list-component"] :where(li) > div :is(input[id="select-text-box"]) {
     height: 1.2em;

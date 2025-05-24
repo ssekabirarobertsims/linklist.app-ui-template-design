@@ -1,95 +1,126 @@
+/*
+    Styles for the admin account verification page.
+    - The main section and form are centered for a clean, focused layout.
+    - The form uses padding, rounded corners, and a subtle shadow for a card-like appearance.
+    - Headings, messages, and buttons are styled for clarity, accessibility, and theme consistency.
+    - The avatar image is circular and visually highlighted.
+    - Input fields for verification code are styled for easy entry and visibility.
+    - Links and strong text use theme colors and provide visual feedback on hover/focus.
+    - Utility selectors are used for easy maintenance and scalability.
+*/
 section[class="admin-account-verification-page-elements-component"] {
-    min-height: 90vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
+  min-height: 90vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
 }
 section[class="admin-account-verification-page-elements-component"] > form {
-    min-height: 18em;
-    width: min(90%, 35em);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    gap: .7em;
-    border-radius: .5em; 
-    background-color: hsl(0, 0%, 100%);
-    -webkit-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .3);
-    -moz-box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .3);
-    box-shadow: 1px  1px 5px -1px rgba(0, 0, 0, .3);
+  min-height: 18em;
+  width: min(90%, 35em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  gap: 0.7em;
+  border-radius: 0.5em;
+  background-color: hsl(0, 0%, 100%);
+  -webkit-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.3);
 }
 section[class="admin-account-verification-page-elements-component"] > p {
-    font-size: .7em;
-    font-weight: normal;
-    color: hsl(0, 0%, 30%);
-    max-width: 55em;
-    text-align: center;
+  font-size: 0.7em;
+  font-weight: normal;
+  color: hsl(0, 0%, 30%);
+  max-width: 55em;
+  text-align: center;
 }
-section[class="admin-account-verification-page-elements-component"] > p :where(strong) {
-    color: hsl(0, 0%, 10%);
-    cursor: pointer;
-    font-weight: bold;
+section[class="admin-account-verification-page-elements-component"]
+  > p
+  :where(strong) {
+  color: hsl(0, 0%, 10%);
+  cursor: pointer;
+  font-weight: bold;
 }
-section[class="admin-account-verification-page-elements-component"] > p :where(strong):is(:hover, :focus) {
-    color: var(--primary-theme-color);
+section[class="admin-account-verification-page-elements-component"]
+  > p
+  :where(strong):is(:hover, :focus) {
+  color: var(--primary-theme-color);
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(h1) {
-    font-size: 1.6em;
-    font-weight: calc(260 + 240);
-    color: hsl(0, 0%, 20%);
-    text-align: center;
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(h1) {
+  font-size: 1.6em;
+  font-weight: calc(260 + 240);
+  color: hsl(0, 0%, 20%);
+  text-align: center;
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(span[class="login-response-message-placeholder"]) {
-    font-size: .8em;
-    font-weight: calc(260 + 240);
-    color: hsl(0, 0%, 20%);
-    text-align: center;
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(span[class="login-response-message-placeholder"]) {
+  font-size: 0.8em;
+  font-weight: calc(260 + 240);
+  color: hsl(0, 0%, 20%);
+  text-align: center;
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(a) {
-    font-size: .8em;
-    font-weight: calc(260 + 240);
-    color: var(--primary-theme-color);
-    text-align: center;
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(a) {
+  font-size: 0.8em;
+  font-weight: calc(260 + 240);
+  color: var(--primary-theme-color);
+  text-align: center;
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(img) {
-    height: 4em;
-    width: 4em;
-    border-radius: 100%;
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(img) {
+  height: 4em;
+  width: 4em;
+  border-radius: 100%;
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(span) {
-    font-weight: calc(290 + 250);
-    color: hsl(0, 0%, 15%);
-    font-style: normal;
-    font-size: .8em;
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(span) {
+  font-weight: calc(290 + 250);
+  color: hsl(0, 0%, 15%);
+  font-style: normal;
+  font-size: 0.8em;
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(div) {
-    min-height: 4em;
-    width: min(90%, 90%);
-    /* border: 1px solid hsl(0, 100%, 50%); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(div) {
+  min-height: 4em;
+  width: min(90%, 90%);
+  /* border: 1px solid hsl(0, 100%, 50%); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(div) > input {
-    height: 3.5em;
-    width: min(90%, 3.5em);
-    border: 1px solid hsl(0, 0%, 50%);
-    border-radius: .2em;
-    outline-style: none;
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(div)
+  > input {
+  height: 3.5em;
+  width: min(90%, 3.5em);
+  border: 1px solid hsl(0, 0%, 50%);
+  border-radius: 0.2em;
+  outline-style: none;
 }
-section[class="admin-account-verification-page-elements-component"] > form :is(button[type="button"]) {
-    height: 3em;
-    width: min(90%, 10em);
-    cursor: pointer;
-    border: none;
-    border-radius: .2em;
-    outline-style: none;
-    color: #fff;
-    font-weight: calc(290 + 250);
-    background-color: var(--primary-theme-color);
+section[class="admin-account-verification-page-elements-component"]
+  > form
+  :is(button[type="button"]) {
+  height: 3em;
+  width: min(90%, 10em);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2em;
+  outline-style: none;
+  color: #fff;
+  font-weight: calc(290 + 250);
+  background-color: var(--primary-theme-color);
 }

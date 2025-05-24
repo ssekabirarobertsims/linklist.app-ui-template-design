@@ -1,198 +1,310 @@
+/*
+    Styles for the dashboard home page.
+    - Layout uses flexbox for responsive alignment and spacing.
+    - Profile banners, charts, and content cards are styled for clarity and emphasis.
+    - Cards and banners use subtle shadows and rounded corners for a modern look.
+    - Admin info, stats, and action buttons are visually grouped and easy to scan.
+    - Theme colors are used for backgrounds, buttons, and highlights.
+    - Utility classes and selectors are used for easy maintenance and scalability.
+    - Each section is commented for easier navigation and future updates.
+*/
 section[class="home-dashboard-page-elements-component"] {
-    min-height: 100vh;
-    width: min(100%, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
+  min-height: 100vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
 }
 
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] {
-    min-height: 87vh;
-    width: min(100%, 100%) !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-flow: row nowrap;
-    /* background-color: hsl(0, 0%, 98%); */
-    /* border: 1px solid red; */
-    gap: 2em;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"] {
+  min-height: 87vh;
+  width: min(100%, 100%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow: row nowrap;
+  /* background-color: hsl(0, 0%, 98%); */
+  /* border: 1px solid red; */
+  gap: 2em;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) {
-    height: 87vh;
-    width: min(100%, 50em) !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    flex-grow: 1;
-    position: relative;
-    gap: .5em;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"]) {
+  height: 87vh;
+  width: min(100%, 50em) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  flex-grow: 1;
+  position: relative;
+  gap: 0.5em;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] {
-    height: 80vh;
-    width: min(98%, 98%);
-    /* border: 1px solid red; */
-    border-radius: .5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    background-color: hsl(0, 0%, 100%);
-    -moz-box-shadow: 1px 1px 5px -1px #dddddd;
-    -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
-    box-shadow: 1px 1px 5px -1px #dddddd;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"] {
+  height: 80vh;
+  width: min(98%, 98%);
+  /* border: 1px solid red; */
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  background-color: hsl(0, 0%, 100%);
+  -moz-box-shadow: 1px 1px 5px -1px #dddddd;
+  -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
+  box-shadow: 1px 1px 5px -1px #dddddd;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article {
-    height: 70vh;
-    width: min(95%, 95%);
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    position: relative;
-    gap: 1.5em;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article {
+  height: 70vh;
+  width: min(95%, 95%);
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  gap: 1.5em;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article img {
-    height: 5em;
-    width: 5em;
-    border-radius: 100%;
-    border: 4px solid hsl(0, 0%, 15%);
-    padding: 5px;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  img {
+  height: 5em;
+  width: 5em;
+  border-radius: 100%;
+  border: 4px solid hsl(0, 0%, 15%);
+  padding: 5px;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div[id="admin-info-wrapper"] {
-    min-height: 9em;
-    width: min(100%, 100%);
-    /* border: 1px solid hsl(0, 0%, 15%); */
-     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: .2em;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  div[id="admin-info-wrapper"] {
+  min-height: 9em;
+  width: min(100%, 100%);
+  /* border: 1px solid hsl(0, 0%, 15%); */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.2em;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > h1 {
-    font-size: 1.8em;
-    font-weight: calc(250 + 250);
-    color: hsl(0, 0%, 15%);
-    line-height: .7;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > h1 {
+  font-size: 1.8em;
+  font-weight: calc(250 + 250);
+  color: hsl(0, 0%, 15%);
+  line-height: 0.7;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > p {
-    font-size: 1em;
-    font-weight: normal;
-    line-height: .6;
-    color: hsl(0, 0%, 15%);
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > p {
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 0.6;
+  color: hsl(0, 0%, 15%);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div > span {
-    font-size: 1em;
-    font-weight: normal;
-    color: hsl(0, 0%, 5%);
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  div
+  > span {
+  font-size: 1em;
+  font-weight: normal;
+  color: hsl(0, 0%, 5%);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div > strong {
-    font-size: .8em;
-    font-weight: normal;
-    color: var(--primary-theme-color);
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  div
+  > strong {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: var(--primary-theme-color);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] {
-    min-height: 5.5em;
-    width: min(100%, 100%);
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    gap: 1em;
-    list-style: none;
-    font-size: 1em;
-    font-weight: calc(290 + 290);
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > ul[id="content-ul"] {
+  min-height: 5.5em;
+  width: min(100%, 100%);
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  gap: 1em;
+  list-style: none;
+  font-size: 1em;
+  font-weight: calc(290 + 290);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] > li {
-    min-height: 5.5em;
-    width: min(100%, 25em);
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: .2em;
-    list-style: none;
-    font-size: 1em;
-    font-weight: calc(290 + 290);
-    flex-grow: 1;
-    border-radius: .2em;
-     background-color: hsl(0, 0%, 100%);
-    -moz-box-shadow: 1px 1px 5px -1px #dddddd;
-    -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
-    box-shadow: 1px 1px 5px -1px #dddddd;
-    background-color: var(--primary-theme-color);
-    color: #fff;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > ul[id="content-ul"]
+  > li {
+  min-height: 5.5em;
+  width: min(100%, 25em);
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.2em;
+  list-style: none;
+  font-size: 1em;
+  font-weight: calc(290 + 290);
+  flex-grow: 1;
+  border-radius: 0.2em;
+  background-color: hsl(0, 0%, 100%);
+  -moz-box-shadow: 1px 1px 5px -1px #dddddd;
+  -webkit-box-shadow: 1px 1px 5px -1px #dddddd;
+  box-shadow: 1px 1px 5px -1px #dddddd;
+  background-color: var(--primary-theme-color);
+  color: #fff;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] > li :where(span) {
-    font-size: 1.7em;
-    font-weight: calc(290 + 290);
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > ul[id="content-ul"]
+  > li
+  :where(span) {
+  font-size: 1.7em;
+  font-weight: calc(290 + 290);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > ul[id="content-ul"] > li :where(a) {
-    font-size: .9em;
-    font-weight: normal;
-    text-decoration: none;
-    color:hsl(0, 0%, 100%);
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > ul[id="content-ul"]
+  > li
+  :where(a) {
+  font-size: 0.9em;
+  font-weight: normal;
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > div {
-    height: 15em;
-    width: min(100%, 100%);
-    border: 1px solid hsl(0, 0%, 90%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    border-radius: .2em;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > div {
+  height: 15em;
+  width: min(100%, 100%);
+  border: 1px solid hsl(0, 0%, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  border-radius: 0.2em;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article > div div[class="chart-container"] {
-    height: 15em;
-    width: min(100%, 100%);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    border-radius: .2em;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  > div
+  div[class="chart-container"] {
+  height: 15em;
+  width: min(100%, 100%);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  border-radius: 0.2em;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div aside {
-    min-height: 1em;
-    width: min(100%, 30em);
-     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-flow: row nowrap;
-    gap: 1em;
-    /* border: 1px solid red; */
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  div
+  aside {
+  min-height: 1em;
+  width: min(100%, 30em);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  gap: 1em;
+  /* border: 1px solid red; */
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div aside > a {
-    min-height: 1em;
-    /* border: 1px solid red; */
-    width: min(100%, 15em);
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  div
+  aside
+  > a {
+  min-height: 1em;
+  /* border: 1px solid red; */
+  width: min(100%, 15em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > div[class="current-admin-profile-banner"] > article div aside > a > button {
-    height: 3.5em;
-    width: min(100%, 100%);
-    border: none;
-    border-radius: .3em;
-    color: #fff;
-    background-color: var(--primary-theme-color);
-    cursor: pointer;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > div[class="current-admin-profile-banner"]
+  > article
+  div
+  aside
+  > a
+  > button {
+  height: 3.5em;
+  width: min(100%, 100%);
+  border: none;
+  border-radius: 0.3em;
+  color: #fff;
+  background-color: var(--primary-theme-color);
+  cursor: pointer;
 }
-section[class="home-dashboard-page-elements-component"] > div[class="home-dashboard-page-elements-component-content-wrapper"] :is(article[class="dashboard-home-page-content-component"]) > p[class="welcome-p-tag"] {
-    font-size: .9em;
-    font-weight: normal;
-    color: #000;
+section[class="home-dashboard-page-elements-component"]
+  > div[class="home-dashboard-page-elements-component-content-wrapper"]
+  :is(article[class="dashboard-home-page-content-component"])
+  > p[class="welcome-p-tag"] {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #000;
 }

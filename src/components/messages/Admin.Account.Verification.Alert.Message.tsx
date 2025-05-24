@@ -1,5 +1,5 @@
 import React from "react";
-import SecondaryAuthenticationObjectContext from "../context/Secondary.Authentication.Object.Context";
+import SecondaryAuthenticationObjectContext from "../../context/Secondary.Authentication.Object.Context";
 import { Link } from "react-router-dom";
 import { MdSecurity } from "react-icons/md";
 
